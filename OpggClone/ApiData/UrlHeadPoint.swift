@@ -48,6 +48,7 @@ enum UrlHeadPoint {
         }
     }
     
+    // Americas, Asia, Europe, Sea
     var areaString: String {
         switch self {
         case .brOne, .laOne, .laTwo:
@@ -60,5 +61,11 @@ enum UrlHeadPoint {
             return "sea"
         }
     }
-    // Americas, Asia, Europe, Sea
+    
+    var urlBaseString: String {
+        return "https://\(nationString).api.riotgames.com/lol/summoner/v4/summoners/by-name/"
+    }
+    var urlBaseAreaString: String {
+        return "https://\(areaString).api.riotgames.com/lol/summoner/v4/summoners/by-name/"
+    }
 }

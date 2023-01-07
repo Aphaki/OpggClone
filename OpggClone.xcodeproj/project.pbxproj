@@ -27,6 +27,7 @@
 		7F6BC7782955AA3900A87DC2 /* OpggCloneUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6BC7772955AA3900A87DC2 /* OpggCloneUITestsLaunchTests.swift */; };
 		7F6BC7852955AADB00A87DC2 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6BC7842955AADB00A87DC2 /* SearchBar.swift */; };
 		7F6BC7872955B08200A87DC2 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6BC7862955B08200A87DC2 /* SearchView.swift */; };
+		7FBBCB712968657E000C5F71 /* MySummonerCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBBCB702968657E000C5F71 /* MySummonerCard.swift */; };
 		7FC15B6D295DC26B00605F1D /* UrlHeadPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC15B6C295DC26B00605F1D /* UrlHeadPoint.swift */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +71,7 @@
 		7F6BC7772955AA3900A87DC2 /* OpggCloneUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpggCloneUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		7F6BC7842955AADB00A87DC2 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		7F6BC7862955B08200A87DC2 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		7FBBCB702968657E000C5F71 /* MySummonerCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySummonerCard.swift; sourceTree = "<group>"; };
 		7FC15B6C295DC26B00605F1D /* UrlHeadPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlHeadPoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -116,6 +118,7 @@
 				7F6BC75C2955AA3900A87DC2 /* MainView.swift */,
 				7F6BC7862955B08200A87DC2 /* SearchView.swift */,
 				7F35B3FC2959D02D00A58733 /* SearchedUserCell.swift */,
+				7FBBCB702968657E000C5F71 /* MySummonerCard.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 				7F2934E429597B6900EEB2E8 /* MatchIDs.swift in Sources */,
 				7F6BC7872955B08200A87DC2 /* SearchView.swift in Sources */,
 				7F2934E629597CEA00EEB2E8 /* MatchInfo.swift in Sources */,
+				7FBBCB712968657E000C5F71 /* MySummonerCard.swift in Sources */,
 				7F35B3FD2959D02D00A58733 /* SearchedUserCell.swift in Sources */,
 				7F147CEB295D7CF3008BF262 /* BaseInterceptor.swift in Sources */,
 				7F03312A295ED42500FB86D6 /* Router.swift in Sources */,

@@ -10,35 +10,53 @@ import SwiftUI
 struct SearchedUserCell: View {
     
     //property: IconImageName, Summoner Name, Tier Image, Tier Name
+    var starMarkOn: Bool
+    
+    init(starMarkOn: Bool) {
+        self.starMarkOn = starMarkOn
+    }
     
     var body: some View {
         HStack {
-            Image(systemName: "person.fill")
-                .font(.title)
-                .clipShape(Circle())
+            ZStack(alignment: .bottom) {
+                Image("4416")
+                    .resizable()
+                    .clipShape(Circle())
+                    .frame(width: 60, height: 60)
+                Text("589")
+                    .font(.caption)
+                    .foregroundColor(.white)
+                    .padding(1)
+                    .background(RoundedRectangle(cornerRadius: 7).foregroundColor(.secondary))
+            }
             VStack(alignment: .leading) {
-                Text("Summoner Name")
+                Text("Kwanoo")
                     .font(.headline)
                 HStack(spacing: 0) {
-                    Image(systemName: "seal.fill")
-                    Text("D3(Tier)")
+                    Text("Diamond 3  ")
+                    Image("DIAMOND")
+                        .resizable()
+                        .frame(width: 13, height: 13)
+                    Text("ㅣ36 LP")
                 }
                 .font(.caption)
             }
             Spacer()
             HStack(spacing: 15) {
-                Image(systemName: "star")
+                if starMarkOn == true {
+                    Image(systemName: "star")
+                }
                 Image(systemName: "xmark")
             }
             .font(.title)
         }
         .padding(.horizontal, 5)
-        .frame(width: 375, height: 150)
     }
 }
 
 struct SearchedUserCell_Previews: PreviewProvider {
     static var previews: some View {
-        SearchedUserCell()
+        SearchedUserCell(starMarkOn: false)
     }
+    
 }
