@@ -15,10 +15,22 @@ struct MySummonerCard: View {
                 Text("13승 7패 65% KDA 3.69:1")
                 HStack {
                     ChampCell(champName: "Camille_0", winningRate: 75, kda: 5.67)
+                    ChampCell(champName: "Akali_0", winningRate: 100, kda: 4.25)
+                    ChampCell(champName: "Ezreal_0", winningRate: 50, kda: 10.67)
                 }
             }
-            .padding(10)
-            .background(RoundedRectangle(cornerRadius: 2).foregroundColor(.secondary))
+            .frame(maxWidth: .infinity, minHeight: 120)
+            .background(RoundedRectangle(cornerRadius: 5).foregroundColor(.gray))
+            Button {
+                print("자세히 보기 버튼 클릭")
+            } label: {
+                Text("자세히 보기")
+                    .foregroundColor(.white)
+                    .padding(10)
+                    .frame(maxWidth: .infinity, minHeight: 55)
+                    .background(RoundedRectangle(cornerRadius: 5))
+            }
+
         }
     }
 }
@@ -26,6 +38,7 @@ struct MySummonerCard: View {
 struct MySummonerCard_Previews: PreviewProvider {
     static var previews: some View {
         MySummonerCard()
+            .preferredColorScheme(.dark)
     }
 }
 
@@ -37,14 +50,19 @@ struct ChampCell: View {
     
     var body: some View {
         HStack {
-            Image("Camille_0")
+            Image(champName)
                 .resizable()
                 .clipShape(Circle())
-                .frame(width: 40, height: 40)
-            VStack {
+                .frame(width: 55, height: 55)
+            VStack(alignment: .leading) {
                 Text("\(winningRate)%")
-                Text("\(kda):1")
+                Text("\(kda.with2Demicals()):1")
+                    .foregroundColor(
+                        kda > 5 ? .red : kda > 3 ? .green : .black
+                    )
             }.font(.caption)
         }
     }
 }
+
+

@@ -18,6 +18,18 @@ struct SearchBar: View {
             TextField("소환사 검색", text: $searchBarText)
                 .font(.headline)
                 .padding(.vertical, 10)
+                .onSubmit {
+                    // vm.서버에 리퀘스트 (searchBarText로)
+                    print("search 버튼 클릭")
+                }
+                .submitLabel(.search)
+            if !searchBarText.isEmpty {
+                Image(systemName: "xmark")
+                    .padding(15)
+                    .onTapGesture {
+                        searchBarText = ""
+                    }
+            }
         }
         .background(
             RoundedRectangle(cornerRadius: 5)

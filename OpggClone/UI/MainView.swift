@@ -8,28 +8,39 @@
 import SwiftUI
 
 struct MainView: View {
-    @State var searchBarText: String = ""
+    
+    @StateObject var mainVM = MainViewModel()
+    
     @State var goSearchView: Bool = false
-    @State var regionPicker: UrlHeadPoint = .kr
     
     var body: some View {
         NavigationStack {
             List {
-                SearchBar(searchBarText: $searchBarText)
-                    .padding(5)
-                    .onTapGesture {
-                        goSearchView.toggle()
-                    }
+                Group {
+                    SearchBar(searchBarText: $mainVM.searchBarText)
+                        .padding(5)
+                        .onTapGesture {
+                            goSearchView.toggle()
+                        }
+                        .navigationDestination(isPresented: $goSearchView) {
+                            SearchView(searchBarText: $mainVM.searchBarText)
+                        }
+                }
+                Group {
+                    Text("2022 AWARDS")
+                        .font(.largeTitle)
+                        .foregroundColor(.yellow)
+                }
+                Group {
+                    MySummonerCard()
+                        .padding(1)
+                }
                 
-                    .navigationDestination(isPresented: $goSearchView) {
-                        SearchView(searchBarText: $searchBarText)
-                    }
-                SearchedUserCell(starMarkOn: false)
             } // List
             .listStyle(.grouped)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        Picker("Kr", selection: $regionPicker) {
+                        Picker("Kr", selection: $mainVM.regionPicker) {
                             Text("Kr").tag(UrlHeadPoint.kr)
                             Text("Br").tag(UrlHeadPoint.tr1)
                             Text("Jp").tag(UrlHeadPoint.jpOne)
@@ -49,6 +60,7 @@ struct MainView: View {
                 }
             
         }
+        .edgesIgnoringSafeArea(.bottom)
     }
     
     
