@@ -12,14 +12,17 @@ import Alamofire
 
 class Service {
     
-    var summonerInfo: SummonerInfo?
-    var leagueInfo: SummonersLeagueElement?
-    var matchList: MatchIDs = []
-    var matchInfo: MatchInfo?
+    @Published var regionPicker: UrlHeadPoint = .kr
+    @Published var searchBarText: String = ""
+    
+    @Published var summonerInfo: SummonerInfo?
+    @Published var leagueInfo: SummonersLeagueElement?
+    @Published var matchList: MatchIDs = []
+    @Published var matchInfo: MatchInfo?
     
     var subscription = Set<AnyCancellable>()
     
-    func requestSummonerInfo(urlBaseHead: UrlHeadPoint, name: String) {
+    private func requestSummonerInfo(urlBaseHead: UrlHeadPoint, name: String)  {
         ApiClient.shared.session
             .request(Router.summoner(urlBaseHead: urlBaseHead, name: name))
             .publishDecodable(type: SummonerInfo.self)
@@ -31,7 +34,7 @@ class Service {
             }
             .store(in: &subscription)
     }
-    func requestLeagueInfo(urlBaseHead: UrlHeadPoint, encryptedSummonerId: String) {
+    private func requestLeagueInfo(urlBaseHead: UrlHeadPoint, encryptedSummonerId: String)  {
         ApiClient.shared.session
             .request(Router.league(urlBaseHead: urlBaseHead, encryptedSummonerId: encryptedSummonerId))
             .publishDecodable(type: SummonersLeagueElement.self)
@@ -43,7 +46,7 @@ class Service {
             }
             .store(in: &subscription)
     }
-    func requestMatchList(urlBaseHead: UrlHeadPoint, puuid: String) {
+    private  func requestMatchList(urlBaseHead: UrlHeadPoint, puuid: String)  {
         ApiClient.shared.session
             .request(Router.match(urlBaseHead: urlBaseHead, puuid: puuid))
             .publishDecodable(type: MatchIDs.self)
@@ -51,11 +54,11 @@ class Service {
             .sink { completion in
                 print("Service - match Info sink completion: \(completion)")
             } receiveValue: { value in
-                self.matchList = value
+                self.matchList.append(contentsOf: value)
             }
             .store(in: &subscription)
     }
-    func requestMatchInfo(urlBaseHead: UrlHeadPoint, matchId: String) {
+    private func requestMatchInfo(urlBaseHead: UrlHeadPoint, matchId: String)  {
         ApiClient.shared.session
             .request(Router.matchInfo(urlBaseHead: urlBaseHead, matchId: matchId))
             .publishDecodable(type: MatchInfo.self)
@@ -67,5 +70,15 @@ class Service {
             }
             .store(in: &subscription)
     }
-    
+    func totalRequest() {
+        requestSummonerInfo(urlBaseHead: regionPicker, name: searchBarText)
+        guard let summonerInfoG = summonerInfo else {
+            print("summonerInfo 가 없음")
+            return }
+        requestLeagueInfo(urlBaseHead: regionPicker, encryptedSummonerId: summonerInfoG.name)
+        requestMatchList(urlBaseHead: regionPicker, puuid: summonerInfoG.puuid)
+        for matchid in matchList {
+            requestMatchInfo(urlBaseHead: regionPicker, matchId: matchid)
+        }
+    }
 }
