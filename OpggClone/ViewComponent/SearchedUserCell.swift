@@ -29,7 +29,7 @@ struct SearchedUserCell: View {
                     .padding(1)
                     .background(RoundedRectangle(cornerRadius: 7).foregroundColor(.secondary))
             }
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading,spacing: 5) {
                 Text("Kwanoo")
                     .font(.headline)
                 HStack(spacing: 0) {

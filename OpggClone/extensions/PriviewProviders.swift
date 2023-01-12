@@ -25,8 +25,9 @@ class MyPreviewClass {
                    profileIconId: 3160,
                    revisionDate: 1673420165083,
                    summonerLevel: 472)
-    let league: SummonersLeagueElement
-    = SummonersLeagueElement(leagueID: "f3144af5-a81d-3f80-8644-74e2e7dbb504",
+    let league: [SummonersLeagueElement]
+    = [
+        SummonersLeagueElement(leagueID: "f3144af5-a81d-3f80-8644-74e2e7dbb504",
                              queueType: "RANKED_SOLO_5x5",
                              tier: "MASTER",
                              rank: "I",
@@ -37,7 +38,21 @@ class MyPreviewClass {
                              veteran: false,
                              inactive: false,
                              freshBlood: true,
-                             hotStreak: true)
+                             hotStreak: true),
+        SummonersLeagueElement(leagueID: "8ee332e9-0199-4b4a-9eaa-94f9c17d2507",
+                queueType: "RANKED_FLEX_SR",
+                tier: "PLATINUM",
+                rank: "IV",
+                summonerID: "LCr8t0SdhlWsDd_EXOW3oRiKSAba7h2IX7BhV0bQv0jiPRk",
+                summonerName: "Twentieth",
+                leaguePoints: 21,
+                wins: 17,
+                losses: 6,
+                veteran: false,
+                inactive: false,
+                freshBlood: true,
+                hotStreak: false)
+    ]
     let matchIDs: MatchIDs
     = [
         "KR_6301853832",

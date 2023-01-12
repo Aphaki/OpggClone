@@ -18,6 +18,7 @@
 		7F2934E829598F0C00EEB2E8 /* SummonersLeagueElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2934E729598F0C00EEB2E8 /* SummonersLeagueElement.swift */; };
 		7F2934EA2959AE8E00EEB2E8 /* ApiConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2934E92959AE8E00EEB2E8 /* ApiConstants.swift */; };
 		7F35B3FD2959D02D00A58733 /* SearchedUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F35B3FC2959D02D00A58733 /* SearchedUserCell.swift */; };
+		7F4E3AD0296FF46400DB261C /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4E3ACF296FF46400DB261C /* Color.swift */; };
 		7F6BC75B2955AA3900A87DC2 /* OpggCloneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6BC75A2955AA3900A87DC2 /* OpggCloneApp.swift */; };
 		7F6BC75D2955AA3900A87DC2 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6BC75C2955AA3900A87DC2 /* MainView.swift */; };
 		7F6BC75F2955AA3900A87DC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F6BC75E2955AA3900A87DC2 /* Assets.xcassets */; };
@@ -64,6 +65,7 @@
 		7F2934E729598F0C00EEB2E8 /* SummonersLeagueElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonersLeagueElement.swift; sourceTree = "<group>"; };
 		7F2934E92959AE8E00EEB2E8 /* ApiConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConstants.swift; sourceTree = "<group>"; };
 		7F35B3FC2959D02D00A58733 /* SearchedUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedUserCell.swift; sourceTree = "<group>"; };
+		7F4E3ACF296FF46400DB261C /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		7F6BC7572955AA3900A87DC2 /* OpggClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpggClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F6BC75A2955AA3900A87DC2 /* OpggCloneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpggCloneApp.swift; sourceTree = "<group>"; };
 		7F6BC75C2955AA3900A87DC2 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 			children = (
 				7FBBCB7229695AA3000C5F71 /* Double.swift */,
 				7FABB755296EC31D00C5FB07 /* PriviewProviders.swift */,
+				7F4E3ACF296FF46400DB261C /* Color.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 				7F842D10296C69B400AB206F /* Service.swift in Sources */,
 				7F2934E22959779200EEB2E8 /* SummonerInfo.swift in Sources */,
 				7F2934E829598F0C00EEB2E8 /* SummonersLeagueElement.swift in Sources */,
+				7F4E3AD0296FF46400DB261C /* Color.swift in Sources */,
 				7F6BC75D2955AA3900A87DC2 /* MainView.swift in Sources */,
 				7FABB754296EBB7200C5FB07 /* SummonerInfoView.swift in Sources */,
 				7FABB756296EC31D00C5FB07 /* PriviewProviders.swift in Sources */,
