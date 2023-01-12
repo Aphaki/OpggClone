@@ -58,14 +58,35 @@ struct SummonerInfoView: View {
                             .background(RoundedRectangle(cornerRadius: 5).foregroundColor(.gray))
                     }
                 }
-                HStack {
-                    Image(league.first?.tier.lowercased() ?? "provisional")
-                    VStack {
-                        Text("개인/2인 랭크")
-                        
+                
+                ScrollView(.horizontal) {
+                    HStack {
+                        HStack {
+                            Image(league.first?.tier.lowercased() ?? "provisional")
+                                .resizable()
+                                .frame(width: 100, height: 100)
+                            VStack(alignment: .leading, spacing: 5) {
+                                Text(league.first!.queueType)
+                                    .foregroundColor(.white)
+                                    .padding(3)
+                                    .background(RoundedRectangle(cornerRadius: 5).foregroundColor(Color.myColor.mylightBlue))
+                                Text(league.first!.tier + " " + league.first!.rank)
+                                    .font(.headline)
+                                Text("\(league.first!.leaguePoints)" + " LP")
+                                    .font(.caption)
+                                    .foregroundColor(.gray)
+                                Text(league.first!.wins.description + "승 " + league.first!.losses.description + "패")
+                                    .font(.caption)
+                                    .foregroundColor(.gray)
+                            }
+                            Image(systemName: "chevron.forward")
+                        }
+                        .padding(10)
+                        .background(RoundedRectangle(cornerRadius: 10).stroke(lineWidth: 1))
                     }
                 }
-
+                
+                
                 Spacer()
             }
             .ignoresSafeArea()
