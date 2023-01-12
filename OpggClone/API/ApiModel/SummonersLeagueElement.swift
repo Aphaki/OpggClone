@@ -10,11 +10,17 @@ import Foundation
 // Need encryptedSummonerId -> SummonerInfo 결과에서 얻음
 
 // MARK: - SummonersLeagueElement
-struct SummonersLeagueElement: Codable {
+struct SummonersLeagueElement: Codable, Identifiable {
+    var id = UUID()
+    
     let leagueID, queueType, tier, rank: String
     let summonerID, summonerName: String
     let leaguePoints, wins, losses: Int
     let veteran, inactive, freshBlood, hotStreak: Bool
+    
+    var winRates: Int {
+        return wins * 100 / (wins + losses)
+    }
 
     enum CodingKeys: String, CodingKey {
         case leagueID = "leagueId"

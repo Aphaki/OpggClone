@@ -10,7 +10,7 @@ import SwiftUI
 struct SummonerInfoView: View {
     
     var summoner: SummonerInfo
-    var league: [SummonersLeagueElement]
+    var leagues: [SummonersLeagueElement]
     
     var body: some View {
         GeometryReader { geo in
@@ -61,32 +61,32 @@ struct SummonerInfoView: View {
                 
                 ScrollView(.horizontal) {
                     HStack {
-                        HStack {
-                            Image(league.first?.tier.lowercased() ?? "provisional")
-                                .resizable()
-                                .frame(width: 100, height: 100)
-                            VStack(alignment: .leading, spacing: 5) {
-                                Text(league.first!.queueType)
-                                    .foregroundColor(.white)
-                                    .padding(3)
-                                    .background(RoundedRectangle(cornerRadius: 5).foregroundColor(Color.myColor.mylightBlue))
-                                Text(league.first!.tier + " " + league.first!.rank)
-                                    .font(.headline)
-                                Text("\(league.first!.leaguePoints)" + " LP")
-                                    .font(.caption)
-                                    .foregroundColor(.gray)
-                                Text(league.first!.wins.description + "승 " + league.first!.losses.description + "패")
-                                    .font(.caption)
-                                    .foregroundColor(.gray)
+                        ForEach(leagues) { league in
+                            HStack {
+                                Image(league.tier.lowercased())
+                                    .resizable()
+                                    .frame(width: 100, height: 100)
+                                VStack(alignment: .leading, spacing: 5) {
+                                    Text(league.queueType)
+                                        .foregroundColor(.white)
+                                        .padding(3)
+                                        .background(RoundedRectangle(cornerRadius: 5).foregroundColor(Color.myColor.mylightBlue))
+                                    Text(league.tier + " " + league.rank)
+                                        .font(.headline)
+                                    Text("\(league.leaguePoints)" + " LP")
+                                        .font(.caption)
+                                        .foregroundColor(.gray)
+                                    Text("\(league.wins)승 \(league.losses)패  \(league.winRates)%")
+                                        .font(.caption)
+                                        .foregroundColor(.gray)
+                                }
+                                Image(systemName: "chevron.forward")
                             }
-                            Image(systemName: "chevron.forward")
+                            .padding(10)
+                            .background(RoundedRectangle(cornerRadius: 10).stroke(lineWidth: 1))
                         }
-                        .padding(10)
-                        .background(RoundedRectangle(cornerRadius: 10).stroke(lineWidth: 1))
                     }
-                }
-                
-                
+                } //Scroll View
                 Spacer()
             }
             .ignoresSafeArea()
@@ -97,7 +97,7 @@ struct SummonerInfoView: View {
 
 struct SummonerInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        SummonerInfoView(summoner: myPreviewClass.summoner, league: myPreviewClass.league)
+        SummonerInfoView(summoner: myPreviewClass.summoner, leagues: myPreviewClass.leagues)
             .preferredColorScheme(.dark)
     }
 }

@@ -25,7 +25,7 @@ class MyPreviewClass {
                    profileIconId: 3160,
                    revisionDate: 1673420165083,
                    summonerLevel: 472)
-    let league: [SummonersLeagueElement]
+    let leagues: [SummonersLeagueElement]
     = [
         SummonersLeagueElement(leagueID: "f3144af5-a81d-3f80-8644-74e2e7dbb504",
                              queueType: "RANKED_SOLO_5x5",
