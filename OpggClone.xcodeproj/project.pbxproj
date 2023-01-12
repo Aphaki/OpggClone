@@ -28,6 +28,8 @@
 		7F6BC7852955AADB00A87DC2 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6BC7842955AADB00A87DC2 /* SearchBar.swift */; };
 		7F6BC7872955B08200A87DC2 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6BC7862955B08200A87DC2 /* SearchView.swift */; };
 		7F842D10296C69B400AB206F /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F842D0F296C69B400AB206F /* Service.swift */; };
+		7FABB754296EBB7200C5FB07 /* SummonerInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FABB753296EBB7200C5FB07 /* SummonerInfoView.swift */; };
+		7FABB756296EC31D00C5FB07 /* PriviewProviders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FABB755296EC31D00C5FB07 /* PriviewProviders.swift */; };
 		7FBBCB712968657E000C5F71 /* MySummonerCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBBCB702968657E000C5F71 /* MySummonerCard.swift */; };
 		7FBBCB7329695AA3000C5F71 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBBCB7229695AA3000C5F71 /* Double.swift */; };
 		7FBBCB762969C4FB000C5F71 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBBCB752969C4FB000C5F71 /* MainViewModel.swift */; };
@@ -75,6 +77,8 @@
 		7F6BC7842955AADB00A87DC2 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		7F6BC7862955B08200A87DC2 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		7F842D0F296C69B400AB206F /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		7FABB753296EBB7200C5FB07 /* SummonerInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerInfoView.swift; sourceTree = "<group>"; };
+		7FABB755296EC31D00C5FB07 /* PriviewProviders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriviewProviders.swift; sourceTree = "<group>"; };
 		7FBBCB702968657E000C5F71 /* MySummonerCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySummonerCard.swift; sourceTree = "<group>"; };
 		7FBBCB7229695AA3000C5F71 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		7FBBCB752969C4FB000C5F71 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
@@ -126,8 +130,7 @@
 				7F6BC75C2955AA3900A87DC2 /* MainView.swift */,
 				7FBBCB752969C4FB000C5F71 /* MainViewModel.swift */,
 				7F6BC7862955B08200A87DC2 /* SearchView.swift */,
-				7F35B3FC2959D02D00A58733 /* SearchedUserCell.swift */,
-				7FBBCB702968657E000C5F71 /* MySummonerCard.swift */,
+				7FABB753296EBB7200C5FB07 /* SummonerInfoView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -135,6 +138,8 @@
 		7F2934DF295976FE00EEB2E8 /* ViewComponent */ = {
 			isa = PBXGroup;
 			children = (
+				7F35B3FC2959D02D00A58733 /* SearchedUserCell.swift */,
+				7FBBCB702968657E000C5F71 /* MySummonerCard.swift */,
 				7F6BC7842955AADB00A87DC2 /* SearchBar.swift */,
 			);
 			path = ViewComponent;
@@ -216,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				7FBBCB7229695AA3000C5F71 /* Double.swift */,
+				7FABB755296EC31D00C5FB07 /* PriviewProviders.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -370,6 +376,8 @@
 				7F2934E22959779200EEB2E8 /* SummonerInfo.swift in Sources */,
 				7F2934E829598F0C00EEB2E8 /* SummonersLeagueElement.swift in Sources */,
 				7F6BC75D2955AA3900A87DC2 /* MainView.swift in Sources */,
+				7FABB754296EBB7200C5FB07 /* SummonerInfoView.swift in Sources */,
+				7FABB756296EC31D00C5FB07 /* PriviewProviders.swift in Sources */,
 				7F6BC75B2955AA3900A87DC2 /* OpggCloneApp.swift in Sources */,
 				7F6BC7852955AADB00A87DC2 /* SearchBar.swift in Sources */,
 				7FC15B6D295DC26B00605F1D /* UrlHeadPoint.swift in Sources */,
