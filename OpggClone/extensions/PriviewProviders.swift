@@ -3184,6 +3184,10 @@ class MyPreviewClass {
         let myData = try! decoder.decode(MatchInfo.self, from: jsonData)
         return myData
     }
+    
+//    var spellInfo: SummonerSpell {
+//        return InstanceOfSummonerSpell.instance.spellInfo
+//    }
 }
 /* league
 

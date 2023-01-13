@@ -18,6 +18,9 @@
 		7F2934E829598F0C00EEB2E8 /* SummonersLeagueElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2934E729598F0C00EEB2E8 /* SummonersLeagueElement.swift */; };
 		7F2934EA2959AE8E00EEB2E8 /* ApiConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2934E92959AE8E00EEB2E8 /* ApiConstants.swift */; };
 		7F2A8F4729704EEB00458795 /* MatchListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2A8F4629704EEB00458795 /* MatchListCell.swift */; };
+		7F33C2EF2971C107002515B2 /* SummonerSpell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F33C2EE2971C107002515B2 /* SummonerSpell.swift */; };
+		7F33C2F12971C236002515B2 /* summoner.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F33C2F02971C236002515B2 /* summoner.json */; };
+		7F33C2F32971C44A002515B2 /* InstanceOfSummonerSpell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F33C2F22971C44A002515B2 /* InstanceOfSummonerSpell.swift */; };
 		7F35B3FD2959D02D00A58733 /* SearchedUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F35B3FC2959D02D00A58733 /* SearchedUserCell.swift */; };
 		7F4E3AD0296FF46400DB261C /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4E3ACF296FF46400DB261C /* Color.swift */; };
 		7F6BC75B2955AA3900A87DC2 /* OpggCloneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6BC75A2955AA3900A87DC2 /* OpggCloneApp.swift */; };
@@ -66,6 +69,9 @@
 		7F2934E729598F0C00EEB2E8 /* SummonersLeagueElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonersLeagueElement.swift; sourceTree = "<group>"; };
 		7F2934E92959AE8E00EEB2E8 /* ApiConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConstants.swift; sourceTree = "<group>"; };
 		7F2A8F4629704EEB00458795 /* MatchListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchListCell.swift; sourceTree = "<group>"; };
+		7F33C2EE2971C107002515B2 /* SummonerSpell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerSpell.swift; sourceTree = "<group>"; };
+		7F33C2F02971C236002515B2 /* summoner.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = summoner.json; path = "../../../Downloads/dragontail-12.23.1/12.23.1/data/ko_KR/summoner.json"; sourceTree = "<group>"; };
+		7F33C2F22971C44A002515B2 /* InstanceOfSummonerSpell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceOfSummonerSpell.swift; sourceTree = "<group>"; };
 		7F35B3FC2959D02D00A58733 /* SearchedUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedUserCell.swift; sourceTree = "<group>"; };
 		7F4E3ACF296FF46400DB261C /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		7F6BC7572955AA3900A87DC2 /* OpggClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpggClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -185,8 +191,11 @@
 		7F6BC7592955AA3900A87DC2 /* OpggClone */ = {
 			isa = PBXGroup;
 			children = (
+				7F33C2F02971C236002515B2 /* summoner.json */,
 				7F6BC75A2955AA3900A87DC2 /* OpggCloneApp.swift */,
 				7F842D0F296C69B400AB206F /* Service.swift */,
+				7F33C2EE2971C107002515B2 /* SummonerSpell.swift */,
+				7F33C2F22971C44A002515B2 /* InstanceOfSummonerSpell.swift */,
 				7FBBCB7429695AAA000C5F71 /* extensions */,
 				7F147CE2295D776F008BF262 /* API */,
 				7F2934DE295976DC00EEB2E8 /* UI */,
@@ -342,6 +351,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F33C2F12971C236002515B2 /* summoner.json in Resources */,
 				7F6BC7622955AA3900A87DC2 /* Preview Assets.xcassets in Resources */,
 				7F6BC75F2955AA3900A87DC2 /* Assets.xcassets in Resources */,
 			);
@@ -372,6 +382,7 @@
 				7F147CE9295D792D008BF262 /* ApiLogger.swift in Sources */,
 				7F147CE4295D77B4008BF262 /* ApiClient.swift in Sources */,
 				7F2934E429597B6900EEB2E8 /* MatchIDs.swift in Sources */,
+				7F33C2F32971C44A002515B2 /* InstanceOfSummonerSpell.swift in Sources */,
 				7F6BC7872955B08200A87DC2 /* SearchView.swift in Sources */,
 				7F2A8F4729704EEB00458795 /* MatchListCell.swift in Sources */,
 				7F2934E629597CEA00EEB2E8 /* MatchInfo.swift in Sources */,
@@ -388,6 +399,7 @@
 				7FABB756296EC31D00C5FB07 /* PriviewProviders.swift in Sources */,
 				7F6BC75B2955AA3900A87DC2 /* OpggCloneApp.swift in Sources */,
 				7F6BC7852955AADB00A87DC2 /* SearchBar.swift in Sources */,
+				7F33C2EF2971C107002515B2 /* SummonerSpell.swift in Sources */,
 				7FC15B6D295DC26B00605F1D /* UrlHeadPoint.swift in Sources */,
 				7F2934EA2959AE8E00EEB2E8 /* ApiConstants.swift in Sources */,
 				7FBBCB762969C4FB000C5F71 /* MainViewModel.swift in Sources */,

@@ -10,6 +10,7 @@ import SwiftUI
 struct MatchListCell: View {
     
     var matchInfo: MatchInfo
+    var participant: Participant
     
     var body: some View {
         HStack {
@@ -24,12 +25,16 @@ struct MatchListCell: View {
             .foregroundColor(.white)
             HStack {
                 HStack {
-                 Image("Xerath_0")
-                        .resizable()
-                        .frame(width: 50, height: 50)
-                        .clipShape(Circle())
+                    AsyncImage(url: URL(string: "https://ddragon.leagueoflegends.com/cdn/13.1.1/img/champion/\(participant.championName).png")) { img in
+                        img
+                            .resizable()
+                            .frame(width: 50, height: 50)
+                            .clipShape(Circle())
+                    } placeholder: {
+                        ProgressView()
+                    }
                     VStack {
-                        Image("")
+//                        Image()
                     }
                 }
             }
@@ -40,6 +45,6 @@ struct MatchListCell: View {
 
 struct MatchListCell_Previews: PreviewProvider {
     static var previews: some View {
-        MatchListCell(matchInfo: myPreviewClass.matchInfo)
+        MatchListCell(matchInfo: myPreviewClass.matchInfo, participant: myPreviewClass.matchInfo.info.participants.first!)
     }
 }

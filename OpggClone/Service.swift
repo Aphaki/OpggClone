@@ -18,8 +18,11 @@ class Service {
     @Published var summonerInfo: SummonerInfo?
     @Published var leagueInfo: SummonersLeagueElement?
     @Published var matchList: MatchIDs = []
-    @Published var matchInfo: MatchInfo?
     @Published var matchInfos: [MatchInfo] = []
+    @Published var matchInfo: MatchInfo?
+    
+//    let spellInfo: SummonerSpell = InstanceOfSummonerSpell.instance.spellInfo
+    
     
     var subscription = Set<AnyCancellable>()
     
