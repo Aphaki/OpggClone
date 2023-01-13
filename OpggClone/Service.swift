@@ -19,6 +19,7 @@ class Service {
     @Published var leagueInfo: SummonersLeagueElement?
     @Published var matchList: MatchIDs = []
     @Published var matchInfo: MatchInfo?
+    @Published var matchInfos: [MatchInfo] = []
     
     var subscription = Set<AnyCancellable>()
     
@@ -46,7 +47,7 @@ class Service {
             }
             .store(in: &subscription)
     }
-    private  func requestMatchList(urlBaseHead: UrlHeadPoint, puuid: String)  {
+    private func requestMatchList(urlBaseHead: UrlHeadPoint, puuid: String)  {
         ApiClient.shared.session
             .request(Router.match(urlBaseHead: urlBaseHead, puuid: puuid))
             .publishDecodable(type: MatchIDs.self)
@@ -70,6 +71,19 @@ class Service {
             }
             .store(in: &subscription)
     }
+    
+    func requestMatchInfos(urlBaseHead: UrlHeadPoint, matchIds: [String]) async {
+            for matchId in matchIds {
+                guard let aMatchInfo = await ApiClient.shared.session
+                    .request(Router.matchInfo(urlBaseHead: urlBaseHead, matchId: matchId))
+                    .serializingDecodable(MatchInfo.self)
+                    .response
+                    .value else { return }
+                self.matchInfos.append(aMatchInfo)
+            }
+        }
+
+    
     func totalRequest() {
         requestSummonerInfo(urlBaseHead: regionPicker, name: searchBarText)
         guard let summonerInfoG = summonerInfo else {
@@ -80,5 +94,12 @@ class Service {
         for matchid in matchList {
             requestMatchInfo(urlBaseHead: regionPicker, matchId: matchid)
         }
+    }
+    func getSummernerMatchInfo(summonerID: String) {
+        
+        let participant =
+        matchInfo?.info.participants.first(where: { aParticipant in
+           return aParticipant.summonerID == summonerID
+        })
     }
 }

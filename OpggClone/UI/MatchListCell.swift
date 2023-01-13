@@ -8,13 +8,38 @@
 import SwiftUI
 
 struct MatchListCell: View {
+    
+    var matchInfo: MatchInfo
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            VStack {
+                Text("승")
+                Divider()
+                Text("42:38")
+            }
+            .font(.caption)
+            .frame(maxWidth: 40, maxHeight: 130)
+            .background(Color.myColor.mylightBlue)
+            .foregroundColor(.white)
+            HStack {
+                HStack {
+                 Image("Xerath_0")
+                        .resizable()
+                        .frame(width: 50, height: 50)
+                        .clipShape(Circle())
+                    VStack {
+                        Image("")
+                    }
+                }
+            }
+            Spacer()
+        }
     }
 }
 
 struct MatchListCell_Previews: PreviewProvider {
     static var previews: some View {
-        MatchListCell()
+        MatchListCell(matchInfo: myPreviewClass.matchInfo)
     }
 }
