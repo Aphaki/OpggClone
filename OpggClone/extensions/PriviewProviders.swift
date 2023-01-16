@@ -3185,9 +3185,9 @@ class MyPreviewClass {
         return myData
     }
     
-//    var spellInfo: SummonerSpell {
-//        return InstanceOfSummonerSpell.instance.spellInfo
-//    }
+    var spellInfo: [SummonerSpell] {
+        return InstanceOfSummonerSpell.instance.spellInfos
+    }
 }
 /* league
 

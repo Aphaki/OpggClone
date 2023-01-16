@@ -11,6 +11,8 @@ struct MatchListCell: View {
     
     var matchInfo: MatchInfo
     var participant: Participant
+    let spellDictionary = InstanceOfSummonerSpell.instance.spellDictionary
+    
     
     var body: some View {
         HStack {
@@ -24,17 +26,32 @@ struct MatchListCell: View {
             .background(Color.myColor.mylightBlue)
             .foregroundColor(.white)
             HStack {
-                HStack {
+                HStack(spacing: 3) {
                     AsyncImage(url: URL(string: "https://ddragon.leagueoflegends.com/cdn/13.1.1/img/champion/\(participant.championName).png")) { img in
                         img
                             .resizable()
                             .frame(width: 50, height: 50)
-                            .clipShape(Circle())
+                            .clipShape(RoundedRectangle(cornerRadius: 20))
                     } placeholder: {
                         ProgressView()
                     }
-                    VStack {
-//                        Image()
+                    VStack(spacing: 2) {
+                        AsyncImage(url: URL(string: "https://ddragon.leagueoflegends.com/cdn/13.1.1/img/spell/\(spellDictionary["1"] ?? "SummonerTeleport").png")) { img in
+                            img
+                                .resizable()
+                                .frame(width: 20, height: 20)
+                                .clipShape(RoundedRectangle(cornerRadius: 7))
+                        } placeholder: {
+                            ProgressView()
+                        }
+                        AsyncImage(url: URL(string: "https://ddragon.leagueoflegends.com/cdn/13.1.1/img/spell/\(spellDictionary["2"] ?? "SummonerFlash").png")) { img in
+                            img
+                                .resizable()
+                                .frame(width: 20, height: 20)
+                                .clipShape(RoundedRectangle(cornerRadius: 7))
+                        } placeholder: {
+                            ProgressView()
+                        }
                     }
                 }
             }
@@ -46,5 +63,6 @@ struct MatchListCell: View {
 struct MatchListCell_Previews: PreviewProvider {
     static var previews: some View {
         MatchListCell(matchInfo: myPreviewClass.matchInfo, participant: myPreviewClass.matchInfo.info.participants.first!)
+            .preferredColorScheme(.dark)
     }
 }
