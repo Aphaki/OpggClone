@@ -76,40 +76,25 @@ class MyPreviewClass {
         "KR_6297183445",
         "KR_6297138398"
     ]
-//    let metaData: Metadata
-//    = Metadata(dataVersion: "2",
-//               matchID: "KR_6301853832",
-//               participants: [
-//                "wGW04Swzsw9CGhwaVSNyTSTY6aahcHV9Gi_oWPC7WDHiX1ec8I0BkZqW4n0Ocy3nrhulD0kNlEufjg",
-//                "bvgD8WXs1N3mkpSGzjLPVALpyJ5VaDajuLS9O9i95jcbSNdMPLkLS-oNNT9crEFM58Yd0Sz4cFucYg",
-//                "nw5SlUkXZIzdVykfZ6DrekobLJnw6f7fjcnBOk0-weInd2ZPX2AaWn6zCQrUFvDGtavO2x6Tl4qp6A",
-//                "Gen73irxMgxaus6875zzoA8wZT7kUeSX3P6YppzTPKOlLRrCSQMv8xIT7RwhyCf7BB9mmpo4sK1YIw",
-//                "YwT0WdYDJHwg9Xr525J2W-DgOgmKZdBD_1WCDLrDHWYic-8fctB_JX3jKH-AuFdYNPOHJOz8IqZ2pg",
-//                "9Si6SmpXBugCMHHfF8QxXCYmXJOBXAFZ-D2jQ1x1LT6MndtAHVdsNBslo0HN7dQH0V3XLcaEwCcplQ",
-//                "HjL2l1Bs5crVqev2Ny3SaXOALYBhL-TEKWK5QnH7PB14JfbwaW7gFEcz1fMGWIEdBiv3KebOFpurTw",
-//                "mQc3Fd17sRDDlh9et_nCzS-Ack_FQAtGt4-JUeQX7JsZ96x89rZC64EUHCVEu4r6ro4vP7zMVVqlwQ",
-//                "ktu3NDTxa4JXJtWixg12qATMPfmjBYvh-fuuszqlXa2cfc599CY3X6nEoTtMKH1PfXs2cfOyZUtlPg",
-//                "r6gB2Ozh_f8GziIPDokyyiGwXhe0KITZuRqixJGeAdSaDN2p7bUJAKjuS3qAVMChcOX5Mvmb7GPTKQ"
-//            ])
-//    let info: Info
-//    = Info(gameCreation: 1673418056850,
-//           gameDuration: 2577,
-//           gameEndTimestamp: 1673420720188,
-//           gameID: 6301853832,
-//           gameMode: "CLASSIC",
-//           gameName: "teambuilder-match-6301853832",
-//           gameStartTimestamp: 1673418142842,
-//           gameType: "MATCHED_GAME",
-//           gameVersion: "13.1.487.9641",
-//           mapID: 11,
-//           participants: <#T##[Participant]#>,
-//           platformID: <#T##String#>,
-//           queueID: <#T##Int#>, teams: <#T##[Team]#>,
-//           tournamentCode: <#T##String#>)
-//    var matchInfo: MatchInfo
-//    {
-//        return MatchInfo(metadata: metaData, info: <#T##Info#>)
-//    }
+    
+    var matchInfo: MatchInfo {
+        let jsonData = jsonString.data(using: .utf8)!
+        let decoder = JSONDecoder()
+        
+        let myData = try! decoder.decode(MatchInfo.self, from: jsonData)
+        return myData
+    }
+    
+    var spellInfo: [SummonerSpell] {
+        return InstanceOfSummonerSpell.instance.spellInfos
+    }
+    var aSummonerInfo: Participant {
+        let aSummoner = matchInfo.info.participants.first { aParticipant in
+           return aParticipant.puuid == "YwT0WdYDJHwg9Xr525J2W-DgOgmKZdBD_1WCDLrDHWYic-8fctB_JX3jKH-AuFdYNPOHJOz8IqZ2pg"
+        }
+        return aSummoner!
+    }
+    
     let jsonString =
     """
  {
@@ -3177,17 +3162,7 @@ class MyPreviewClass {
      }
  }
  """
-    var matchInfo: MatchInfo {
-        let jsonData = jsonString.data(using: .utf8)!
-        let decoder = JSONDecoder()
-        
-        let myData = try! decoder.decode(MatchInfo.self, from: jsonData)
-        return myData
-    }
     
-    var spellInfo: [SummonerSpell] {
-        return InstanceOfSummonerSpell.instance.spellInfos
-    }
 }
 /* league
 

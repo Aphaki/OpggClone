@@ -96,6 +96,11 @@ struct Participant: Codable {
     let visionClearedPings, visionScore, visionWardsBoughtInGame, wardsKilled: Int
     let wardsPlaced: Int
     let win: Bool
+    
+    var kda: Double {
+        let value: Double =  (Double(kills) + Double(assists)) /  Double(deaths)
+        return value
+    }
 
     enum CodingKeys: String, CodingKey {
         case allInPings, assistMePings, assists, baitPings, baronKills, basicPings, bountyLevel, challenges, champExperience, champLevel
