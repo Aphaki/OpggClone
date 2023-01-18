@@ -7,12 +7,14 @@
 
 import Foundation
 
-struct SummonerSpellModel: Codable {
+// MARK: - SummonerSpells
+struct SummonerSpells: Codable {
     let type, version: String
-    let data: [String: SummonerSpell]
+    let data: [String: Datum]
 }
 
-struct SummonerSpell: Codable {
+// MARK: - Datum
+struct Datum: Codable {
     let id, name, description, tooltip: String
     let maxrank: Int
     let cooldown: [Int]
@@ -22,7 +24,7 @@ struct SummonerSpell: Codable {
     let datavalues: Datavalues
     let effect: [[Double]?]
     let effectBurn: [String?]
-    let vars: [JSONAny] // JSONAny -> String
+    let vars: [JSONAny]
     let key: String
     let summonerLevel: Int
     let modes: [String]
@@ -34,12 +36,11 @@ struct SummonerSpell: Codable {
     let resource: CostType
     
     enum CodingKeys: String, CodingKey {
-        case id, name, description, tooltip, maxrank, cooldown, cooldownBurn, cost, costBurn, datavalues
-        case effect, effectBurn, vars, key, summonerLevel, modes, costType, maxammo, range, rangeBurn
+        case id, name, description, tooltip, maxrank, cooldown, cooldownBurn, cost, costBurn
+        case datavalues, effect, effectBurn, vars, key, summonerLevel, modes, costType, maxammo, range
+        case rangeBurn, resource
         case spellImage = "image"
-        case resource
     }
-    
 }
 
 enum CostType: String, Codable {
@@ -55,25 +56,22 @@ struct Datavalues: Codable {
 struct SpellImage: Codable {
     let full: String
     let sprite: Sprite
-    let spellGroup: SpellGroup
+    let imgGroup: ImgGroup
     let x, y, w, h: Int
     
     enum CodingKeys: String, CodingKey {
-        case full, sprite
-        case spellGroup = "group"
-        case x,y,w,h
+        case full, sprite, x, y, w, h
+        case imgGroup = "group"
     }
 }
 
-enum SpellGroup: String, Codable {
+enum ImgGroup: String, Codable {
     case spell = "spell"
 }
 
 enum Sprite: String, Codable {
     case spell0PNG = "spell0.png"
 }
-
-
 
 // MARK: - Encode/decode helpers
 
@@ -83,11 +81,8 @@ class JSONNull: Codable, Hashable {
         return true
     }
 
-//    public var hashValue: Int {
-//        return 0
-//    }
-    func hash(into hasher: inout Hasher) {
-
+    public func hash(into hasher: inout Hasher) {
+        
     }
 
     public init() {}

@@ -85,12 +85,12 @@ class MyPreviewClass {
         return myData
     }
     
-    var spellInfo: [SummonerSpell] {
-        return InstanceOfSummonerSpell.instance.spellInfos
-    }
+//    var spellInfo: [SummonerSpells] {
+//        return InstanceOfSummonerSpell.instance.spellInfos
+//    }
     var aSummonerInfo: Participant {
         let aSummoner = matchInfo.info.participants.first { aParticipant in
-           return aParticipant.puuid == "YwT0WdYDJHwg9Xr525J2W-DgOgmKZdBD_1WCDLrDHWYic-8fctB_JX3jKH-AuFdYNPOHJOz8IqZ2pg"
+           return aParticipant.puuid == "Gen73irxMgxaus6875zzoA8wZT7kUeSX3P6YppzTPKOlLRrCSQMv8xIT7RwhyCf7BB9mmpo4sK1YIw"
         }
         return aSummoner!
     }

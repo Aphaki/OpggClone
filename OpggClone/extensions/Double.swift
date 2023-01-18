@@ -14,9 +14,20 @@ extension Double {
         numberFormatter.minimumFractionDigits = 2
         return numberFormatter
     }
+    private var formatterNoDemical: NumberFormatter {
+        let formatter = NumberFormatter()
+        formatter.maximumFractionDigits = 0
+        formatter.minimumFractionDigits = 0
+        return formatter
+    }
     
     func with2Demicals() -> String {
         let num = NSNumber(value: self)
         return numFormatter.string(from: num) ?? "0.00"
+    }
+    
+    func changedPercentage() -> String {
+        let num = NSNumber(value: self * 100)
+        return formatterNoDemical.string(from: num) ?? "0"
     }
 }

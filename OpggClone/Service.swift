@@ -100,9 +100,9 @@ class Service {
     }
     func getSummernerMatchInfo(summonerID: String) {
         
-        let participant =
-        matchInfo?.info.participants.first(where: { aParticipant in
-           return aParticipant.summonerID == summonerID
-        })
+//        let participant =
+//        matchInfo?.info.participants.first(where: { aParticipant in
+//           return aParticipant.summonerID == summonerID
+//        })
     }
 }
