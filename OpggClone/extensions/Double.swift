@@ -30,4 +30,8 @@ extension Double {
         let num = NSNumber(value: self * 100)
         return formatterNoDemical.string(from: num) ?? "0"
     }
+    func asNumberString() -> String {
+        return String(format: "%.1f", self)
+    }
+
 }

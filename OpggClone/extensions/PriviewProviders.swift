@@ -90,7 +90,7 @@ class MyPreviewClass {
 //    }
     var aSummonerInfo: Participant {
         let aSummoner = matchInfo.info.participants.first { aParticipant in
-           return aParticipant.puuid == "Gen73irxMgxaus6875zzoA8wZT7kUeSX3P6YppzTPKOlLRrCSQMv8xIT7RwhyCf7BB9mmpo4sK1YIw"
+           return aParticipant.puuid == "r6gB2Ozh_f8GziIPDokyyiGwXhe0KITZuRqixJGeAdSaDN2p7bUJAKjuS3qAVMChcOX5Mvmb7GPTKQ"
         }
         return aSummoner!
     }

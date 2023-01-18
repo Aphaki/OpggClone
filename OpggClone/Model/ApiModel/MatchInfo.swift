@@ -48,7 +48,8 @@ struct Info: Codable {
 }
 
 // MARK: - Participant
-struct Participant: Codable {
+struct Participant: Codable, Identifiable {
+    let id = UUID()
     let allInPings, assistMePings, assists, baitPings: Int
     let baronKills, basicPings, bountyLevel: Int
     let challenges: [String: Double]

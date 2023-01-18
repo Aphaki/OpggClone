@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7F03312A295ED42500FB86D6 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F033129295ED42500FB86D6 /* Router.swift */; };
+		7F036F2B297837FB00163ACA /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F036F2A297837FB00163ACA /* Int.swift */; };
+		7F0E2A572977EFC8002B1AFB /* MatchDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0E2A562977EFC8002B1AFB /* MatchDetailView.swift */; };
 		7F147CE4295D77B4008BF262 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F147CE3295D77B4008BF262 /* ApiClient.swift */; };
 		7F147CE7295D781B008BF262 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7F147CE6295D781B008BF262 /* Alamofire */; };
 		7F147CE9295D792D008BF262 /* ApiLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F147CE8295D792D008BF262 /* ApiLogger.swift */; };
@@ -40,6 +42,7 @@
 		7FBBCB7329695AA3000C5F71 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBBCB7229695AA3000C5F71 /* Double.swift */; };
 		7FBBCB762969C4FB000C5F71 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBBCB752969C4FB000C5F71 /* MainViewModel.swift */; };
 		7FC15B6D295DC26B00605F1D /* UrlHeadPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC15B6C295DC26B00605F1D /* UrlHeadPoint.swift */; };
+		7FCC3E05297805D8002DBEF8 /* MatchDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCC3E04297805D8002DBEF8 /* MatchDetailCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +64,8 @@
 
 /* Begin PBXFileReference section */
 		7F033129295ED42500FB86D6 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		7F036F2A297837FB00163ACA /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
+		7F0E2A562977EFC8002B1AFB /* MatchDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchDetailView.swift; sourceTree = "<group>"; };
 		7F147CE3295D77B4008BF262 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		7F147CE8295D792D008BF262 /* ApiLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiLogger.swift; sourceTree = "<group>"; };
 		7F147CEA295D7CF3008BF262 /* BaseInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInterceptor.swift; sourceTree = "<group>"; };
@@ -96,6 +101,7 @@
 		7FBBCB7229695AA3000C5F71 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		7FBBCB752969C4FB000C5F71 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		7FC15B6C295DC26B00605F1D /* UrlHeadPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlHeadPoint.swift; sourceTree = "<group>"; };
+		7FCC3E04297805D8002DBEF8 /* MatchDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchDetailCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,7 +138,6 @@
 				7F147CE8295D792D008BF262 /* ApiLogger.swift */,
 				7F147CEA295D7CF3008BF262 /* BaseInterceptor.swift */,
 				7F2934E92959AE8E00EEB2E8 /* ApiConstants.swift */,
-				7F2934E02959772F00EEB2E8 /* ApiModel */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -144,6 +149,8 @@
 				7FBBCB752969C4FB000C5F71 /* MainViewModel.swift */,
 				7F6BC7862955B08200A87DC2 /* SearchView.swift */,
 				7FABB753296EBB7200C5FB07 /* SummonerInfoView.swift */,
+				7F0E2A562977EFC8002B1AFB /* MatchDetailView.swift */,
+				7FCC3E04297805D8002DBEF8 /* MatchDetailCell.swift */,
 				7F2A8F4629704EEB00458795 /* MatchListCell.swift */,
 			);
 			path = UI;
@@ -248,6 +255,7 @@
 			children = (
 				7F33C2EE2971C107002515B2 /* SummonerSpells.swift */,
 				7F9215B12976FC4B00BA67B7 /* RuneReforged.swift */,
+				7F2934E02959772F00EEB2E8 /* ApiModel */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -256,6 +264,7 @@
 			isa = PBXGroup;
 			children = (
 				7FBBCB7229695AA3000C5F71 /* Double.swift */,
+				7F036F2A297837FB00163ACA /* Int.swift */,
 				7FABB755296EC31D00C5FB07 /* PriviewProviders.swift */,
 				7F4E3ACF296FF46400DB261C /* Color.swift */,
 			);
@@ -402,13 +411,16 @@
 				7FBBCB7329695AA3000C5F71 /* Double.swift in Sources */,
 				7F147CE9295D792D008BF262 /* ApiLogger.swift in Sources */,
 				7F147CE4295D77B4008BF262 /* ApiClient.swift in Sources */,
+				7F036F2B297837FB00163ACA /* Int.swift in Sources */,
 				7F2934E429597B6900EEB2E8 /* MatchIDs.swift in Sources */,
 				7F33C2F32971C44A002515B2 /* JsonInstance.swift in Sources */,
 				7F6BC7872955B08200A87DC2 /* SearchView.swift in Sources */,
 				7F2A8F4729704EEB00458795 /* MatchListCell.swift in Sources */,
 				7F9215B22976FC4B00BA67B7 /* RuneReforged.swift in Sources */,
+				7FCC3E05297805D8002DBEF8 /* MatchDetailCell.swift in Sources */,
 				7F2934E629597CEA00EEB2E8 /* MatchInfo.swift in Sources */,
 				7FBBCB712968657E000C5F71 /* MySummonerCard.swift in Sources */,
+				7F0E2A572977EFC8002B1AFB /* MatchDetailView.swift in Sources */,
 				7F35B3FD2959D02D00A58733 /* SearchedUserCell.swift in Sources */,
 				7F147CEB295D7CF3008BF262 /* BaseInterceptor.swift in Sources */,
 				7F03312A295ED42500FB86D6 /* Router.swift in Sources */,
