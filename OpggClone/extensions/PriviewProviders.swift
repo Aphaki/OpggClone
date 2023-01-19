@@ -104,7 +104,7 @@ class MyPreviewClass {
         return value ?? 0
     }
     var matchInfo2: MatchInfo {
-        guard let fileUrl = Bundle.main.url(forResource: "KR_6316414751", withExtension: "geojson") else {
+        guard let fileUrl = Bundle.main.url(forResource: "KR_6316414751", withExtension: "json") else {
             fatalError("KR_6316414751.geojson not found")
         }
         let decoder = JSONDecoder()
