@@ -10,6 +10,24 @@ import SwiftUI
 struct MatchDetailCell: View {
     
     var participant: Participant
+    var matchInfo: MatchInfo
+    var summonerInfo: SummonerInfo
+    
+    private var csPerMinute: String {
+        let value =
+        Double(participant.totalMinionsKilled) / Double(matchInfo.info.gameDuration) * 60
+        let csPerMinuite = value.with1Demical()
+        
+        return csPerMinuite
+    }
+    private var maxDealt: Int {
+        let dealts =
+        matchInfo.info.participants.map { participant in
+            return participant.totalDamageDealtToChampions
+        }
+        let value = dealts.max()
+        return value ?? 0
+    }
     
     let spellDictionary = JsonInstance.shared.spellStore
     let primaryRuneDic = JsonInstance.shared.primaryRuneDic
@@ -22,8 +40,8 @@ struct MatchDetailCell: View {
                 AsyncImage(url: URL(string: "https://ddragon.leagueoflegends.com/cdn/13.1.1/img/champion/\(participant.championName).png")) { img in
                     img
                         .resizable()
-                        .frame(width: 42, height: 42)
-                        .clipShape(RoundedRectangle(cornerRadius: 11))
+                        .frame(width: 45, height: 45)
+                        .clipShape(RoundedRectangle(cornerRadius: 15))
                 } placeholder: {
                     ProgressView()
                 }
@@ -93,26 +111,23 @@ struct MatchDetailCell: View {
                     ItemImage(itemNumber: participant.item6, width: 20, height: 20)
                 }
                 HStack(spacing: 2) {
-                    Text("19(0.5) / \(participant.goldEarned.withKString())")
-                        .font(.caption)
+                    Text("\(participant.totalMinionsKilled)(\(csPerMinute)) / \(participant.goldEarned.withKString())")
+                        .font(.caption2)
                     Spacer()
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 5)
-                            .frame(width: 50, height: 15)
-                            .foregroundColor(Color.myColor.myRed)
-                        Text(participant.totalDamageDealtToChampions.withKString())
-                            .font(.caption)
-                    }
+                    
+                    DealtBar(maxDealt: maxDealt, dealt: participant.totalDamageDealtToChampions, teamId: participant.teamID)
+                    
                 }
             }
             .frame(width: 150)
         }
+        .background(summonerInfo.puuid == participant.puuid ? Color.myColor.myDarkBlue.opacity(0.5) : .clear)
     }
 }
 
 struct MatchDetailCell_Previews: PreviewProvider {
     static var previews: some View {
-        MatchDetailCell(participant: myPreviewClass.aSummonerInfo)
+        MatchDetailCell(participant: myPreviewClass.aSummonerInfo, matchInfo: myPreviewClass.matchInfo, summonerInfo: myPreviewClass.summoner)
             .preferredColorScheme(.dark)
     }
 }

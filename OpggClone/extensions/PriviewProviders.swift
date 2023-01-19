@@ -90,9 +90,38 @@ class MyPreviewClass {
 //    }
     var aSummonerInfo: Participant {
         let aSummoner = matchInfo.info.participants.first { aParticipant in
-           return aParticipant.puuid == "r6gB2Ozh_f8GziIPDokyyiGwXhe0KITZuRqixJGeAdSaDN2p7bUJAKjuS3qAVMChcOX5Mvmb7GPTKQ"
+           return aParticipant.puuid == "YwT0WdYDJHwg9Xr525J2W-DgOgmKZdBD_1WCDLrDHWYic-8fctB_JX3jKH-AuFdYNPOHJOz8IqZ2pg"
         }
         return aSummoner!
+    }
+    
+    var maxDealt: Int {
+        let dealts =
+        matchInfo.info.participants.map { participant in
+            return participant.totalDamageDealtToChampions
+        }
+        let value = dealts.max()
+        return value ?? 0
+    }
+    var matchInfo2: MatchInfo {
+        guard let fileUrl = Bundle.main.url(forResource: "KR_6316414751", withExtension: "geojson") else {
+            fatalError("KR_6316414751.geojson not found")
+        }
+        let decoder = JSONDecoder()
+        do {
+            let jsonData = try Data(contentsOf: fileUrl)
+            do {
+                let matchInfo = try decoder.decode(MatchInfo.self, from: jsonData)
+                return matchInfo
+            } catch {
+                print("KR_6316414751 jsonData Decode Error")
+            }
+            
+        } catch {
+            print("KR_6316414751 fileUrl not found")
+        }
+        
+        return matchInfo
     }
     
     let jsonString =

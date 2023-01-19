@@ -14,6 +14,7 @@
 		7F147CE7295D781B008BF262 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7F147CE6295D781B008BF262 /* Alamofire */; };
 		7F147CE9295D792D008BF262 /* ApiLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F147CE8295D792D008BF262 /* ApiLogger.swift */; };
 		7F147CEB295D7CF3008BF262 /* BaseInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F147CEA295D7CF3008BF262 /* BaseInterceptor.swift */; };
+		7F1E199C2979918700A84E8E /* KR_6316414751.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F1E199B2979918700A84E8E /* KR_6316414751.json */; };
 		7F2934E22959779200EEB2E8 /* SummonerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2934E12959779200EEB2E8 /* SummonerInfo.swift */; };
 		7F2934E429597B6900EEB2E8 /* MatchIDs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2934E329597B6900EEB2E8 /* MatchIDs.swift */; };
 		7F2934E629597CEA00EEB2E8 /* MatchInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2934E529597CEA00EEB2E8 /* MatchInfo.swift */; };
@@ -23,6 +24,7 @@
 		7F33C2EF2971C107002515B2 /* SummonerSpells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F33C2EE2971C107002515B2 /* SummonerSpells.swift */; };
 		7F33C2F32971C44A002515B2 /* JsonInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F33C2F22971C44A002515B2 /* JsonInstance.swift */; };
 		7F35B3FD2959D02D00A58733 /* SearchedUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F35B3FC2959D02D00A58733 /* SearchedUserCell.swift */; };
+		7F3C8B712979279D000438B5 /* DealtBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3C8B702979279D000438B5 /* DealtBar.swift */; };
 		7F4E3AD0296FF46400DB261C /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4E3ACF296FF46400DB261C /* Color.swift */; };
 		7F6BC75B2955AA3900A87DC2 /* OpggCloneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6BC75A2955AA3900A87DC2 /* OpggCloneApp.swift */; };
 		7F6BC75D2955AA3900A87DC2 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6BC75C2955AA3900A87DC2 /* MainView.swift */; };
@@ -69,6 +71,7 @@
 		7F147CE3295D77B4008BF262 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		7F147CE8295D792D008BF262 /* ApiLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiLogger.swift; sourceTree = "<group>"; };
 		7F147CEA295D7CF3008BF262 /* BaseInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInterceptor.swift; sourceTree = "<group>"; };
+		7F1E199B2979918700A84E8E /* KR_6316414751.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = KR_6316414751.json; sourceTree = "<group>"; };
 		7F2934E12959779200EEB2E8 /* SummonerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerInfo.swift; sourceTree = "<group>"; };
 		7F2934E329597B6900EEB2E8 /* MatchIDs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchIDs.swift; sourceTree = "<group>"; };
 		7F2934E529597CEA00EEB2E8 /* MatchInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchInfo.swift; sourceTree = "<group>"; };
@@ -78,6 +81,7 @@
 		7F33C2EE2971C107002515B2 /* SummonerSpells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerSpells.swift; sourceTree = "<group>"; };
 		7F33C2F22971C44A002515B2 /* JsonInstance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonInstance.swift; sourceTree = "<group>"; };
 		7F35B3FC2959D02D00A58733 /* SearchedUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedUserCell.swift; sourceTree = "<group>"; };
+		7F3C8B702979279D000438B5 /* DealtBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealtBar.swift; sourceTree = "<group>"; };
 		7F4E3ACF296FF46400DB261C /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		7F6BC7572955AA3900A87DC2 /* OpggClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpggClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F6BC75A2955AA3900A87DC2 /* OpggCloneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpggCloneApp.swift; sourceTree = "<group>"; };
@@ -162,6 +166,7 @@
 				7F35B3FC2959D02D00A58733 /* SearchedUserCell.swift */,
 				7FBBCB702968657E000C5F71 /* MySummonerCard.swift */,
 				7F6BC7842955AADB00A87DC2 /* SearchBar.swift */,
+				7F3C8B702979279D000438B5 /* DealtBar.swift */,
 			);
 			path = ViewComponent;
 			sourceTree = "<group>";
@@ -246,6 +251,7 @@
 			children = (
 				7F9215A929769D8800BA67B7 /* summoner.json */,
 				7F9215AA29769E4D00BA67B7 /* runesReforged.json */,
+				7F1E199B2979918700A84E8E /* KR_6316414751.json */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -381,6 +387,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F1E199C2979918700A84E8E /* KR_6316414751.json in Resources */,
 				7F6BC7622955AA3900A87DC2 /* Preview Assets.xcassets in Resources */,
 				7F6BC75F2955AA3900A87DC2 /* Assets.xcassets in Resources */,
 				7F9215AB29769E4D00BA67B7 /* runesReforged.json in Resources */,
@@ -424,6 +431,7 @@
 				7F35B3FD2959D02D00A58733 /* SearchedUserCell.swift in Sources */,
 				7F147CEB295D7CF3008BF262 /* BaseInterceptor.swift in Sources */,
 				7F03312A295ED42500FB86D6 /* Router.swift in Sources */,
+				7F3C8B712979279D000438B5 /* DealtBar.swift in Sources */,
 				7F842D10296C69B400AB206F /* Service.swift in Sources */,
 				7F2934E22959779200EEB2E8 /* SummonerInfo.swift in Sources */,
 				7F2934E829598F0C00EEB2E8 /* SummonersLeagueElement.swift in Sources */,
