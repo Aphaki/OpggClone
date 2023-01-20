@@ -15,51 +15,52 @@ struct MainView: View {
     
     var body: some View {
         NavigationStack {
-            List {
-                Group {
-                    SearchBar(searchBarText: $mainVM.searchBarText)
-                        .padding(5)
-                        .onTapGesture {
-                            goSearchView.toggle()
-                        }
-                        .navigationDestination(isPresented: $goSearchView) {
-                            SearchView(searchBarText: $mainVM.searchBarText)
-                        }
-                }
-                Group {
-                    Text("2022 AWARDS")
-                        .font(.largeTitle)
-                        .foregroundColor(.yellow)
-                }
-                Group {
-                    MySummonerCard()
-                        .padding(1)
-                }
+            VStack {
+                SearchBar(searchBarText: $mainVM.searchBarText)
+                    .padding(10)
+                    .onTapGesture {
+                        goSearchView.toggle()
+                    }
+                    .navigationDestination(isPresented: $goSearchView) {
+                        SearchView(searchBarText: $mainVM.searchBarText)
+                    }
+                    .background(RoundedRectangle(cornerRadius: 10).foregroundColor(Color.myColor.myBlack))
+                MySummonerCard()
+                    .padding(10)
+                    .background(RoundedRectangle(cornerRadius: 10).foregroundColor(Color.myColor.myBlack))
+                Spacer()
                 
             } // List
-            .listStyle(.grouped)
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Picker("Kr", selection: $mainVM.regionPicker) {
-                            Text("Kr").tag(UrlHeadPoint.kr)
-                            Text("Br").tag(UrlHeadPoint.tr1)
-                            Text("Jp").tag(UrlHeadPoint.jpOne)
-                            Text("Ru").tag(UrlHeadPoint.ru)
-                        }
-                    }
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button {
-                            print("홈편집 버튼 클릭")
-                        } label: {
-                            Image(systemName: "line.3.horizontal")
-                        }
-                    }
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        Text("logo".uppercased())
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Picker("Kr", selection: $mainVM.regionPicker) {
+                        Text("Kr").tag(UrlHeadPoint.kr)
+                        Text("Br").tag(UrlHeadPoint.tr1)
+                        Text("Jp").tag(UrlHeadPoint.jpOne)
+                        Text("Ru").tag(UrlHeadPoint.ru)
                     }
                 }
-            
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        print("홈편집 버튼 클릭")
+                    } label: {
+                        ZStack(alignment: .trailing) {
+                            Image(systemName: "line.3.horizontal")
+                                .foregroundColor(.white)
+                            Image(systemName: "arrow.down")
+                                .resizable()
+                                .frame(width: 10, height: 15)
+                                .foregroundColor(.white)
+                        }
+                    }
+                }
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Text("logo".uppercased())
+                }
+            }
         }
+        .navigationTitle("")
+        .navigationBarTitleDisplayMode(.inline)
         .edgesIgnoringSafeArea(.bottom)
     }
     
@@ -70,6 +71,7 @@ struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
             MainView()
+                .preferredColorScheme(.dark)
         }
     }
 }

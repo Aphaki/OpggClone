@@ -71,11 +71,15 @@ struct MatchDetailCell: View {
             }
             //룬
             VStack(spacing: 2) {
-                Image((detatilRuneDic[participant.perks.styles.first!.selections.first!.perk] ?? ""))
-                    .resizable()
-                    .frame(width: 20, height: 20)
-                    .clipShape(RoundedRectangle(cornerRadius: 5))
-                    .background(RoundedRectangle(cornerRadius: 5).foregroundColor(Color.myColor.myBlack))
+                AsyncImage(url: URL(string: "https://ddragon.leagueoflegends.com/cdn/img/" + (detatilRuneDic[participant.perks.styles[0].selections[0].perk] ?? ""))) { img in
+                    img
+                        .resizable()
+                        .frame(width: 20, height: 20)
+                        .clipShape(RoundedRectangle(cornerRadius: 3))
+                        .background(RoundedRectangle(cornerRadius: 5).foregroundColor(Color.myColor.myBlack))
+                } placeholder: {
+                    ProgressView()
+                }
                 AsyncImage(url: URL(string: "https://ddragon.leagueoflegends.com/cdn/img/" + (primaryRuneDic[participant.perks.styles[1].style] ?? ""))) { img in
                     img
                         .resizable()
@@ -88,7 +92,6 @@ struct MatchDetailCell: View {
             VStack(alignment: .leading) {
                 HStack {
                     Text(participant.summonerName)
-                    Text(detatilRuneDic[participant.perks.styles[0].selections[0].perk] ?? "")
                 }
                 HStack(spacing: 5) {
                     Text(" \(participant.kills)")

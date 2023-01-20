@@ -48,7 +48,7 @@ class JsonInstance {
         }
         var dic = [Int:String]()
         for rune in runes {
-            dic[rune.id] = rune.key
+            dic[rune.id] = rune.icon
         }
         return dic
     }

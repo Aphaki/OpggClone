@@ -13,6 +13,13 @@ struct MatchDetailView: View {
     
     var summonerInfo: SummonerInfo
     
+    private var selectedSummoner: Participant {
+        let value = matchInfo.info.participants.first { participant in
+            return participant.puuid == summonerInfo.puuid
+        }
+        return value!
+    }
+    
     private var blueTeamMembers: [Participant] {
        let value = matchInfo.info.participants.filter { participant in
             participant.teamID == 100
@@ -49,6 +56,40 @@ struct MatchDetailView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 5) {
+                HStack {
+                    AsyncImage(url: URL(string: "https://ddragon.leagueoflegends.com/cdn/13.1.1/img/champion/\(selectedSummoner.championName).png")) { img in
+                        img
+                            .resizable()
+                            .frame(width: 45, height: 45)
+                            .clipShape(RoundedRectangle(cornerRadius: 15))
+                    } placeholder: {
+                        ProgressView()
+                    }
+                    VStack(alignment: .leading) {
+                        Text(selectedSummoner.championName)
+                        Text("\(selectedSummoner.teamPosition)")
+                            .font(.caption)
+                    }
+                    Spacer()
+                    VStack(alignment: .trailing) {
+                        HStack {
+                            Text("\(selectedSummoner.kills)")
+                            Text("/")
+                            Text("\(selectedSummoner.deaths)")
+                                .foregroundColor(Color.myColor.myRed)
+                            Text("/")
+                            Text("\(selectedSummoner.assists)")
+                        }
+                        Text("킬 관여 \(selectedSummoner.challenges["killParticipation"]?.changedPercentage() ?? "0")%")
+                            .font(.caption)
+                    }
+                }
+                .padding()
+                .background(
+                RoundedRectangle(cornerRadius: 10)
+                    .foregroundColor(selectedSummoner.teamID == winTeamId
+                                     ? Color.myColor.myDarkBlue.opacity(0.5) : Color.myColor.myRed.opacity(0.5))
+                )
                 HStack(spacing: 3) {
                     Text("승리")
                         .foregroundColor(Color.myColor.mylightBlue)
@@ -73,12 +114,16 @@ struct MatchDetailView: View {
                         }
                     }
                     Spacer()
-                    HStack {
+                    HStack(spacing: 2) {
                         Text("바론")
-                            .font(.caption)
-                        Text(winTeamId == 100 ? "\(0)" : "")
-                        Text("드")
+                        Text(winTeamId == 100 ? "\(matchInfo.info.teams[0].objectives.baron.kills)" : "\(matchInfo.info.teams[1].objectives.baron.kills)")
+                        Text("드래곤")
+                        Text(winTeamId == 100 ? "\(matchInfo.info.teams[0].objectives.dragon.kills)" : "\(matchInfo.info.teams[1].objectives.dragon.kills)")
+                        Text("포탑")
+                        Text(winTeamId == 100 ? "\(matchInfo.info.teams[0].objectives.tower.kills)" : "\(matchInfo.info.teams[1].objectives.tower.kills)")
+
                     }
+                    .font(.caption)
                 }
                 Divider()
                 ForEach(winTeamId==100 ? blueTeamMembers : redTeamMembers) { participant in
@@ -112,7 +157,16 @@ struct MatchDetailView: View {
                         }
                     }
                     Spacer()
-                    
+                    HStack(spacing: 2) {
+                        Text("바론")
+                        Text(winTeamId == 100 ? "\(matchInfo.info.teams[1].objectives.baron.kills)" : "\(matchInfo.info.teams[0].objectives.baron.kills)")
+                        Text("드래곤")
+                        Text(winTeamId == 100 ? "\(matchInfo.info.teams[1].objectives.dragon.kills)" : "\(matchInfo.info.teams[0].objectives.dragon.kills)")
+                        Text("포탑")
+                        Text(winTeamId == 100 ? "\(matchInfo.info.teams[1].objectives.tower.kills)" : "\(matchInfo.info.teams[0].objectives.tower.kills)")
+
+                    }
+                    .font(.caption)
                     
                 }
                 Divider()
