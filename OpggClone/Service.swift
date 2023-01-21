@@ -16,7 +16,7 @@ class Service {
     @Published var searchBarText: String = ""
     
     @Published var summonerInfo: SummonerInfo?
-    @Published var leagueInfo: SummonersLeagueElement?
+    @Published var leagueInfo: [SummonersLeagueElement] = []
     @Published var matchList: MatchIDs = []
     @Published var matchInfos: [MatchInfo] = []
     @Published var matchInfo: MatchInfo?
@@ -41,7 +41,7 @@ class Service {
     private func requestLeagueInfo(urlBaseHead: UrlHeadPoint, encryptedSummonerId: String)  {
         ApiClient.shared.session
             .request(Router.league(urlBaseHead: urlBaseHead, encryptedSummonerId: encryptedSummonerId))
-            .publishDecodable(type: SummonersLeagueElement.self)
+            .publishDecodable(type: [SummonersLeagueElement].self)
             .value()
             .sink { completion in
                 print("Service - League Info sink completion: \(completion)")
@@ -75,15 +75,16 @@ class Service {
             .store(in: &subscription)
     }
     
-    func requestMatchInfos(urlBaseHead: UrlHeadPoint, matchIds: [String]) async {
-            for matchId in matchIds {
-                guard let aMatchInfo = await ApiClient.shared.session
-                    .request(Router.matchInfo(urlBaseHead: urlBaseHead, matchId: matchId))
-                    .serializingDecodable(MatchInfo.self)
-                    .response
-                    .value else { return }
-                self.matchInfos.append(aMatchInfo)
+    func requestMatchInfos(urlBaseHead: UrlHeadPoint, matchIds: [String]) {
+        ApiClient.shared.session.request(Router.matchInfo(urlBaseHead: urlBaseHead, matchId: matchIds[0]))
+            .publishDecodable(type: MatchInfo.self)
+            .value()
+            .sink { _ in
+                
+            } receiveValue: { receivedMatchInfo in
+                self.matchInfos.append(receivedMatchInfo)
             }
+            .store(in: &subscription)
         }
 
     

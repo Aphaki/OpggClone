@@ -184,6 +184,6 @@ struct MatchDetailView: View {
 
 struct MatchDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        MatchDetailView(matchInfo: myPreviewClass.matchInfo2, summonerInfo: myPreviewClass.summoner)
+        MatchDetailView(matchInfo: myPreviewClass.matchInfo, summonerInfo: myPreviewClass.summoner)
     }
 }

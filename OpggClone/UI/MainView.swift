@@ -16,13 +16,13 @@ struct MainView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                SearchBar(searchBarText: $mainVM.searchBarText)
+                SearchBarImageView()
                     .padding(10)
                     .onTapGesture {
                         goSearchView.toggle()
                     }
                     .navigationDestination(isPresented: $goSearchView) {
-                        SearchView(searchBarText: $mainVM.searchBarText)
+                        SearchView()
                     }
                     .background(RoundedRectangle(cornerRadius: 10).foregroundColor(Color.myColor.myBlack))
                 MySummonerCard()
@@ -56,6 +56,8 @@ struct MainView: View {
                 }
                 ToolbarItem(placement: .navigationBarLeading) {
                     Text("logo".uppercased())
+                        .font(.largeTitle)
+                        .foregroundColor(Color.myColor.myDarkBlue)
                 }
             }
         }

@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct OpggCloneApp: App {
+    
+    @StateObject private var vm = MainViewModel()
+    
     var body: some Scene {
         WindowGroup {
             MainView()
+                .environmentObject(vm)
         }
     }
 }

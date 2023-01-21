@@ -10,7 +10,15 @@ import SwiftUI
 struct MatchListCell: View {
     
     var matchInfo: MatchInfo
-    var participant: Participant
+    var summoner: SummonerInfo
+    var participant: Participant {
+        let value =
+        matchInfo.info.participants.first { aParticipant in
+           return aParticipant.puuid == summoner.puuid
+        }
+        return value!
+    }
+    
     
     let spellDictionary = JsonInstance.shared.spellStore
     let primaryRuneDic = JsonInstance.shared.primaryRuneDic
@@ -129,7 +137,7 @@ struct MatchListCell: View {
 
 struct MatchListCell_Previews: PreviewProvider {
     static var previews: some View {
-        MatchListCell(matchInfo: myPreviewClass.matchInfo, participant: myPreviewClass.aSummonerInfo)
+        MatchListCell(matchInfo: myPreviewClass.matchInfo, summoner: myPreviewClass.summoner)
             .preferredColorScheme(.dark)
     }
 }

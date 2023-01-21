@@ -17,6 +17,8 @@ extension PreviewProvider {
 class MyPreviewClass {
     static let shared = MyPreviewClass()
     
+    let mainVM = MainViewModel()
+    
     let summoner: SummonerInfo
     = SummonerInfo(id: "fcx3E-srnYM_nLY1WP5_0nxaFPR4bs8kF7Xrms7iFBgVxw",
                    accountID: "0iQI_8k4uSjaBh1B9Nvya6mws4OAZ8Bi2obQg5dX41N6",
@@ -122,6 +124,10 @@ class MyPreviewClass {
         }
         
         return matchInfo
+    }
+    var matchInfos: [MatchInfo] {
+        let infos: [MatchInfo] = [matchInfo, matchInfo2]
+        return infos
     }
     
     let jsonString =

@@ -17,7 +17,8 @@ import Foundation
 import Foundation
 
 // MARK: - MatchInfo
-struct MatchInfo: Codable {
+struct MatchInfo: Codable, Identifiable {
+    let id = UUID()
     let metadata: Metadata
     let info: Info
 }

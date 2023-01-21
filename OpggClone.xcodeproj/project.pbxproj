@@ -23,6 +23,7 @@
 		7F2A8F4729704EEB00458795 /* MatchListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2A8F4629704EEB00458795 /* MatchListCell.swift */; };
 		7F33C2EF2971C107002515B2 /* SummonerSpells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F33C2EE2971C107002515B2 /* SummonerSpells.swift */; };
 		7F33C2F32971C44A002515B2 /* JsonInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F33C2F22971C44A002515B2 /* JsonInstance.swift */; };
+		7F350ADD297C303200DFDF6B /* SummonerInfoLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F350ADC297C303200DFDF6B /* SummonerInfoLoadingView.swift */; };
 		7F35B3FD2959D02D00A58733 /* SearchedUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F35B3FC2959D02D00A58733 /* SearchedUserCell.swift */; };
 		7F3C8B712979279D000438B5 /* DealtBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3C8B702979279D000438B5 /* DealtBar.swift */; };
 		7F4E3AD0296FF46400DB261C /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4E3ACF296FF46400DB261C /* Color.swift */; };
@@ -80,6 +81,7 @@
 		7F2A8F4629704EEB00458795 /* MatchListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchListCell.swift; sourceTree = "<group>"; };
 		7F33C2EE2971C107002515B2 /* SummonerSpells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerSpells.swift; sourceTree = "<group>"; };
 		7F33C2F22971C44A002515B2 /* JsonInstance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonInstance.swift; sourceTree = "<group>"; };
+		7F350ADC297C303200DFDF6B /* SummonerInfoLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerInfoLoadingView.swift; sourceTree = "<group>"; };
 		7F35B3FC2959D02D00A58733 /* SearchedUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedUserCell.swift; sourceTree = "<group>"; };
 		7F3C8B702979279D000438B5 /* DealtBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealtBar.swift; sourceTree = "<group>"; };
 		7F4E3ACF296FF46400DB261C /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -152,10 +154,11 @@
 				7F6BC75C2955AA3900A87DC2 /* MainView.swift */,
 				7FBBCB752969C4FB000C5F71 /* MainViewModel.swift */,
 				7F6BC7862955B08200A87DC2 /* SearchView.swift */,
+				7F350ADC297C303200DFDF6B /* SummonerInfoLoadingView.swift */,
 				7FABB753296EBB7200C5FB07 /* SummonerInfoView.swift */,
+				7F2A8F4629704EEB00458795 /* MatchListCell.swift */,
 				7F0E2A562977EFC8002B1AFB /* MatchDetailView.swift */,
 				7FCC3E04297805D8002DBEF8 /* MatchDetailCell.swift */,
-				7F2A8F4629704EEB00458795 /* MatchListCell.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -441,6 +444,7 @@
 				7FABB756296EC31D00C5FB07 /* PriviewProviders.swift in Sources */,
 				7F6BC75B2955AA3900A87DC2 /* OpggCloneApp.swift in Sources */,
 				7F6BC7852955AADB00A87DC2 /* SearchBar.swift in Sources */,
+				7F350ADD297C303200DFDF6B /* SummonerInfoLoadingView.swift in Sources */,
 				7F33C2EF2971C107002515B2 /* SummonerSpells.swift in Sources */,
 				7FC15B6D295DC26B00605F1D /* UrlHeadPoint.swift in Sources */,
 				7F2934EA2959AE8E00EEB2E8 /* ApiConstants.swift in Sources */,

@@ -13,8 +13,9 @@ class MainViewModel: ObservableObject {
     @Published var searchBarText: String = ""
     
     @Published var summonerInfo: SummonerInfo?
-    @Published var leagueInfo: SummonersLeagueElement?
+    @Published var leagueInfo: [SummonersLeagueElement] = []
     @Published var matchList: MatchIDs = []
+    @Published var matchInfos: [MatchInfo] = []
     @Published var matchInfo: MatchInfo?
     
     
@@ -22,8 +23,7 @@ class MainViewModel: ObservableObject {
     private var subscription = Set<AnyCancellable>()
     
     init() {
-        subscribeUrlRegion()
-        subscribeSearchBarText()
+        totalSunscribe()
     }
     //MARK: - 구독
     private func subscribeUrlRegion() {
@@ -70,5 +70,23 @@ class MainViewModel: ObservableObject {
             }
             .store(in: &subscription)
     }
-    
+    private func subscribeMatchInfos() {
+        service.$matchInfos
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] receivedList in
+                self?.matchInfos = receivedList
+            }
+            .store(in: &subscription)
+    }
+    private func totalSunscribe() {
+        subscribeUrlRegion()
+        subscribeSearchBarText()
+        subscribeSummonerInfo()
+        subscribeLeagueInfo()
+        subscribeMatchList()
+        subscribeMatchInfos()
+    }
+    func totalRequest() {
+        service.totalRequest()
+    }
 }

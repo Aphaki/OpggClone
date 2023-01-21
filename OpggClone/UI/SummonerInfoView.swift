@@ -11,6 +11,7 @@ struct SummonerInfoView: View {
     
     var summoner: SummonerInfo
     var leagues: [SummonersLeagueElement]
+    var matchInfos: [MatchInfo]
     
     var body: some View {
         GeometryReader { geo in
@@ -53,6 +54,7 @@ struct SummonerInfoView: View {
                     } label: {
                         Text("인게임")
                             .foregroundColor(.white)
+                        
                             .frame(maxWidth: geo.size.width / 2)
                             .padding(.vertical, 10)
                             .background(RoundedRectangle(cornerRadius: 5).foregroundColor(.gray))
@@ -87,6 +89,12 @@ struct SummonerInfoView: View {
                         }
                     }
                 } //Scroll View
+                VStack {
+                    ForEach(matchInfos) { info in
+                        MatchListCell(matchInfo: info, summoner: summoner)
+                            .frame(maxWidth: .infinity)
+                    }
+                }
                 Spacer()
             }
             .ignoresSafeArea()
@@ -97,7 +105,7 @@ struct SummonerInfoView: View {
 
 struct SummonerInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        SummonerInfoView(summoner: myPreviewClass.summoner, leagues: myPreviewClass.leagues)
+        SummonerInfoView(summoner: myPreviewClass.summoner, leagues: myPreviewClass.leagues, matchInfos: myPreviewClass.matchInfos)
             .preferredColorScheme(.dark)
     }
 }

@@ -9,12 +9,19 @@ import SwiftUI
 
 struct SearchView: View {
     
-    @Binding var searchBarText: String
+    @EnvironmentObject var mainVM: MainViewModel
+    
+    @State var searchBarText: String = ""
+    @State var goToSummonerInfoView: Bool = false
+    
     var body: some View {
         VStack {
-            SearchBar(searchBarText: $searchBarText)
+            SearchBar(searchBarText: $searchBarText, goToSummonerInfoView: $goToSummonerInfoView)
                 .padding(5)
             Spacer()
+        }
+        .navigationDestination(isPresented: $goToSummonerInfoView) {
+            SummonerInfoView(summoner: mainVM.summonerInfo ?? MyPreviewClass.shared.summoner, leagues: mainVM.leagueInfo, matchInfos: mainVM.matchInfos)
         }
     }
 }
@@ -22,7 +29,8 @@ struct SearchView: View {
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            SearchView(searchBarText: .constant(""))
+            SearchView()
+                .environmentObject(myPreviewClass.mainVM)
         }
     }
 }
