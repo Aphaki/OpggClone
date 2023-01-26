@@ -21,20 +21,20 @@ class Service {
     @Published var matchInfos: [MatchInfo] = []
     @Published var matchInfo: MatchInfo?
     
-//    let spellInfo: SummonerSpell = InstanceOfSummonerSpell.instance.spellInfo
-    
-    
     var subscription = Set<AnyCancellable>()
     
     private func requestSummonerInfo(urlBaseHead: UrlHeadPoint, name: String)  {
+        
+        let encodedName = name.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+        
         ApiClient.shared.session
-            .request(Router.summoner(urlBaseHead: urlBaseHead, name: name))
+            .request(Router.summoner(urlBaseHead: urlBaseHead, name: encodedName))
             .publishDecodable(type: SummonerInfo.self)
             .value()
             .sink { completion in
                 print("Service - requestSummoner Info sink completion: \(completion)")
-            } receiveValue: { value in
-                self.summonerInfo = value
+            } receiveValue: { [weak self] value in
+                self?.summonerInfo = value
             }
             .store(in: &subscription)
     }
@@ -91,7 +91,7 @@ class Service {
     func totalRequest() {
         requestSummonerInfo(urlBaseHead: regionPicker, name: searchBarText)
         guard let summonerInfoG = summonerInfo else {
-            print("summonerInfo 가 없음")
+            print("Service - totalRequest() - summonerInfo 가 없음")
             return }
         requestLeagueInfo(urlBaseHead: regionPicker, encryptedSummonerId: summonerInfoG.name)
         requestMatchList(urlBaseHead: regionPicker, puuid: summonerInfoG.puuid)

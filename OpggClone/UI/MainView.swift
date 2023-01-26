@@ -24,13 +24,10 @@ struct MainView: View {
                     .navigationDestination(isPresented: $goSearchView) {
                         SearchView()
                     }
-                    .background(RoundedRectangle(cornerRadius: 10).foregroundColor(Color.myColor.myBlack))
+                    .background(RoundedRectangle(cornerRadius: 10).foregroundColor(Color.myColor.secondary))
                 MySummonerCard()
                     .padding(10)
-                    .background(RoundedRectangle(cornerRadius: 10).foregroundColor(Color.myColor.myBlack))
-                Spacer()
-                
-            } // List
+            }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Picker("Kr", selection: $mainVM.regionPicker) {
@@ -57,7 +54,7 @@ struct MainView: View {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Text("logo".uppercased())
                         .font(.largeTitle)
-                        .foregroundColor(Color.myColor.myDarkBlue)
+                        .foregroundColor(Color.myColor.darkBlue)
                 }
             }
         }
@@ -73,6 +70,7 @@ struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
             MainView()
+                .background(Color.myColor.appBG)
                 .preferredColorScheme(.dark)
         }
     }

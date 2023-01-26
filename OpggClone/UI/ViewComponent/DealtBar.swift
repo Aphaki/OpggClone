@@ -27,8 +27,8 @@ struct DealtBar: View {
             .foregroundColor(.white)
             .background(
                 ZStack(alignment: .leading) {
-                    RoundedRectangle(cornerRadius: 5).foregroundColor(Color.myColor.myGray)
-                    RoundedRectangle(cornerRadius: 5).foregroundColor(teamId == 100 ? Color.myColor.mylightBlue : Color.myColor.myRed)
+                    RoundedRectangle(cornerRadius: 5).foregroundColor(Color.myColor.gray)
+                    RoundedRectangle(cornerRadius: 5).foregroundColor(teamId == 100 ? Color.myColor.lightBlue : Color.myColor.red)
                         .frame(width: 50 * portion)
                 }
                  )

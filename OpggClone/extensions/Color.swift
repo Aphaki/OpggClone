@@ -9,13 +9,17 @@ import Foundation
 import SwiftUI
 
 extension Color {
-   static let myColor = CustomColor()
-    }
+    static let myColor = CustomColor()
+}
 
 struct CustomColor {
-    let mylightBlue = Color("myLightBlue")
-    let myDarkBlue = Color("myDarkBlue")
-    let myBlack = Color("myBlack")
-    let myGray = Color("myGray")
-    let myRed = Color("myRed")
+    let accentColor = Color("AccentColor")
+    let backgroundColor = Color("BackgroundColor")
+    let appBG = Color("AppBG")
+    let secondary = Color("Secondary")
+    let lightBlue = Color("LightBlue")
+    let darkBlue = Color("DarkBlue")
+    let black = Color("Black")
+    let gray = Color("Gray")
+    let red = Color("Red")
 }

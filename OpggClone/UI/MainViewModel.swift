@@ -23,7 +23,7 @@ class MainViewModel: ObservableObject {
     private var subscription = Set<AnyCancellable>()
     
     init() {
-        totalSunscribe()
+        totalSubscribe()
     }
     //MARK: - 구독
     private func subscribeUrlRegion() {
@@ -78,7 +78,7 @@ class MainViewModel: ObservableObject {
             }
             .store(in: &subscription)
     }
-    private func totalSunscribe() {
+    private func totalSubscribe() {
         subscribeUrlRegion()
         subscribeSearchBarText()
         subscribeSummonerInfo()

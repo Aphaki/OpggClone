@@ -21,6 +21,10 @@ struct MatchInfo: Codable, Identifiable {
     let id = UUID()
     let metadata: Metadata
     let info: Info
+    
+    enum CodingKeys: String, CodingKey {
+        case metadata, info
+    }
 }
 
 // MARK: - Info

@@ -17,14 +17,14 @@ struct MySummonerCard: View {
                     HStack(spacing: 0) {
                         ChampCell(champName: "Lux", winningRate: 75, kda: 5.67)
                             .frame(width: geo.size.width/3)
-                        ChampCell(champName: "modecaiser", winningRate: 100, kda: 4.25)
+                        ChampCell(champName: "Mordekaiser", winningRate: 100, kda: 4.25)
                             .frame(width: geo.size.width/3)
-                        ChampCell(champName: "Ezreal_0", winningRate: 50, kda: 10.67)
+                        ChampCell(champName: "Ezreal", winningRate: 50, kda: 10.67)
                             .frame(width: geo.size.width/3)
                     }
                 }
                 .frame(maxWidth: .infinity, minHeight: 120)
-                .background(RoundedRectangle(cornerRadius: 5).foregroundColor(.gray))
+                .background(RoundedRectangle(cornerRadius: 5).foregroundColor(Color.myColor.secondary))
                 Button {
                     print("자세히 보기 버튼 클릭")
                 } label: {
@@ -32,7 +32,7 @@ struct MySummonerCard: View {
                         .foregroundColor(.white)
                         .padding(10)
                         .frame(maxWidth: .infinity, minHeight: 55)
-                        .background(RoundedRectangle(cornerRadius: 5))
+                        .background(RoundedRectangle(cornerRadius: 5).foregroundColor(Color.myColor.darkBlue))
                 }
 
             }

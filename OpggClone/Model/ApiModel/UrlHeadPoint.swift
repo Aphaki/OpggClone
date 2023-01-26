@@ -63,9 +63,9 @@ enum UrlHeadPoint {
     }
     
     var urlBaseString: String {
-        return "https://\(nationString).api.riotgames.com/lol/summoner/v4/summoners/by-name/"
+        return "https://\(nationString).api.riotgames.com/"
     }
     var urlBaseAreaString: String {
-        return "https://\(areaString).api.riotgames.com/lol/summoner/v4/summoners/by-name/"
+        return "https://\(areaString).api.riotgames.com/"
     }
 }

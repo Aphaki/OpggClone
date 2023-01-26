@@ -34,11 +34,12 @@ struct SearchedUserCell: View {
                     .font(.headline)
                 HStack(spacing: 0) {
                     Text("Diamond 3  ")
-                    Image("DIAMOND")
+                    Image("DIAMOND".lowercased())
                         .resizable()
                         .frame(width: 13, height: 13)
                     Text("ㅣ36 LP")
                 }
+                .foregroundColor(Color.myColor.accentColor)
                 .font(.caption)
             }
             Spacer()

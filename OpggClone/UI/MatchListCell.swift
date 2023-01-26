@@ -36,7 +36,7 @@ struct MatchListCell: View {
             }
             .font(.caption)
             .frame(maxWidth: 40, maxHeight: 120)
-            .background(participant.win == true ? Color.myColor.mylightBlue : Color.myColor.myRed)
+            .background(participant.win == true ? Color.myColor.lightBlue : Color.myColor.red)
             .foregroundColor(.white)
             
             // 세부 정보
@@ -89,7 +89,7 @@ struct MatchListCell: View {
                                 Text(" \(participant.kills)")
                                 Text("/")
                                 Text("\(participant.deaths)")
-                                    .foregroundColor(Color.myColor.myRed)
+                                    .foregroundColor(Color.myColor.red)
                                 Text("/")
                                 Text("\(participant.assists)")
     //                            Text("  \(participant.kda.with2Demicals()):1")
@@ -98,13 +98,13 @@ struct MatchListCell: View {
                             }.font(.title)
                             Text("  킬 관여 \(participant.challenges["killParticipation"]?.changedPercentage() ?? "0" )%")
                                 .font(.caption)
-                                .foregroundColor(Color.myColor.myGray)
+                                .foregroundColor(Color.myColor.gray)
                         }
                         Spacer()
                         VStack {
                             Text("개인/2인 랭크")
                                 .font(.caption)
-                                .foregroundColor(Color.myColor.myGray)
+                                .foregroundColor(Color.myColor.gray)
 //                            Text((detatilRuneDic[participant.perks.styles.first!.selections.first!.perk] ?? ""))
                         }
                     }
@@ -122,9 +122,9 @@ struct MatchListCell: View {
                     Spacer()
                     Text(participant.pentaKills > 0 ? "펜타킬" : participant.quadraKills > 0 ? "쿼드라킬" : participant.tripleKills > 0 ? "트리플킬" : participant.doubleKills > 0 ? "더블킬" : "")
                         .font(.caption)
-                        .foregroundColor(Color.myColor.myRed)
+                        .foregroundColor(Color.myColor.red)
                         .padding(participant.pentaKills == 0 && participant.quadraKills == 0 && participant.tripleKills == 0 && participant.doubleKills == 0 ? 0 : 2)
-                        .background(RoundedRectangle(cornerRadius: 3).foregroundColor(Color.myColor.myRed.opacity(0.2)))
+                        .background(RoundedRectangle(cornerRadius: 3).foregroundColor(Color.myColor.red.opacity(0.2)))
                 }
                 .frame(height: 35)
             }

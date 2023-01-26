@@ -18,7 +18,7 @@ class BaseInterceptor: RequestInterceptor {
         request.addValue("https://developer.riotgames.com", forHTTPHeaderField: "Origin")
         
         //2022.12.29
-        request.addValue("RGAPI-0ab79807-fd6d-4186-a0f7-d562d7b404b0", forHTTPHeaderField: "X-Riot-Token")
+        request.addValue(ApiConstants.X_Riot_Token, forHTTPHeaderField: "X-Riot-Token")
         
         completion(.success(request))
     }

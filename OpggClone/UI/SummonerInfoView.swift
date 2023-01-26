@@ -21,7 +21,7 @@ struct SummonerInfoView: View {
                     AsyncImage(url: URL(string: "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_0.jpg")) { img in
                         img
                             .resizable()
-                            .frame(width: .infinity, height: geo.size.height / 4)
+                            .frame(width: geo.size.width, height: geo.size.height / 4)
                     } placeholder: {
                         Image(systemName: "questionmark.circle.fill")
                     }
@@ -37,7 +37,7 @@ struct SummonerInfoView: View {
                     .font(.caption)
                     .frame(maxWidth: .infinity)
                     .padding(5)
-                    .background(RoundedRectangle(cornerRadius: 5).foregroundColor(Color.myColor.myBlack))
+                    .background(RoundedRectangle(cornerRadius: 5).foregroundColor(Color.myColor.black))
                 HStack {
                     Button {
                         
@@ -46,7 +46,7 @@ struct SummonerInfoView: View {
                             .foregroundColor(.white)
                             .frame(maxWidth: geo.size.width / 2)
                             .padding(.vertical, 10)
-                            .background(RoundedRectangle(cornerRadius: 5).foregroundColor(Color.myColor.myDarkBlue))
+                            .background(RoundedRectangle(cornerRadius: 5).foregroundColor(Color.myColor.darkBlue))
                     }
                     Spacer()
                     Button {
@@ -72,7 +72,7 @@ struct SummonerInfoView: View {
                                     Text(league.queueType)
                                         .foregroundColor(.white)
                                         .padding(3)
-                                        .background(RoundedRectangle(cornerRadius: 5).foregroundColor(Color.myColor.mylightBlue))
+                                        .background(RoundedRectangle(cornerRadius: 5).foregroundColor(Color.myColor.lightBlue))
                                     Text(league.tier + " " + league.rank)
                                         .font(.headline)
                                     Text("\(league.leaguePoints)" + " LP")
@@ -126,7 +126,7 @@ extension SummonerInfoView {
                 .font(.caption)
                 .foregroundColor(.white)
                 .padding(2)
-                .background(RoundedRectangle(cornerRadius: 20).foregroundColor(Color.myColor.myBlack))
+                .background(RoundedRectangle(cornerRadius: 20).foregroundColor(Color.myColor.black))
         }
     }
     var nameAndRanking: some View {

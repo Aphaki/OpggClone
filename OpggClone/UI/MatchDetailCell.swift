@@ -48,7 +48,7 @@ struct MatchDetailCell: View {
                 Text("\(participant.champLevel)")
                     .font(.caption)
                     .foregroundColor(.white)
-                    .background(RoundedRectangle(cornerRadius: 5).foregroundColor(Color.myColor.myGray))
+                    .background(RoundedRectangle(cornerRadius: 5).foregroundColor(Color.myColor.gray))
             }
             //스펠
             VStack(spacing: 2) {
@@ -76,7 +76,7 @@ struct MatchDetailCell: View {
                         .resizable()
                         .frame(width: 20, height: 20)
                         .clipShape(RoundedRectangle(cornerRadius: 3))
-                        .background(RoundedRectangle(cornerRadius: 5).foregroundColor(Color.myColor.myBlack))
+                        .background(RoundedRectangle(cornerRadius: 5).foregroundColor(Color.myColor.black))
                 } placeholder: {
                     ProgressView()
                 }
@@ -97,7 +97,7 @@ struct MatchDetailCell: View {
                     Text(" \(participant.kills)")
                     Text("/")
                     Text("\(participant.deaths)")
-                        .foregroundColor(Color.myColor.myRed)
+                        .foregroundColor(Color.myColor.red)
                     Text("/")
                     Text("\(participant.assists)")
                     Text("")
@@ -128,7 +128,7 @@ struct MatchDetailCell: View {
             }
             .frame(width: 150)
         }
-        .background(summonerInfo.puuid == participant.puuid ? Color.myColor.myDarkBlue.opacity(0.5) : .clear)
+        .background(summonerInfo.puuid == participant.puuid ? Color.myColor.darkBlue.opacity(0.5) : .clear)
     }
 }
 

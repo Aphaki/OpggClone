@@ -12,7 +12,7 @@ final class ApiClient {
     
     static let shared = ApiClient()
     
-    let interceptors = Interceptor(interceptors: [])
+    let interceptors = Interceptor(interceptors: [BaseInterceptor()])
     
     let monitors = [ApiLogger()] as [EventMonitor]
     

@@ -76,7 +76,7 @@ struct MatchDetailView: View {
                             Text("\(selectedSummoner.kills)")
                             Text("/")
                             Text("\(selectedSummoner.deaths)")
-                                .foregroundColor(Color.myColor.myRed)
+                                .foregroundColor(Color.myColor.red)
                             Text("/")
                             Text("\(selectedSummoner.assists)")
                         }
@@ -88,18 +88,18 @@ struct MatchDetailView: View {
                 .background(
                 RoundedRectangle(cornerRadius: 10)
                     .foregroundColor(selectedSummoner.teamID == winTeamId
-                                     ? Color.myColor.myDarkBlue.opacity(0.5) : Color.myColor.myRed.opacity(0.5))
+                                     ? Color.myColor.darkBlue.opacity(0.5) : Color.myColor.red.opacity(0.5))
                 )
                 HStack(spacing: 3) {
                     Text("승리")
-                        .foregroundColor(Color.myColor.mylightBlue)
+                        .foregroundColor(Color.myColor.lightBlue)
                     Text(winTeamId == 100 ? "(블루)" : "(레드)")
                     if winTeamId == 100 {
                         HStack(spacing: 2) {
                             Text("  \(matchInfo.info.teams[0].objectives.champion.kills)")
                             Text("/")
                             Text("\(matchInfo.info.teams[1].objectives.champion.kills)")
-                                .foregroundColor(Color.myColor.myRed)
+                                .foregroundColor(Color.myColor.red)
                             Text("/")
                             Text("\(blueTeamAssist)")
                         }
@@ -108,7 +108,7 @@ struct MatchDetailView: View {
                             Text("  \(matchInfo.info.teams[1].objectives.champion.kills)")
                             Text("/")
                             Text("\(matchInfo.info.teams[0].objectives.champion.kills)")
-                                .foregroundColor(Color.myColor.myRed)
+                                .foregroundColor(Color.myColor.red)
                             Text("/")
                             Text("\(redTeamAssist)")
                         }
@@ -135,14 +135,14 @@ struct MatchDetailView: View {
             VStack(spacing: 5) {
                 HStack(spacing: 3) {
                     Text("패배")
-                        .foregroundColor(Color.myColor.myRed)
+                        .foregroundColor(Color.myColor.red)
                     Text(winTeamId == 100 ? "(레드)" : "(블루)")
                     if winTeamId == 200 {
                         HStack(spacing: 2) {
                             Text("  \(matchInfo.info.teams[0].objectives.champion.kills)")
                             Text("/")
                             Text("\(matchInfo.info.teams[1].objectives.champion.kills)")
-                                .foregroundColor(Color.myColor.myRed)
+                                .foregroundColor(Color.myColor.red)
                             Text("/")
                             Text("\(blueTeamAssist)")
                         }
@@ -151,7 +151,7 @@ struct MatchDetailView: View {
                             Text("  \(matchInfo.info.teams[1].objectives.champion.kills)")
                             Text("/")
                             Text("\(matchInfo.info.teams[0].objectives.champion.kills)")
-                                .foregroundColor(Color.myColor.myRed)
+                                .foregroundColor(Color.myColor.red)
                             Text("/")
                             Text("\(redTeamAssist)")
                         }
