@@ -8,16 +8,15 @@
 import Foundation
 import Alamofire
 
-final class ApiLogger: EventMonitor {
-    let queue = DispatchQueue(label: "Riot_API_Logger")
+class ApiLogger: EventMonitor {
+    let queue: DispatchQueue = DispatchQueue(label: "MyLab_ApiLogger")
     
-    /// Event called when a `Request` receives a `resume` call.
     func requestDidResume(_ request: Request) {
-        print("ApiLogger: RequestDidResume() 발동")
+        print("ApiLogger - requestDidResume() - \(request)")
     }
     
-    /// Event called when a `DataRequest` calls a `ResponseSerializer` and creates a generic `DataResponse<Value, AFError>`.
     func request<Value>(_ request: DataRequest, didParseResponse response: DataResponse<Value, AFError>) {
         debugPrint("ApiLogger - Finished: \(response)")
     }
+    
 }

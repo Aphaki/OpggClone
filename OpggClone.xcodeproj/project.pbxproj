@@ -105,6 +105,7 @@
 		7F9215B12976FC4B00BA67B7 /* RuneReforged.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuneReforged.swift; sourceTree = "<group>"; };
 		7FABB753296EBB7200C5FB07 /* SummonerInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerInfoView.swift; sourceTree = "<group>"; };
 		7FABB755296EC31D00C5FB07 /* PriviewProviders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriviewProviders.swift; sourceTree = "<group>"; };
+		7FBB57ED2984350B00DF0E29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		7FBBCB702968657E000C5F71 /* MySummonerCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySummonerCard.swift; sourceTree = "<group>"; };
 		7FBBCB7229695AA3000C5F71 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		7FBBCB752969C4FB000C5F71 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
@@ -142,9 +143,10 @@
 			isa = PBXGroup;
 			children = (
 				7F147CE3295D77B4008BF262 /* ApiClient.swift */,
-				7F033129295ED42500FB86D6 /* Router.swift */,
-				7F147CE8295D792D008BF262 /* ApiLogger.swift */,
 				7F147CEA295D7CF3008BF262 /* BaseInterceptor.swift */,
+				7F147CE8295D792D008BF262 /* ApiLogger.swift */,
+				7F033129295ED42500FB86D6 /* Router.swift */,
+				7FC15B6C295DC26B00605F1D /* UrlHeadPoint.swift */,
 				7F2934E92959AE8E00EEB2E8 /* ApiConstants.swift */,
 			);
 			path = API;
@@ -180,7 +182,6 @@
 		7F2934E02959772F00EEB2E8 /* ApiModel */ = {
 			isa = PBXGroup;
 			children = (
-				7FC15B6C295DC26B00605F1D /* UrlHeadPoint.swift */,
 				7F2934E12959779200EEB2E8 /* SummonerInfo.swift */,
 				7F2934E729598F0C00EEB2E8 /* SummonersLeagueElement.swift */,
 				7F2934E329597B6900EEB2E8 /* MatchIDs.swift */,
@@ -212,6 +213,7 @@
 		7F6BC7592955AA3900A87DC2 /* OpggClone */ = {
 			isa = PBXGroup;
 			children = (
+				7FBB57ED2984350B00DF0E29 /* Info.plist */,
 				7F9215A829769D8000BA67B7 /* JSON */,
 				7F6BC75A2955AA3900A87DC2 /* OpggCloneApp.swift */,
 				7F842D0F296C69B400AB206F /* Service.swift */,
@@ -614,7 +616,7 @@
 				DEVELOPMENT_TEAM = JSZ2KS27AG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = OpggClone/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -643,7 +645,7 @@
 				DEVELOPMENT_TEAM = JSZ2KS27AG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = OpggClone/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

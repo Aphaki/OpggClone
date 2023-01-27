@@ -9,18 +9,16 @@ import Foundation
 import Alamofire
 
 final class ApiClient {
-    
     static let shared = ApiClient()
     
     let interceptors = Interceptor(interceptors: [BaseInterceptor()])
     
-    let monitors = [ApiLogger()] as [EventMonitor]
+    let monitors: [EventMonitor] = [ApiLogger()]
     
     var session: Session
     
     init() {
-        print("ApiClient- init() called")
+        print("ApiClient - init()")
         session = Session(interceptor: interceptors, eventMonitors: monitors)
     }
-    
 }

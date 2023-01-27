@@ -25,6 +25,7 @@ struct SearchBar: View {
                     // vm.서버에 리퀘스트 (searchBarText로)
                     print("search 버튼 클릭")
                     goToSummonerInfoView.toggle()
+                    mainVM.searchBarText = searchBarText
                     mainVM.totalRequest()
                 }
                 .submitLabel(.search)

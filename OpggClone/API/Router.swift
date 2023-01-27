@@ -14,7 +14,7 @@ enum Router: URLRequestConvertible {
     case league(urlBaseHead:UrlHeadPoint, encryptedSummonerId: String)
     case match(urlBaseHead:UrlHeadPoint, puuid: String)
     case matchInfo(urlBaseHead:UrlHeadPoint, matchId: String)
-    
+
     var baseURL: URL {
         switch self {
         case let .summoner(urlBaseHead, _):
@@ -27,29 +27,68 @@ enum Router: URLRequestConvertible {
             return URL(string: urlBaseHead.urlBaseAreaString)!
         }
     }
-    
+
     var method: HTTPMethod {
         return .get
     }
     var path: String {
         switch self {
         case let .summoner(_, name):
-            return "/lol/summoner/v4/summoners/by-name/\(name)"
+            let encodedName = name.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+            return "lol/summoner/v4/summoners/by-name/\(encodedName)"
         case let .league(_, encryptedSummonerId):
-            return "/lol/league/v4/entries/by-summoner/\(encryptedSummonerId)"
+            return "lol/league/v4/entries/by-summoner/\(encryptedSummonerId)"
         case let .match(_, puuid):
-            return "/lol/match/v5/matches/by-puuid/\(puuid)/ids"
+            return "lol/match/v5/matches/by-puuid/\(puuid)/ids"
         case let .matchInfo(_, matchID):
-            return "/lol/match/v5/matches/\(matchID)"
+            return "lol/match/v5/matches/\(matchID)"
         }
     }
     
+//    var parameter: [String:String] {
+//
+//        return [ "api_key" : MyConstants.X_Riot_Token ]
+//    }
+
     func asURLRequest() throws -> URLRequest {
-        
-        let url = baseURL.appendingPathExtension(path)
+
+        let url = baseURL.appendingPathComponent(path)
         var request = URLRequest(url: url)
         request.method = method
+        print("Router - asURLRequest() - url: \(url)")
         
+//        request = try URLEncodedFormParameterEncoder().encode(parameter, into: request)
+//        print("\(request)")
+
         return request
     }
+    
+    
+    
+//    case summoner(name: String)
+//    var baseURL: URL {
+//        return URL(string: UrlHeadPoint.kr.urlBaseString)!
+//    }
+//    var method: HTTPMethod {
+//        return .get
+//    }
+//    var path: String {
+//        switch self {
+//        case let .summoner(name):
+//            let encodedName = name.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+//            return "lol/summoner/v4/summoners/by-name/\(encodedName)"
+//        }
+//    }
+//
+//
+//    func asURLRequest() throws -> URLRequest {
+//        let url = baseURL.appendingPathComponent(path)
+//        var request = URLRequest(url: url)
+//        request.method = method
+//        print("Router - asURLRequest() - url: \(url)")
+//
+//        return request
+//    }
+    
+    
 }

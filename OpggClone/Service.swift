@@ -25,12 +25,14 @@ class Service {
     
     private func requestSummonerInfo(urlBaseHead: UrlHeadPoint, name: String)  {
         
-        let encodedName = name.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
-        
         ApiClient.shared.session
-            .request(Router.summoner(urlBaseHead: urlBaseHead, name: encodedName))
+            .request(Router.summoner(urlBaseHead: urlBaseHead, name: name))
             .publishDecodable(type: SummonerInfo.self)
-            .value()
+            .map({ output in
+                debugPrint(output.error ?? "no error")
+                print("ResponseCode : \(String(describing: output.response?.statusCode))")
+                return output.value
+            })
             .sink { completion in
                 print("Service - requestSummoner Info sink completion: \(completion)")
             } receiveValue: { [weak self] value in
@@ -90,14 +92,14 @@ class Service {
     
     func totalRequest() {
         requestSummonerInfo(urlBaseHead: regionPicker, name: searchBarText)
-        guard let summonerInfoG = summonerInfo else {
-            print("Service - totalRequest() - summonerInfo 가 없음")
-            return }
-        requestLeagueInfo(urlBaseHead: regionPicker, encryptedSummonerId: summonerInfoG.name)
-        requestMatchList(urlBaseHead: regionPicker, puuid: summonerInfoG.puuid)
-        for matchid in matchList {
-            requestMatchInfo(urlBaseHead: regionPicker, matchId: matchid)
-        }
+//        guard let summonerInfoG = summonerInfo else {
+//            print("Service - totalRequest() - summonerInfo 가 없음")
+//            return }
+//        requestLeagueInfo(urlBaseHead: regionPicker, encryptedSummonerId: summonerInfoG.name)
+//        requestMatchList(urlBaseHead: regionPicker, puuid: summonerInfoG.puuid)
+//        for matchid in matchList {
+//            requestMatchInfo(urlBaseHead: regionPicker, matchId: matchid)
+//        }
     }
     func getSummernerMatchInfo(summonerID: String) {
         

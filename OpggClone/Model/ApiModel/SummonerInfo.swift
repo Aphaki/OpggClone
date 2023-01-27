@@ -18,7 +18,9 @@ struct SummonerInfo: Codable {
     let revisionDate: Int
     let summonerLevel: Int
     
-    
+    enum CodingKeys: String, CodingKey {
+        case id, accountId, puuid, name, profileIconId, revisionDate, summonerLevel
+    }
 }
 /*
  {
