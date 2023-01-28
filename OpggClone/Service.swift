@@ -23,7 +23,7 @@ class Service {
     
     var subscription = Set<AnyCancellable>()
     
-    private func requestSummonerInfo(urlBaseHead: UrlHeadPoint, name: String)  {
+    func requestSummonerInfo(urlBaseHead: UrlHeadPoint, name: String)  {
         
         ApiClient.shared.session
             .request(Router.summoner(urlBaseHead: urlBaseHead, name: name))

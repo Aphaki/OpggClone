@@ -86,7 +86,11 @@ class MainViewModel: ObservableObject {
         subscribeMatchList()
         subscribeMatchInfos()
     }
-    func totalRequest() {
-        service.totalRequest()
+//    func totalRequest() {
+//        service.totalRequest()
+//    }
+    func fetchSummonerInfo(urlBase: UrlHeadPoint, name: String) {
+        service.requestSummonerInfo(urlBaseHead: urlBase, name: name)
     }
+    
 }
