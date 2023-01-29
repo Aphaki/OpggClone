@@ -91,6 +91,10 @@ class MainViewModel: ObservableObject {
 //    }
     func fetchSummonerInfo(urlBase: UrlHeadPoint, name: String) {
         service.requestSummonerInfo(urlBaseHead: urlBase, name: name)
+        
+        guard let encryptedSummonerId = service.summonerInfo?.id else { print("summonerInfo 없음"); return }
+        service.requestLeagueInfo(urlBaseHead: urlBase, encryptedSummonerId: encryptedSummonerId)
+        
     }
     
 }

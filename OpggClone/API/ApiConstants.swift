@@ -8,5 +8,5 @@
 import Foundation
 
 enum ApiConstants {
-    static let X_Riot_Token: String = "RGAPI-f778f7eb-8384-4235-a64e-6fe1e8b125c2"
+    static let X_Riot_Token: String = "RGAPI-b9ba51d7-a3ba-4f54-ad24-cea1fd7ce0c0"
 }

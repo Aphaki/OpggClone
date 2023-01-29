@@ -34,8 +34,7 @@ enum Router: URLRequestConvertible {
     var path: String {
         switch self {
         case let .summoner(_, name):
-            let encodedName = name.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
-            return "lol/summoner/v4/summoners/by-name/\(encodedName)"
+            return "lol/summoner/v4/summoners/by-name/\(name)"
         case let .league(_, encryptedSummonerId):
             return "lol/league/v4/entries/by-summoner/\(encryptedSummonerId)"
         case let .match(_, puuid):

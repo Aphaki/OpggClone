@@ -40,7 +40,7 @@ class Service {
             }
             .store(in: &subscription)
     }
-    private func requestLeagueInfo(urlBaseHead: UrlHeadPoint, encryptedSummonerId: String)  {
+    func requestLeagueInfo(urlBaseHead: UrlHeadPoint, encryptedSummonerId: String)  {
         ApiClient.shared.session
             .request(Router.league(urlBaseHead: urlBaseHead, encryptedSummonerId: encryptedSummonerId))
             .publishDecodable(type: [SummonersLeagueElement].self)
@@ -52,7 +52,7 @@ class Service {
             }
             .store(in: &subscription)
     }
-    private func requestMatchList(urlBaseHead: UrlHeadPoint, puuid: String)  {
+    func requestMatchList(urlBaseHead: UrlHeadPoint, puuid: String)  {
         ApiClient.shared.session
             .request(Router.match(urlBaseHead: urlBaseHead, puuid: puuid))
             .publishDecodable(type: MatchIDs.self)
@@ -64,7 +64,7 @@ class Service {
             }
             .store(in: &subscription)
     }
-    private func requestMatchInfo(urlBaseHead: UrlHeadPoint, matchId: String)  {
+    func requestMatchInfo(urlBaseHead: UrlHeadPoint, matchId: String)  {
         ApiClient.shared.session
             .request(Router.matchInfo(urlBaseHead: urlBaseHead, matchId: matchId))
             .publishDecodable(type: MatchInfo.self)
@@ -89,23 +89,4 @@ class Service {
             .store(in: &subscription)
         }
 
-    
-    func totalRequest() {
-        requestSummonerInfo(urlBaseHead: regionPicker, name: searchBarText)
-//        guard let summonerInfoG = summonerInfo else {
-//            print("Service - totalRequest() - summonerInfo 가 없음")
-//            return }
-//        requestLeagueInfo(urlBaseHead: regionPicker, encryptedSummonerId: summonerInfoG.name)
-//        requestMatchList(urlBaseHead: regionPicker, puuid: summonerInfoG.puuid)
-//        for matchid in matchList {
-//            requestMatchInfo(urlBaseHead: regionPicker, matchId: matchid)
-//        }
-    }
-    func getSummernerMatchInfo(summonerID: String) {
-        
-//        let participant =
-//        matchInfo?.info.participants.first(where: { aParticipant in
-//           return aParticipant.summonerID == summonerID
-//        })
-    }
 }
