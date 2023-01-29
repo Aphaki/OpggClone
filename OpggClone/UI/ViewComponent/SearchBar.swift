@@ -26,7 +26,10 @@ struct SearchBar: View {
                     print("search 버튼 클릭")
                     goToSummonerInfoView.toggle()
                     mainVM.searchBarText = self.searchBarText
-                    mainVM.fetchSummonerInfo(urlBase: mainVM.regionPicker, name: mainVM.searchBarText)
+                    Task {
+                       try await mainVM.fetchSummonerInfo(urlBase: mainVM.regionPicker, name: mainVM.searchBarText)
+                    }
+                    
                 }
                 .submitLabel(.search)
             if !searchBarText.isEmpty {

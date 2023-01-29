@@ -15,88 +15,92 @@ struct SummonerInfoView: View {
     
     var body: some View {
         GeometryReader { geo in
-            VStack {
-                ZStack(alignment: .bottomLeading) {
-                    //배경화면
-                    AsyncImage(url: URL(string: "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_0.jpg")) { img in
-                        img
-                            .resizable()
-                            .frame(width: geo.size.width, height: geo.size.height / 4)
-                    } placeholder: {
-                        Image(systemName: "questionmark.circle.fill")
-                    }
-                    HStack {
-                        icon
-                            .padding(.vertical, 10)
-                            .padding(.leading, 10)
-                        nameAndRanking
-                    }
-                }
-                //ZStack
-                Text("라이엇 계정을 연동하고 나만의 프로필을 설정해보세요!")
-                    .font(.caption)
-                    .frame(maxWidth: .infinity)
-                    .padding(5)
-                    .background(RoundedRectangle(cornerRadius: 5).foregroundColor(Color.myColor.black))
-                HStack {
-                    Button {
-                        
-                    } label: {
-                        Text("전적 갱신")
-                            .foregroundColor(.white)
-                            .frame(maxWidth: geo.size.width / 2)
-                            .padding(.vertical, 10)
-                            .background(RoundedRectangle(cornerRadius: 5).foregroundColor(Color.myColor.darkBlue))
-                    }
-                    Spacer()
-                    Button {
-                        
-                    } label: {
-                        Text("인게임")
-                            .foregroundColor(.white)
-                        
-                            .frame(maxWidth: geo.size.width / 2)
-                            .padding(.vertical, 10)
-                            .background(RoundedRectangle(cornerRadius: 5).foregroundColor(.gray))
-                    }
-                }
-                
-                ScrollView(.horizontal) {
-                    HStack {
-                        ForEach(leagues) { league in
-                            HStack {
-                                Image(league.tier.lowercased())
-                                    .resizable()
-                                    .frame(width: 100, height: 100)
-                                VStack(alignment: .leading, spacing: 5) {
-                                    Text(league.queueType)
-                                        .foregroundColor(.white)
-                                        .padding(3)
-                                        .background(RoundedRectangle(cornerRadius: 5).foregroundColor(Color.myColor.lightBlue))
-                                    Text(league.tier + " " + league.rank)
-                                        .font(.headline)
-                                    Text("\(league.leaguePoints)" + " LP")
-                                        .font(.caption)
-                                        .foregroundColor(.gray)
-                                    Text("\(league.wins)승 \(league.losses)패  \(league.winRates)%")
-                                        .font(.caption)
-                                        .foregroundColor(.gray)
-                                }
-                                Image(systemName: "chevron.forward")
-                            }
-                            .padding(10)
-                            .background(RoundedRectangle(cornerRadius: 10).stroke(lineWidth: 1))
+            ScrollView {
+                VStack {
+                    ZStack(alignment: .bottomLeading) {
+                        //배경화면
+                        AsyncImage(url: URL(string: "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_0.jpg")) { img in
+                            img
+                                .resizable()
+                                .frame(width: geo.size.width, height: geo.size.height / 4)
+                        } placeholder: {
+                            Image(systemName: "questionmark.circle.fill")
+                        }
+                        HStack {
+                            icon
+                                .padding(.vertical, 10)
+                                .padding(.leading, 10)
+                            nameAndRanking
                         }
                     }
-                } //Scroll View
-                VStack {
-                    ForEach(matchInfos) { info in
-                        MatchListCell(matchInfo: info, summoner: summoner)
-                            .frame(maxWidth: .infinity)
+                    //ZStack
+                    Text("라이엇 계정을 연동하고 나만의 프로필을 설정해보세요!")
+                        .font(.caption)
+                        .foregroundColor(Color.myColor.accentColor)
+                        .frame(maxWidth: .infinity)
+                        .padding(5)
+                        .background(RoundedRectangle(cornerRadius: 5).foregroundColor(Color.myColor.backgroundColor))
+                    HStack {
+                        Button {
+                            
+                        } label: {
+                            Text("전적 갱신")
+                                .foregroundColor(.white)
+                                .frame(maxWidth: geo.size.width / 2)
+                                .padding(.vertical, 10)
+                                .background(RoundedRectangle(cornerRadius: 5).foregroundColor(Color.myColor.darkBlue))
+                        }
+                        Spacer()
+                        Button {
+                            
+                        } label: {
+                            Text("인게임")
+                                .foregroundColor(.white)
+                            
+                                .frame(maxWidth: geo.size.width / 2)
+                                .padding(.vertical, 10)
+                                .background(RoundedRectangle(cornerRadius: 5).foregroundColor(.gray))
+                        }
                     }
+                    
+                    ScrollView(.horizontal) {
+                        HStack {
+                            ForEach(leagues) { league in
+                                HStack {
+                                    Image(league.tier.lowercased())
+                                        .resizable()
+                                        .frame(width: 100, height: 100)
+                                    VStack(alignment: .leading, spacing: 5) {
+                                        Text(league.queueType)
+                                            .foregroundColor(.white)
+                                            .padding(3)
+                                            .background(RoundedRectangle(cornerRadius: 5).foregroundColor(Color.myColor.lightBlue))
+                                        Text(league.tier + " " + league.rank)
+                                            .font(.headline)
+                                        Text("\(league.leaguePoints)" + " LP")
+                                            .font(.caption)
+                                            .foregroundColor(.gray)
+                                        Text("\(league.wins)승 \(league.losses)패  \(league.winRates)%")
+                                            .font(.caption)
+                                            .foregroundColor(.gray)
+                                    }
+                                    Image(systemName: "chevron.forward")
+                                }
+                                .padding(10)
+                                .background(RoundedRectangle(cornerRadius: 10).stroke(lineWidth: 1))
+                            }
+                        }
+                    } //Scroll View
+                    VStack {
+                        ForEach(matchInfos) { info in
+                            MatchListCell(matchInfo: info, summoner: summoner)
+                                .frame(maxWidth: .infinity)
+                        }
+                    }
+                    Spacer()
                 }
-                Spacer()
             }
+            
             .ignoresSafeArea()
         }
     }

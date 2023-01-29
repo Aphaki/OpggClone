@@ -47,6 +47,7 @@
 		7FBBCB762969C4FB000C5F71 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBBCB752969C4FB000C5F71 /* MainViewModel.swift */; };
 		7FC15B6D295DC26B00605F1D /* UrlHeadPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC15B6C295DC26B00605F1D /* UrlHeadPoint.swift */; };
 		7FCC3E05297805D8002DBEF8 /* MatchDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCC3E04297805D8002DBEF8 /* MatchDetailCell.swift */; };
+		7FF094B92986C6A7009F5073 /* summoner.json in Resources */ = {isa = PBXBuildFile; fileRef = 7FF094B82986C6A7009F5073 /* summoner.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,7 +101,6 @@
 		7F6BC7842955AADB00A87DC2 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		7F6BC7862955B08200A87DC2 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		7F842D0F296C69B400AB206F /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
-		7F9215A929769D8800BA67B7 /* summoner.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = summoner.json; sourceTree = "<group>"; };
 		7F9215AA29769E4D00BA67B7 /* runesReforged.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = runesReforged.json; sourceTree = "<group>"; };
 		7F9215B12976FC4B00BA67B7 /* RuneReforged.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuneReforged.swift; sourceTree = "<group>"; };
 		7FABB753296EBB7200C5FB07 /* SummonerInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerInfoView.swift; sourceTree = "<group>"; };
@@ -111,6 +111,7 @@
 		7FBBCB752969C4FB000C5F71 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		7FC15B6C295DC26B00605F1D /* UrlHeadPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlHeadPoint.swift; sourceTree = "<group>"; };
 		7FCC3E04297805D8002DBEF8 /* MatchDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchDetailCell.swift; sourceTree = "<group>"; };
+		7FF094B82986C6A7009F5073 /* summoner.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = summoner.json; path = "../../../../Downloads/dragontail-12.23.1/12.23.1/data/ko_KR/summoner.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,7 +257,7 @@
 		7F9215A829769D8000BA67B7 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
-				7F9215A929769D8800BA67B7 /* summoner.json */,
+				7FF094B82986C6A7009F5073 /* summoner.json */,
 				7F9215AA29769E4D00BA67B7 /* runesReforged.json */,
 				7F1E199D2979998C00A84E8E /* KR_6316414751.json */,
 			);
@@ -395,6 +396,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FF094B92986C6A7009F5073 /* summoner.json in Resources */,
 				7F6BC7622955AA3900A87DC2 /* Preview Assets.xcassets in Resources */,
 				7F6BC75F2955AA3900A87DC2 /* Assets.xcassets in Resources */,
 				7F1E199E2979998C00A84E8E /* KR_6316414751.json in Resources */,

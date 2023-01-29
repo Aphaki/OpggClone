@@ -89,12 +89,8 @@ class MainViewModel: ObservableObject {
 //    func totalRequest() {
 //        service.totalRequest()
 //    }
-    func fetchSummonerInfo(urlBase: UrlHeadPoint, name: String) {
-        service.requestSummonerInfo(urlBaseHead: urlBase, name: name)
-        
-        guard let encryptedSummonerId = service.summonerInfo?.id else { print("summonerInfo 없음"); return }
-        service.requestLeagueInfo(urlBaseHead: urlBase, encryptedSummonerId: encryptedSummonerId)
-        
+    func fetchSummonerInfo(urlBase: UrlHeadPoint, name: String) async throws {
+       try await service.totalRequest(urlBaseHead: urlBase, name: name)
     }
     
 }
