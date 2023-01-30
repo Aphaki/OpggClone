@@ -23,7 +23,7 @@ struct MatchListCell: View {
     let spellDictionary = JsonInstance.shared.spellStore
     let primaryRuneDic = JsonInstance.shared.primaryRuneDic
     let detatilRuneDic = JsonInstance.shared.detailRuneDic
-    
+    let queueTypeDic = JsonInstance.shared.queueType
     
     
     var body: some View {
@@ -70,10 +70,20 @@ struct MatchListCell: View {
                             }
                         }
                         VStack(spacing: 2) {
-                            Image((detatilRuneDic[participant.perks.styles.first!.selections.first!.perk] ?? ""))
-                                .resizable()
-                                .frame(width: 25, height: 25)
-                                .clipShape(RoundedRectangle(cornerRadius: 7))
+                            
+                            AsyncImage(url: URL(string:  "https://ddragon.leagueoflegends.com/cdn/img/" + (detatilRuneDic[participant.perks.styles[0].selections[0].perk] ?? ""))) { img in
+                                img
+                                    .resizable()
+                                    .frame(width: 25, height: 25)
+                                    .clipShape(RoundedRectangle(cornerRadius: 7))
+                            } placeholder: {
+                                ProgressView()
+                            }
+
+//                            Image((detatilRuneDic[participant.perks.styles.first!.selections.first!.perk] ?? ""))
+//                                .resizable()
+//                                .frame(width: 25, height: 25)
+//                                .clipShape(RoundedRectangle(cornerRadius: 7))
                             AsyncImage(url: URL(string: "https://ddragon.leagueoflegends.com/cdn/img/" + (primaryRuneDic[participant.perks.styles[1].style] ?? ""))) { img in
                                 img
                                     .resizable()
@@ -102,7 +112,7 @@ struct MatchListCell: View {
                         }
                         Spacer()
                         VStack {
-                            Text("개인/2인 랭크")
+                            Text(queueTypeDic[matchInfo.info.queueID.description] ?? "기타")
                                 .font(.caption)
                                 .foregroundColor(Color.myColor.gray)
 //                            Text((detatilRuneDic[participant.perks.styles.first!.selections.first!.perk] ?? ""))

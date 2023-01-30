@@ -12,6 +12,7 @@ struct SummonerInfoView: View {
     var summoner: SummonerInfo
     var leagues: [SummonersLeagueElement]
     var matchInfos: [MatchInfo]
+    var queueTypeDic: [String:String] = JsonInstance.shared.queueType
     
     var body: some View {
         GeometryReader { geo in
@@ -56,10 +57,9 @@ struct SummonerInfoView: View {
                         } label: {
                             Text("인게임")
                                 .foregroundColor(.white)
-                            
                                 .frame(maxWidth: geo.size.width / 2)
                                 .padding(.vertical, 10)
-                                .background(RoundedRectangle(cornerRadius: 5).foregroundColor(.gray))
+                                .background(RoundedRectangle(cornerRadius: 5).foregroundColor(Color.myColor.gray))
                         }
                     }
                     
@@ -71,7 +71,7 @@ struct SummonerInfoView: View {
                                         .resizable()
                                         .frame(width: 100, height: 100)
                                     VStack(alignment: .leading, spacing: 5) {
-                                        Text(league.queueType)
+                                        Text(queueTypeDic[league.queueType] ?? "기타")
                                             .foregroundColor(.white)
                                             .padding(3)
                                             .background(RoundedRectangle(cornerRadius: 5).foregroundColor(Color.myColor.lightBlue))
@@ -86,6 +86,7 @@ struct SummonerInfoView: View {
                                     }
                                     Image(systemName: "chevron.forward")
                                 }
+                                .frame(width: 240)
                                 .padding(10)
                                 .background(RoundedRectangle(cornerRadius: 10).stroke(lineWidth: 1))
                             }

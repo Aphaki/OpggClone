@@ -81,5 +81,5 @@ class JsonInstance {
         
         return [:]
     }
-    
+    var queueType: [String:String] = ["RANKED_SOLO_5x5":"개인/2인 랭크", "RANKED_FLEX_SR":"자유랭크", "420":"개인/2인 랭크", "430":"일반" , "440":"자유랭크", "450":"무작위 총력전"]
 }

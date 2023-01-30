@@ -135,6 +135,6 @@ struct MatchDetailCell: View {
 struct MatchDetailCell_Previews: PreviewProvider {
     static var previews: some View {
         MatchDetailCell(participant: myPreviewClass.aSummonerInfo, matchInfo: myPreviewClass.matchInfo, summonerInfo: myPreviewClass.summoner)
-            .preferredColorScheme(.dark)
+            
     }
 }
