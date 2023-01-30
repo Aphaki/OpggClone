@@ -92,10 +92,17 @@ struct SummonerInfoView: View {
                             }
                         }
                     } //Scroll View
-                    VStack {
+                    VStack(spacing:0) {
                         ForEach(matchInfos) { info in
-                            MatchListCell(matchInfo: info, summoner: summoner)
-                                .frame(maxWidth: .infinity)
+                            Divider()
+                            NavigationLink {
+                                MatchDetailView(matchInfo: info, summonerInfo: summoner)
+                            } label: {
+                                MatchListCell(matchInfo: info, summoner: summoner)
+                                    .frame(maxWidth: .infinity)
+                            }
+
+                            
                         }
                     }
                     Spacer()
@@ -108,12 +115,12 @@ struct SummonerInfoView: View {
 }
 
 
-struct SummonerInfoView_Previews: PreviewProvider {
-    static var previews: some View {
-        SummonerInfoView(summoner: myPreviewClass.summoner, leagues: myPreviewClass.leagues, matchInfos: myPreviewClass.matchInfos)
-            .preferredColorScheme(.dark)
-    }
-}
+//struct SummonerInfoView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SummonerInfoView(summoner: myPreviewClass.summoner, leagues: myPreviewClass.leagues, matchInfos: myPreviewClass.matchInfos)
+//            .preferredColorScheme(.dark)
+//    }
+//}
 
 extension SummonerInfoView {
     

@@ -21,7 +21,8 @@ struct SearchView: View {
             Spacer()
         }
         .navigationDestination(isPresented: $goToSummonerInfoView) {
-            SummonerInfoView(summoner: mainVM.summonerInfo ?? MyPreviewClass.shared.summoner, leagues: mainVM.leagueInfo, matchInfos: mainVM.matchInfos)
+//            SummonerInfoView(summoner: mainVM.summonerInfo ?? MyPreviewClass.shared.summoner, leagues: mainVM.leagueInfo, matchInfos: mainVM.matchInfos)
+            SummonerInfoLoadingView(summonerInfo: $mainVM.summonerInfo, leagues: $mainVM.leagueInfo, matchInfos: $mainVM.matchInfos, goToSummonerInfoView: $goToSummonerInfoView)
         }
     }
 }

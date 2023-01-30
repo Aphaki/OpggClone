@@ -90,7 +90,6 @@ class Service {
         self.summonerInfo = aSummonerInfo
         self.leagueInfo = leaguesInfo
         self.matchInfos = matchInfos
-        
     }
 
 }
