@@ -18,6 +18,7 @@ class MainViewModel: ObservableObject {
     @Published var matchInfos: [MatchInfo] = []
     @Published var matchInfo: MatchInfo?
     
+    @Published var isLoading: Bool = false
     
     private var service = Service()
     private var subscription = Set<AnyCancellable>()
@@ -78,6 +79,15 @@ class MainViewModel: ObservableObject {
             }
             .store(in: &subscription)
     }
+    private func subscribeIsLoading() {
+        service.$isLoading
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] receivedBool in
+                self?.isLoading = receivedBool
+            }
+            .store(in: &subscription)
+    }
+    
     private func totalSubscribe() {
         subscribeUrlRegion()
         subscribeSearchBarText()
@@ -85,11 +95,18 @@ class MainViewModel: ObservableObject {
         subscribeLeagueInfo()
         subscribeMatchList()
         subscribeMatchInfos()
+        subscribeIsLoading()
     }
 //    func totalRequest() {
 //        service.totalRequest()
 //    }
     func fetchSummonerInfo(urlBase: UrlHeadPoint, name: String) async throws {
+        
+        DispatchQueue.main.schedule {
+            self.isLoading = true
+        }
+        
+        
        try await service.totalRequest(urlBaseHead: urlBase, name: name)
     }
     

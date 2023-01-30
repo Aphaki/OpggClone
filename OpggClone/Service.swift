@@ -20,6 +20,8 @@ class Service {
     @Published var matchList: [String] = []
     @Published var matchInfos: [MatchInfo] = []
     
+    @Published var isLoading: Bool = false
+    
     var subscription = Set<AnyCancellable>()
     
     func requestSummonerInfo(urlBaseHead: UrlHeadPoint, name: String) async throws -> SummonerInfo {
@@ -72,16 +74,19 @@ class Service {
     }
     
     func totalRequest(urlBaseHead: UrlHeadPoint, name: String) async throws {
+        
        let aSummonerInfo =
         try await requestSummonerInfo(urlBaseHead: urlBaseHead, name: name)
         
         let encryptedSummonerId = aSummonerInfo.id
-        let leaguesInfo =
+        async let fetchLeaguesInfo =
         try await requestLeaguesInfo(urlBaseHead: urlBaseHead, encryptedSummonerId: encryptedSummonerId)
         
         let puuid = aSummonerInfo.puuid
-        let matchIds =
+        async let fetchMatchIds =
         try await requestMatchList(urlBaseHead: urlBaseHead, puuid: puuid)
+        
+        let (leaguesInfo, matchIds) = try await (fetchLeaguesInfo, fetchMatchIds)
         
         let matchInfos =
         try await requestMatchInfos(urlBaseHead: urlBaseHead, matchIds: matchIds)
@@ -90,6 +95,8 @@ class Service {
         self.summonerInfo = aSummonerInfo
         self.leagueInfo = leaguesInfo
         self.matchInfos = matchInfos
+        
+        self.isLoading = false
     }
 
 }

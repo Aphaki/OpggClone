@@ -9,13 +9,14 @@ import SwiftUI
 
 struct SummonerInfoLoadingView: View {
     
+    @EnvironmentObject var mainVM: MainViewModel
+    
     @Binding var summonerInfo: SummonerInfo?
     @Binding var leagues: [SummonersLeagueElement]
     @Binding var matchInfos: [MatchInfo]
     
     @Binding var goToSummonerInfoView: Bool
     
-    @State var isLoading: Bool = true
     
     
     var body: some View {
@@ -28,7 +29,7 @@ struct SummonerInfoLoadingView: View {
                     }
             }
             
-        } else if isLoading == true {
+        } else if mainVM.isLoading == true {
             ProgressView()
                 .frame(width: 200, height: 200, alignment: .center)
         } else {
