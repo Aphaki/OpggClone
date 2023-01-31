@@ -18,7 +18,11 @@ struct MatchListCell: View {
         }
         return value!
     }
-    
+    var mythicItem: Int {
+        let value =  participant.challenges["mythicItemUsed"]
+        let valueInt = Int(value ?? 0.0)
+        return valueInt
+    }
     
     let spellDictionary = JsonInstance.shared.spellStore
     let primaryRuneDic = JsonInstance.shared.primaryRuneDic
@@ -122,13 +126,13 @@ struct MatchListCell: View {
                 .frame(height: 75)
                 HStack(spacing: 2) {
                     
-                    ItemImage(itemNumber: participant.item0, width: 25, height: 25)
-                    ItemImage(itemNumber: participant.item1, width: 25, height: 25)
-                    ItemImage(itemNumber: participant.item2, width: 25, height: 25)
-                    ItemImage(itemNumber: participant.item3, width: 25, height: 25)
-                    ItemImage(itemNumber: participant.item4, width: 25, height: 25)
-                    ItemImage(itemNumber: participant.item5, width: 25, height: 25)
-                    ItemImage(itemNumber: participant.item6, width: 25, height: 25)
+                    ItemImage(itemNumber: participant.item0, width: 25, height: 25, mythicItemInt: mythicItem)
+                    ItemImage(itemNumber: participant.item1, width: 25, height: 25, mythicItemInt: mythicItem)
+                    ItemImage(itemNumber: participant.item2, width: 25, height: 25, mythicItemInt: mythicItem)
+                    ItemImage(itemNumber: participant.item3, width: 25, height: 25, mythicItemInt: mythicItem)
+                    ItemImage(itemNumber: participant.item4, width: 25, height: 25, mythicItemInt: mythicItem)
+                    ItemImage(itemNumber: participant.item5, width: 25, height: 25, mythicItemInt: mythicItem)
+                    ItemImage(itemNumber: participant.item6, width: 25, height: 25, mythicItemInt: mythicItem)
                     Spacer()
                     Text(participant.pentaKills > 0 ? "펜타킬" : participant.quadraKills > 0 ? "쿼드라킬" : participant.tripleKills > 0 ? "트리플킬" : participant.doubleKills > 0 ? "더블킬" : "")
                         .font(.caption)
@@ -149,31 +153,5 @@ struct MatchListCell_Previews: PreviewProvider {
     static var previews: some View {
         MatchListCell(matchInfo: myPreviewClass.matchInfo, summoner: myPreviewClass.summoner)
             .preferredColorScheme(.dark)
-    }
-}
-
-struct ItemImage: View {
-
-    var itemNumber: Int
-    let width: CGFloat
-    let height: CGFloat
-    
-    
-    var body: some View {
-        if itemNumber != 0 {
-            Image(itemNumber.description)
-                .resizable()
-                .frame(width: width, height: height)
-                .clipShape(RoundedRectangle(cornerRadius: 7))
-                .overlay {
-                    RoundedRectangle(cornerRadius: 7).stroke(lineWidth: 3).foregroundColor(itemNumber >= 6630 || itemNumber == 2065 ? .yellow : .clear)
-                }
-        } else {
-            Image("7050")
-                .resizable()
-                .frame(width: width, height: height)
-                .clipShape(RoundedRectangle(cornerRadius: 7))
-        }
-        
     }
 }

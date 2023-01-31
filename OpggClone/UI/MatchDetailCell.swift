@@ -28,6 +28,11 @@ struct MatchDetailCell: View {
         let value = dealts.max()
         return value ?? 0
     }
+    private var mythicItemInt: Int {
+        let value =  participant.challenges["mythicItemUsed"]
+        let valueInt = Int(value ?? 0.0)
+        return valueInt
+    }
     
     let spellDictionary = JsonInstance.shared.spellStore
     let primaryRuneDic = JsonInstance.shared.primaryRuneDic
@@ -109,13 +114,13 @@ struct MatchDetailCell: View {
             Spacer()
             VStack(alignment: .leading) {
                 HStack(spacing: 1) {
-                    ItemImage(itemNumber: participant.item0, width: 20, height: 20)
-                    ItemImage(itemNumber: participant.item1, width: 20, height: 20)
-                    ItemImage(itemNumber: participant.item2, width: 20, height: 20)
-                    ItemImage(itemNumber: participant.item3, width: 20, height: 20)
-                    ItemImage(itemNumber: participant.item4, width: 20, height: 20)
-                    ItemImage(itemNumber: participant.item5, width: 20, height: 20)
-                    ItemImage(itemNumber: participant.item6, width: 20, height: 20)
+                    ItemImage(itemNumber: participant.item0, width: 20, height: 20, mythicItemInt: mythicItemInt)
+                    ItemImage(itemNumber: participant.item1, width: 20, height: 20, mythicItemInt: mythicItemInt)
+                    ItemImage(itemNumber: participant.item2, width: 20, height: 20, mythicItemInt: mythicItemInt)
+                    ItemImage(itemNumber: participant.item3, width: 20, height: 20, mythicItemInt: mythicItemInt)
+                    ItemImage(itemNumber: participant.item4, width: 20, height: 20, mythicItemInt: mythicItemInt)
+                    ItemImage(itemNumber: participant.item5, width: 20, height: 20, mythicItemInt: mythicItemInt)
+                    ItemImage(itemNumber: participant.item6, width: 20, height: 20, mythicItemInt: mythicItemInt)
                 }
                 HStack(spacing: 2) {
                     Text("\(participant.totalMinionsKilled)(\(csPerMinute)) / \(participant.goldEarned.withKString())")

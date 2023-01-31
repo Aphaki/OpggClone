@@ -47,6 +47,7 @@
 		7FBBCB762969C4FB000C5F71 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBBCB752969C4FB000C5F71 /* MainViewModel.swift */; };
 		7FC15B6D295DC26B00605F1D /* UrlHeadPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC15B6C295DC26B00605F1D /* UrlHeadPoint.swift */; };
 		7FCC3E05297805D8002DBEF8 /* MatchDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCC3E04297805D8002DBEF8 /* MatchDetailCell.swift */; };
+		7FD9852E29880918001B7BED /* ItemImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD9852D29880918001B7BED /* ItemImage.swift */; };
 		7FF094B92986C6A7009F5073 /* summoner.json in Resources */ = {isa = PBXBuildFile; fileRef = 7FF094B82986C6A7009F5073 /* summoner.json */; };
 /* End PBXBuildFile section */
 
@@ -111,6 +112,7 @@
 		7FBBCB752969C4FB000C5F71 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		7FC15B6C295DC26B00605F1D /* UrlHeadPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlHeadPoint.swift; sourceTree = "<group>"; };
 		7FCC3E04297805D8002DBEF8 /* MatchDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchDetailCell.swift; sourceTree = "<group>"; };
+		7FD9852D29880918001B7BED /* ItemImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemImage.swift; sourceTree = "<group>"; };
 		7FF094B82986C6A7009F5073 /* summoner.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = summoner.json; path = "../../../../Downloads/dragontail-12.23.1/12.23.1/data/ko_KR/summoner.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -176,6 +178,7 @@
 				7FBBCB702968657E000C5F71 /* MySummonerCard.swift */,
 				7F6BC7842955AADB00A87DC2 /* SearchBar.swift */,
 				7F3C8B702979279D000438B5 /* DealtBar.swift */,
+				7FD9852D29880918001B7BED /* ItemImage.swift */,
 			);
 			path = ViewComponent;
 			sourceTree = "<group>";
@@ -441,6 +444,7 @@
 				7F35B3FD2959D02D00A58733 /* SearchedUserCell.swift in Sources */,
 				7F147CEB295D7CF3008BF262 /* BaseInterceptor.swift in Sources */,
 				7F03312A295ED42500FB86D6 /* Router.swift in Sources */,
+				7FD9852E29880918001B7BED /* ItemImage.swift in Sources */,
 				7F3C8B712979279D000438B5 /* DealtBar.swift in Sources */,
 				7F842D10296C69B400AB206F /* Service.swift in Sources */,
 				7F2934E22959779200EEB2E8 /* SummonerInfo.swift in Sources */,

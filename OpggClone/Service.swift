@@ -62,16 +62,33 @@ class Service {
         return value
     }
     
+//    func requestMatchInfos(urlBaseHead: UrlHeadPoint, matchIds: [String]) async throws -> [MatchInfo] {
+//
+//        var matchInfosValue: [MatchInfo] = []
+//        for matchId in matchIds {
+//         async let aValue = try await requestMatchInfo(urlBaseHead: urlBaseHead, matchId: matchId)
+//           try await matchInfosValue.append(aValue)
+//        }
+//
+//        return matchInfosValue
+//    }
     func requestMatchInfos(urlBaseHead: UrlHeadPoint, matchIds: [String]) async throws -> [MatchInfo] {
         
         var matchInfosValue: [MatchInfo] = []
         for matchId in matchIds {
-          let aValue = try await requestMatchInfo(urlBaseHead: urlBaseHead, matchId: matchId)
-            matchInfosValue.append(aValue)
+            do {
+                let aValue = try await requestMatchInfo(urlBaseHead: urlBaseHead, matchId: matchId)
+                matchInfosValue.append(aValue)
+            } catch {
+                // Handle error here
+                print("Error requesting match info: \(error)")
+            }
         }
         
         return matchInfosValue
     }
+    
+    
     
     func totalRequest(urlBaseHead: UrlHeadPoint, name: String) async throws {
         
