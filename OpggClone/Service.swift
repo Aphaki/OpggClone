@@ -20,7 +20,7 @@ class Service {
     @Published var matchList: [String] = []
     @Published var matchInfos: [MatchInfo] = []
     
-    @Published var isLoading: Bool = false
+//    @Published var isLoading: Bool = false
     
     var subscription = Set<AnyCancellable>()
     
@@ -113,7 +113,7 @@ class Service {
         self.leagueInfo = leaguesInfo
         self.matchInfos = matchInfos
         
-        self.isLoading = false
+//        self.isLoading = false
     }
 
 }

@@ -27,6 +27,9 @@
 		7F350ADD297C303200DFDF6B /* SummonerInfoLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F350ADC297C303200DFDF6B /* SummonerInfoLoadingView.swift */; };
 		7F35B3FD2959D02D00A58733 /* SearchedUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F35B3FC2959D02D00A58733 /* SearchedUserCell.swift */; };
 		7F3C8B712979279D000438B5 /* DealtBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3C8B702979279D000438B5 /* DealtBar.swift */; };
+		7F4C938D2988D973005AE0F7 /* MySummonerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4C938C2988D973005AE0F7 /* MySummonerInfo.swift */; };
+		7F4E11DF298992E30078E26A /* EmptyMySummonerCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4E11DE298992E30078E26A /* EmptyMySummonerCard.swift */; };
+		7F4E11E1298996050078E26A /* MySummonerAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4E11E0298996050078E26A /* MySummonerAddView.swift */; };
 		7F4E3AD0296FF46400DB261C /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4E3ACF296FF46400DB261C /* Color.swift */; };
 		7F6BC75B2955AA3900A87DC2 /* OpggCloneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6BC75A2955AA3900A87DC2 /* OpggCloneApp.swift */; };
 		7F6BC75D2955AA3900A87DC2 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6BC75C2955AA3900A87DC2 /* MainView.swift */; };
@@ -88,6 +91,9 @@
 		7F350ADC297C303200DFDF6B /* SummonerInfoLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerInfoLoadingView.swift; sourceTree = "<group>"; };
 		7F35B3FC2959D02D00A58733 /* SearchedUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedUserCell.swift; sourceTree = "<group>"; };
 		7F3C8B702979279D000438B5 /* DealtBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealtBar.swift; sourceTree = "<group>"; };
+		7F4C938C2988D973005AE0F7 /* MySummonerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySummonerInfo.swift; sourceTree = "<group>"; };
+		7F4E11DE298992E30078E26A /* EmptyMySummonerCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyMySummonerCard.swift; sourceTree = "<group>"; };
+		7F4E11E0298996050078E26A /* MySummonerAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySummonerAddView.swift; sourceTree = "<group>"; };
 		7F4E3ACF296FF46400DB261C /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		7F6BC7572955AA3900A87DC2 /* OpggClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpggClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F6BC75A2955AA3900A87DC2 /* OpggCloneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpggCloneApp.swift; sourceTree = "<group>"; };
@@ -159,6 +165,8 @@
 			isa = PBXGroup;
 			children = (
 				7F6BC75C2955AA3900A87DC2 /* MainView.swift */,
+				7F4E11E0298996050078E26A /* MySummonerAddView.swift */,
+				7F4C938C2988D973005AE0F7 /* MySummonerInfo.swift */,
 				7FBBCB752969C4FB000C5F71 /* MainViewModel.swift */,
 				7F6BC7862955B08200A87DC2 /* SearchView.swift */,
 				7F350ADC297C303200DFDF6B /* SummonerInfoLoadingView.swift */,
@@ -177,6 +185,7 @@
 				7F35B3FC2959D02D00A58733 /* SearchedUserCell.swift */,
 				7FBBCB702968657E000C5F71 /* MySummonerCard.swift */,
 				7F6BC7842955AADB00A87DC2 /* SearchBar.swift */,
+				7F4E11DE298992E30078E26A /* EmptyMySummonerCard.swift */,
 				7F3C8B702979279D000438B5 /* DealtBar.swift */,
 				7FD9852D29880918001B7BED /* ItemImage.swift */,
 			);
@@ -430,7 +439,10 @@
 			files = (
 				7FBBCB7329695AA3000C5F71 /* Double.swift in Sources */,
 				7F147CE9295D792D008BF262 /* ApiLogger.swift in Sources */,
+				7F4E11E1298996050078E26A /* MySummonerAddView.swift in Sources */,
+				7F4E11DF298992E30078E26A /* EmptyMySummonerCard.swift in Sources */,
 				7F147CE4295D77B4008BF262 /* ApiClient.swift in Sources */,
+				7F4C938D2988D973005AE0F7 /* MySummonerInfo.swift in Sources */,
 				7F036F2B297837FB00163ACA /* Int.swift in Sources */,
 				7F2934E429597B6900EEB2E8 /* MatchIDs.swift in Sources */,
 				7F33C2F32971C44A002515B2 /* JsonInstance.swift in Sources */,

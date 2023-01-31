@@ -20,20 +20,23 @@ struct SummonerInfoLoadingView: View {
     
     
     var body: some View {
-        if summonerInfo == nil {
-            VStack {
-                Text("소환사를 찾을 수 없습니다.")
-                Text("확인")
-                    .onTapGesture {
-                        goToSummonerInfoView.toggle()
-                    }
-            }
-            
-        } else if mainVM.isLoading == true {
+        if mainVM.isLoading == true {
             ProgressView()
                 .frame(width: 200, height: 200, alignment: .center)
-        } else {
+        } else if summonerInfo != nil {
             SummonerInfoView(summoner: summonerInfo!, leagues: leagues, matchInfos: matchInfos)
+        } else {
+            VStack {
+                Text("소환사를 찾을 수 없습니다.")
+                Button {
+                    goToSummonerInfoView.toggle()
+                } label: {
+                    Text("Click")
+                }
+
+            }
+            
+                
         }
     }
 }

@@ -25,7 +25,7 @@ struct MainView: View {
                         SearchView()
                     }
                     .background(RoundedRectangle(cornerRadius: 10).foregroundColor(Color.myColor.secondary))
-                MySummonerCard()
+                MySummonerCard(mySummonerInfo: mainVM.mySummonerInfo)
                     .padding(10)
             }
             .toolbar {
