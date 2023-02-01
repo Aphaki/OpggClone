@@ -12,6 +12,7 @@ struct MainView: View {
     @StateObject var mainVM = MainViewModel()
     
     @State var goSearchView: Bool = false
+    @State var goToAddView: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -25,8 +26,9 @@ struct MainView: View {
                         SearchView()
                     }
                     .background(RoundedRectangle(cornerRadius: 10).foregroundColor(Color.myColor.secondary))
-                MySummonerCard(mySummonerInfo: mainVM.mySummonerInfo)
+                MySummonerCard(mySummonerInfo: mainVM.mySummonerInfo, goToAddView: $goToAddView)
                     .padding(10)
+                    
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -57,12 +59,15 @@ struct MainView: View {
                         .foregroundColor(Color.myColor.darkBlue)
                 }
             }
+            .navigationDestination(isPresented: $goToAddView) {
+                MySummonerAddView(goToAddView: $goToAddView)
+            }
         }
         .navigationTitle("")
         .navigationBarTitleDisplayMode(.inline)
         .edgesIgnoringSafeArea(.bottom)
+        
     }
-    
     
 }
 

@@ -10,6 +10,7 @@ import SwiftUI
 struct MySummonerCard: View {
     
     let mySummonerInfo: MySummonerInfo?
+    @Binding var goToAddView: Bool
     
     var body: some View {
         GeometryReader { geo in
@@ -42,7 +43,7 @@ struct MySummonerCard: View {
 
                 } // VStack
             } else {
-                EmptyMySummonerCard()
+                EmptyMySummonerCard(goToAddView: $goToAddView)
             }
             
         }

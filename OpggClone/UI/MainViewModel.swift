@@ -196,8 +196,9 @@ class MainViewModel: ObservableObject {
                            loseCount: loseCount,
                            totalWinningRate: winningRate,
                            totalKda: kdaString)
-            self.mySummonerInfo = mySummonerInfo
-           
+            DispatchQueue.main.schedule {
+                self.mySummonerInfo = mySummonerInfo
+            }
         }
     }
     private func makeWinningRateAndKda(champName: String, mySummonerMatchInfos: [Participant]) -> (Int, String){

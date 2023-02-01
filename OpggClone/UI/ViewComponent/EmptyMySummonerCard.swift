@@ -9,6 +9,8 @@ import SwiftUI
 
 struct EmptyMySummonerCard: View {
     
+    @Binding var goToAddView: Bool
+    
     var body: some View {
         
         VStack {
@@ -31,7 +33,7 @@ struct EmptyMySummonerCard: View {
                 Text("소환사를 검색해서 등록해주세요!")
                 Text("나의 전적을 분석해 도움을 줍니다.")
                 Button {
-                    
+                    goToAddView.toggle()
                 } label: {
                     Text("소환사 등록하기")
                         .foregroundColor(Color.myColor.lightBlue)
@@ -47,8 +49,8 @@ struct EmptyMySummonerCard: View {
     }
 }
 
-struct EmptyMySummonerCard_Previews: PreviewProvider {
-    static var previews: some View {
-        EmptyMySummonerCard()
-    }
-}
+//struct EmptyMySummonerCard_Previews: PreviewProvider {
+//    static var previews: some View {
+//        EmptyMySummonerCard(goToAddView: <#Binding<Bool>#>)
+//    }
+//}

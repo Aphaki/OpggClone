@@ -9,7 +9,10 @@ import SwiftUI
 
 struct MySummonerAddView: View {
     
+    @EnvironmentObject var mainVM: MainViewModel
+    
     @State var textString: String = ""
+    @Binding var goToAddView: Bool
     
     var body: some View {
         VStack(spacing: 10) {
@@ -31,7 +34,8 @@ struct MySummonerAddView: View {
                 .background(RoundedRectangle(cornerRadius: 10).stroke(lineWidth: 2).foregroundColor(Color.myColor.gray))
                 .padding(.horizontal, 10)
             Button {
-                
+                mainVM.saveMySummonerInfo(urlBase: mainVM.regionPicker, name: textString)
+                goToAddView.toggle()
             } label: {
                 Text("완료")
                     .foregroundColor(.white)
@@ -50,6 +54,6 @@ struct MySummonerAddView: View {
 
 struct MySummonerAddView_Previews: PreviewProvider {
     static var previews: some View {
-        MySummonerAddView()
+        MySummonerAddView(goToAddView: .constant(true))
     }
 }
