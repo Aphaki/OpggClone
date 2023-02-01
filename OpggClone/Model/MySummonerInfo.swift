@@ -8,6 +8,7 @@
 import Foundation
 
 struct MySummonerInfo {
+    
     let icon: Int
     let level: Int
     let summonerName: String
@@ -18,11 +19,12 @@ struct MySummonerInfo {
     let winCount: Int
     let loseCount: Int
     let totalWinningRate: Int
-    let totalKda: String // ex 1.32:1
+    let totalKda: Double // ex 1.32:1
 }
 
-struct MostChamp {
+struct MostChamp: Identifiable {
+    let id = UUID()
     let championName: String
     let winningRate: Int // or Int
-    let kda: String // ex) 1.32:1
+    let kda: Double // ex) 1.32:1
 }

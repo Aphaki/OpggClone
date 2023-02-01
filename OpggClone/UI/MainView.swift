@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainView: View {
     
-    @StateObject var mainVM = MainViewModel()
+    @EnvironmentObject var mainVM: MainViewModel
     
     @State var goSearchView: Bool = false
     @State var goToAddView: Bool = false
@@ -26,8 +26,14 @@ struct MainView: View {
                         SearchView()
                     }
                     .background(RoundedRectangle(cornerRadius: 10).foregroundColor(Color.myColor.secondary))
-                MySummonerCard(mySummonerInfo: mainVM.mySummonerInfo, goToAddView: $goToAddView)
-                    .padding(10)
+                if mainVM.isLoading == false {
+                    MySummonerCard(mySummonerInfo: $mainVM.mySummonerInfo, goToAddView: $goToAddView)
+                } else {
+                    ProgressView()
+                        .frame(width: 200, height: 200)
+                }
+
+
                     
             }
             .toolbar {
@@ -75,6 +81,7 @@ struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
             MainView()
+                .environmentObject(myPreviewClass.mainVM)
                 .background(Color.myColor.appBG)
                 .preferredColorScheme(.dark)
         }

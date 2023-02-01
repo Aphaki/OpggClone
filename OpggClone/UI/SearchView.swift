@@ -21,17 +21,17 @@ struct SearchView: View {
             Spacer()
         }
         .navigationDestination(isPresented: $goToSummonerInfoView) {
-//            SummonerInfoView(summoner: mainVM.summonerInfo ?? MyPreviewClass.shared.summoner, leagues: mainVM.leagueInfo, matchInfos: mainVM.matchInfos)
+
             SummonerInfoLoadingView(summonerInfo: $mainVM.summonerInfo, leagues: $mainVM.leagueInfo, matchInfos: $mainVM.matchInfos, goToSummonerInfoView: $goToSummonerInfoView)
         }
     }
 }
 
-struct SearchView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationStack {
-            SearchView()
-                .environmentObject(myPreviewClass.mainVM)
-        }
-    }
-}
+//struct SearchView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NavigationStack {
+//            SearchView()
+//                .environmentObject(myPreviewClass.mainVM)
+//        }
+//    }
+//}

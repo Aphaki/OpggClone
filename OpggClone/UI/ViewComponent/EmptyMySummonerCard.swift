@@ -13,7 +13,7 @@ struct EmptyMySummonerCard: View {
     
     var body: some View {
         
-        VStack {
+        VStack(alignment: .leading) {
             HStack(spacing: 15) {
                 Spacer()
                 Image(systemName: "questionmark.bubble.fill")
@@ -28,7 +28,7 @@ struct EmptyMySummonerCard: View {
             .frame(maxWidth: .infinity)
             .padding()
             .background(RoundedRectangle(cornerRadius: 10).foregroundColor(Color.myColor.backgroundColor))
-            .padding()
+            
             VStack {
                 Text("소환사를 검색해서 등록해주세요!")
                 Text("나의 전적을 분석해 도움을 줍니다.")
@@ -40,9 +40,8 @@ struct EmptyMySummonerCard: View {
                         .frame(maxWidth: .infinity)
                         .padding(10)
                         .background(RoundedRectangle(cornerRadius: 10).foregroundColor(Color.myColor.darkBlue))
-                        .padding()
+                        
                 }
-
             }
         }
         

@@ -44,7 +44,7 @@ struct MySummonerAddView: View {
                     .background(RoundedRectangle(cornerRadius: 10).foregroundColor(Color.myColor.gray))
                     .padding(.horizontal, 10)
             }
-
+            Spacer()
 
         }
                 

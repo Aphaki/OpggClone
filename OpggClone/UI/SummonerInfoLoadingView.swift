@@ -30,13 +30,14 @@ struct SummonerInfoLoadingView: View {
                 Text("소환사를 찾을 수 없습니다.")
                 Button {
                     goToSummonerInfoView.toggle()
+                    
                 } label: {
                     Text("Click")
                 }
-
+                
             }
             
-                
+            
         }
     }
 }
