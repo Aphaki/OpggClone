@@ -16,7 +16,6 @@ class MainViewModel: ObservableObject {
     @Published var leagueInfo: [SummonersLeagueElement] = []
     @Published var matchList: MatchIDs = []
     @Published var matchInfos: [MatchInfo] = []
-    @Published var matchInfo: MatchInfo?
     
     @Published var isLoading: Bool = false
     
