@@ -80,7 +80,7 @@ struct MatchDetailView: View {
                             Text("/")
                             Text("\(selectedSummoner.assists)")
                         }
-                        Text("킬 관여 \(selectedSummoner.challenges["killParticipation"]?.changedPercentage() ?? "0")%")
+                        Text("킬 관여 \(selectedSummoner.challenges?["killParticipation"]?.changedPercentage() ?? "0")%")
                             .font(.caption)
                     }
                 }

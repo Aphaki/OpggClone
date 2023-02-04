@@ -70,16 +70,24 @@ class MainViewModel: ObservableObject {
     
     func fetchAndChangeToDetail(urlBase:UrlHeadPoint, name: String) async throws -> DetailSummonerInfo {
 
-            
-            let aSummonerInfo = try await service.requestSummonerInfo(urlBaseHead: urlBase, name: name)
+        let summonerInfoDataTask = service.requestSummonerInfo(urlBaseHead: urlBase, name: name)
+        
+        if let response = await summonerInfoDataTask.response.response {
+            // 404 Not Found -> 없는 소환사
+            print("MainViewModel - fetchAndChangeToDetail() - Status Code: \(response.statusCode)")
+        } else {
+            //통신x
+            print("MainViewModel - fetchAndChangeToDetail() - response: nil")
+        }
+        
+        let aSummonerInfo = try await summonerInfoDataTask.value
             
             let encryptedSummonerId = aSummonerInfo.id
-            async let fetchLeaguesInfo =
-            try await service.requestLeaguesInfo(urlBaseHead: urlBase, encryptedSummonerId: encryptedSummonerId)
+            async let fetchLeaguesInfo = await service.requestLeaguesInfo(urlBaseHead: urlBase, encryptedSummonerId: encryptedSummonerId)
             
             let puuid = aSummonerInfo.puuid
             async let fetchMatchIds =
-            try await service.requestMatchList(urlBaseHead: urlBase, puuid: puuid)
+             await service.requestMatchList(urlBaseHead: urlBase, puuid: puuid)
             
             let (leaguesInfo, matchIds) = try await (fetchLeaguesInfo, fetchMatchIds)
             

@@ -19,7 +19,7 @@ struct MatchListCell: View {
         return value!
     }
     var mythicItem: Int {
-        let value =  participant.challenges["mythicItemUsed"]
+        let value =  participant.challenges?["mythicItemUsed"]
         let valueInt = Int(value ?? 0.0)
         return valueInt
     }
@@ -110,7 +110,7 @@ struct MatchListCell: View {
     //                                .foregroundColor(participant.kda > 6 ? .red : participant.kda > 4 ? .blue : participant.kda > 3 ? .green : .gray)
                                 
                             }.font(.title)
-                            Text("  킬 관여 \(participant.challenges["killParticipation"]?.changedPercentage() ?? "0" )%")
+                            Text("  킬 관여 \(participant.challenges?["killParticipation"]?.changedPercentage() ?? "0" )%")
                                 .font(.caption)
                                 .foregroundColor(Color.myColor.gray)
                         }

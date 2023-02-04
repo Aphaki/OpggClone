@@ -29,7 +29,8 @@ struct MatchInfo: Codable, Identifiable {
 
 // MARK: - Info
 struct Info: Codable {
-    let gameCreation, gameDuration, gameEndTimestamp, gameID: Int
+    let gameCreation, gameDuration, gameID: Int
+    let gameEndTimestamp: Int?
     let gameMode, gameName: String
     let gameStartTimestamp: Int
     let gameType, gameVersion: String
@@ -55,19 +56,20 @@ struct Info: Codable {
 // MARK: - Participant
 struct Participant: Codable, Identifiable {
     let id = UUID()
-    let allInPings, assistMePings, assists, baitPings: Int
-    let baronKills, basicPings, bountyLevel: Int
-    let challenges: [String: Double]
+    let allInPings, assistMePings, baitPings, basicPings, commandPings, dangerPings, getBackPings, holdPings, enemyMissingPings, enemyVisionPings: Int?
+    let needVisionPings, onMyWayPings, pushPings, visionClearedPings: Int?
+    let assists: Int
+    let baronKills, bountyLevel: Int
+    let challenges: [String: Double]?
     let champExperience, champLevel, championID: Int
     let championName: String
-    let championTransform, commandPings, consumablesPurchased, damageDealtToBuildings: Int
-    let damageDealtToObjectives, damageDealtToTurrets, damageSelfMitigated, dangerPings: Int
+    let championTransform, consumablesPurchased, damageDealtToBuildings: Int
+    let damageDealtToObjectives, damageDealtToTurrets, damageSelfMitigated: Int
     let deaths, detectorWardsPlaced, doubleKills, dragonKills: Int
-    let eligibleForProgression: Bool
-    let enemyMissingPings, enemyVisionPings: Int
+    let eligibleForProgression: Bool?
     let firstBloodAssist, firstBloodKill, firstTowerAssist, firstTowerKill: Bool
     let gameEndedInEarlySurrender, gameEndedInSurrender: Bool
-    let getBackPings, goldEarned, goldSpent, holdPings: Int
+    let goldEarned, goldSpent: Int
     let individualPosition: String
     let inhibitorKills, inhibitorTakedowns, inhibitorsLost, item0: Int
     let item1, item2, item3, item4: Int
@@ -75,13 +77,12 @@ struct Participant: Codable, Identifiable {
     let kills: Int
     let lane: String
     let largestCriticalStrike, largestKillingSpree, largestMultiKill, longestTimeSpentLiving: Int
-    let magicDamageDealt, magicDamageDealtToChampions, magicDamageTaken, needVisionPings: Int
+    let magicDamageDealt, magicDamageDealtToChampions, magicDamageTaken: Int
     let neutralMinionsKilled, nexusKills, nexusLost, nexusTakedowns: Int
-    let objectivesStolen, objectivesStolenAssists, onMyWayPings, participantID: Int
+    let objectivesStolen, objectivesStolenAssists, participantID: Int
     let pentaKills: Int
     let perks: Perks
     let physicalDamageDealt, physicalDamageDealtToChampions, physicalDamageTaken, profileIcon: Int
-    let pushPings: Int
     let puuid: String
     let quadraKills: Int
     let riotIDName, riotIDTagline, role: String
@@ -99,7 +100,7 @@ struct Participant: Codable, Identifiable {
     let totalMinionsKilled, totalTimeCCDealt, totalTimeSpentDead, totalUnitsHealed: Int
     let tripleKills, trueDamageDealt, trueDamageDealtToChampions, trueDamageTaken: Int
     let turretKills, turretTakedowns, turretsLost, unrealKills: Int
-    let visionClearedPings, visionScore, visionWardsBoughtInGame, wardsKilled: Int
+    let visionScore, visionWardsBoughtInGame, wardsKilled: Int
     let wardsPlaced: Int
     let win: Bool
     

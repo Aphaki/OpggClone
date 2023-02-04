@@ -29,7 +29,7 @@ struct MatchDetailCell: View {
         return value ?? 0
     }
     private var mythicItemInt: Int {
-        let value =  participant.challenges["mythicItemUsed"]
+        let value =  participant.challenges?["mythicItemUsed"]
         let valueInt = Int(value ?? 0.0)
         return valueInt
     }
