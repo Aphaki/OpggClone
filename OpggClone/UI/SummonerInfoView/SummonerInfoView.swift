@@ -65,22 +65,71 @@ struct SummonerInfoView: View {
                     
                     ScrollView(.horizontal) {
                         HStack {
-                            ForEach(leagues) { league in
+                            if !leagues.isEmpty {
+                                ForEach(leagues) { league in
+                                    HStack {
+                                        Image(league.tier.lowercased())
+                                            .resizable()
+                                            .frame(width: 100, height: 100)
+                                        VStack(alignment: .leading, spacing: 5) {
+                                            Text(queueTypeDic[league.queueType] ?? "기타")
+                                                .foregroundColor(.white)
+                                                .padding(3)
+                                                .background(RoundedRectangle(cornerRadius: 5).foregroundColor(Color.myColor.lightBlue))
+                                            Text(league.tier + " " + league.rank)
+                                                .font(.headline)
+                                            Text("\(league.leaguePoints)" + " LP")
+                                                .font(.caption)
+                                                .foregroundColor(.gray)
+                                            Text("\(league.wins)승 \(league.losses)패  \(league.winRates)%")
+                                                .font(.caption)
+                                                .foregroundColor(.gray)
+                                        }
+                                        Image(systemName: "chevron.forward")
+                                    }
+                                    .frame(width: 240)
+                                    .padding(10)
+                                    .background(RoundedRectangle(cornerRadius: 10).stroke(lineWidth: 1))
+                                }
+                            } else {
                                 HStack {
-                                    Image(league.tier.lowercased())
+                                    Image("provisional")
                                         .resizable()
                                         .frame(width: 100, height: 100)
                                     VStack(alignment: .leading, spacing: 5) {
-                                        Text(queueTypeDic[league.queueType] ?? "기타")
+                                        Text(queueTypeDic["RANKED_SOLO_5x5"] ?? "기타")
                                             .foregroundColor(.white)
                                             .padding(3)
                                             .background(RoundedRectangle(cornerRadius: 5).foregroundColor(Color.myColor.lightBlue))
-                                        Text(league.tier + " " + league.rank)
+                                        Text("Unranked")
                                             .font(.headline)
-                                        Text("\(league.leaguePoints)" + " LP")
+                                        Text("0" + " LP")
                                             .font(.caption)
                                             .foregroundColor(.gray)
-                                        Text("\(league.wins)승 \(league.losses)패  \(league.winRates)%")
+                                        Text("0승 0패  0%")
+                                            .font(.caption)
+                                            .foregroundColor(.gray)
+                                    }
+                                    Image(systemName: "chevron.forward")
+                                }
+                                .frame(width: 240)
+                                .padding(10)
+                                .background(RoundedRectangle(cornerRadius: 10).stroke(lineWidth: 1))
+                                HStack {
+                                    Image("provisional")
+                                        .resizable()
+                                        .frame(width: 100, height: 100)
+                                    VStack(alignment: .leading, spacing: 5) {
+                                        Text(queueTypeDic["RANKED_FLEX_SR"] ?? "기타")
+                                            .foregroundColor(.white)
+                                            .padding(3)
+                                            .background(RoundedRectangle(cornerRadius: 5).foregroundColor(Color.myColor.lightBlue))
+                                        Text("Unranked")
+                                            .font(.headline)
+                                        Text("0" + " LP")
+                                            .font(.caption)
+                                            .foregroundColor(.gray)
+                                        Text("0승 0패  0%")
                                             .font(.caption)
                                             .foregroundColor(.gray)
                                     }
@@ -90,6 +139,7 @@ struct SummonerInfoView: View {
                                 .padding(10)
                                 .background(RoundedRectangle(cornerRadius: 10).stroke(lineWidth: 1))
                             }
+                            
                         }
                     } //Scroll View
                     VStack(spacing:0) {

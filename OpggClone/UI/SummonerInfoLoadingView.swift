@@ -11,9 +11,18 @@ struct SummonerInfoLoadingView: View {
     
     @EnvironmentObject var mainVM: MainViewModel
     
-    @Binding var summonerInfo: SummonerInfo?
-    @Binding var leagues: [SummonersLeagueElement]
-    @Binding var matchInfos: [MatchInfo]
+    let searchedDetail: DetailSummonerInfo?
+    
+    var summonerInfo: SummonerInfo? {
+        return self.searchedDetail?.summonerInfo ?? nil
+    }
+    var leagues: [SummonersLeagueElement] {
+        return self.searchedDetail?.leagueInfos ?? []
+    }
+    var matchInfos: [MatchInfo] {
+        return self.searchedDetail?.matchInfos ?? []
+    }
+    
     
     @Binding var goToSummonerInfoView: Bool
     
@@ -23,7 +32,7 @@ struct SummonerInfoLoadingView: View {
         if mainVM.isLoading == true {
             ProgressView()
                 .frame(width: 200, height: 200, alignment: .center)
-        } else if summonerInfo != nil {
+        } else if searchedDetail != nil {
             SummonerInfoView(summoner: summonerInfo!, leagues: leagues, matchInfos: matchInfos)
         } else {
             VStack {

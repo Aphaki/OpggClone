@@ -25,11 +25,7 @@ struct SearchBar: View {
                     // vm.서버에 리퀘스트 (searchBarText로)
                     print("search 버튼 클릭")
                     goToSummonerInfoView.toggle()
-                    mainVM.searchBarText = self.searchBarText
-                    Task {
-                       try await mainVM.fetchSummonerInfo(urlBase: mainVM.regionPicker, name: mainVM.searchBarText)
-                    }
-                    
+                    mainVM.saveSearchedDetail(urlBase: mainVM.regionPicker ,name: searchBarText)
                 }
                 .submitLabel(.search)
             if !searchBarText.isEmpty {
@@ -55,6 +51,7 @@ struct SearchBar_Previews: PreviewProvider {
             .environmentObject(myPreviewClass.mainVM)
     }
 }
+
 struct SearchBarImageView: View {
     
     @State var text = ""

@@ -34,7 +34,7 @@ struct MySummonerAddView: View {
                 .background(RoundedRectangle(cornerRadius: 10).stroke(lineWidth: 2).foregroundColor(Color.myColor.gray))
                 .padding(.horizontal, 10)
             Button {
-                mainVM.saveMySummonerInfo(urlBase: mainVM.regionPicker, name: textString)
+                mainVM.saveMyDetail(urlBase: mainVM.regionPicker, name: textString)
                 goToAddView.toggle()
             } label: {
                 Text("완료")

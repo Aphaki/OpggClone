@@ -14,6 +14,7 @@
 		7F147CE7295D781B008BF262 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7F147CE6295D781B008BF262 /* Alamofire */; };
 		7F147CE9295D792D008BF262 /* ApiLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F147CE8295D792D008BF262 /* ApiLogger.swift */; };
 		7F147CEB295D7CF3008BF262 /* BaseInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F147CEA295D7CF3008BF262 /* BaseInterceptor.swift */; };
+		7F18BA22298CE93F008228AF /* SearchedSummonerListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F18BA21298CE93F008228AF /* SearchedSummonerListCell.swift */; };
 		7F1E199E2979998C00A84E8E /* KR_6316414751.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F1E199D2979998C00A84E8E /* KR_6316414751.json */; };
 		7F2934E22959779200EEB2E8 /* SummonerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2934E12959779200EEB2E8 /* SummonerInfo.swift */; };
 		7F2934E429597B6900EEB2E8 /* MatchIDs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2934E329597B6900EEB2E8 /* MatchIDs.swift */; };
@@ -28,7 +29,7 @@
 		7F39B775298A3D0D0090EECD /* ChampCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F39B774298A3D0D0090EECD /* ChampCell.swift */; };
 		7F3C8B712979279D000438B5 /* DealtBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3C8B702979279D000438B5 /* DealtBar.swift */; };
 		7F427B79298AA97000D0E07F /* MySummonerLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F427B78298AA97000D0E07F /* MySummonerLoadingView.swift */; };
-		7F4C938D2988D973005AE0F7 /* MySummonerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4C938C2988D973005AE0F7 /* MySummonerInfo.swift */; };
+		7F4C938D2988D973005AE0F7 /* DetailSummonerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4C938C2988D973005AE0F7 /* DetailSummonerInfo.swift */; };
 		7F4E11DF298992E30078E26A /* EmptyMySummonerCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4E11DE298992E30078E26A /* EmptyMySummonerCard.swift */; };
 		7F4E11E1298996050078E26A /* MySummonerAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4E11E0298996050078E26A /* MySummonerAddView.swift */; };
 		7F4E3AD0296FF46400DB261C /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4E3ACF296FF46400DB261C /* Color.swift */; };
@@ -79,6 +80,7 @@
 		7F147CE3295D77B4008BF262 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		7F147CE8295D792D008BF262 /* ApiLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiLogger.swift; sourceTree = "<group>"; };
 		7F147CEA295D7CF3008BF262 /* BaseInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInterceptor.swift; sourceTree = "<group>"; };
+		7F18BA21298CE93F008228AF /* SearchedSummonerListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedSummonerListCell.swift; sourceTree = "<group>"; };
 		7F1E199D2979998C00A84E8E /* KR_6316414751.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = KR_6316414751.json; sourceTree = "<group>"; };
 		7F2934E12959779200EEB2E8 /* SummonerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerInfo.swift; sourceTree = "<group>"; };
 		7F2934E329597B6900EEB2E8 /* MatchIDs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchIDs.swift; sourceTree = "<group>"; };
@@ -93,7 +95,7 @@
 		7F39B774298A3D0D0090EECD /* ChampCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampCell.swift; sourceTree = "<group>"; };
 		7F3C8B702979279D000438B5 /* DealtBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealtBar.swift; sourceTree = "<group>"; };
 		7F427B78298AA97000D0E07F /* MySummonerLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySummonerLoadingView.swift; sourceTree = "<group>"; };
-		7F4C938C2988D973005AE0F7 /* MySummonerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySummonerInfo.swift; sourceTree = "<group>"; };
+		7F4C938C2988D973005AE0F7 /* DetailSummonerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSummonerInfo.swift; sourceTree = "<group>"; };
 		7F4E11DE298992E30078E26A /* EmptyMySummonerCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyMySummonerCard.swift; sourceTree = "<group>"; };
 		7F4E11E0298996050078E26A /* MySummonerAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySummonerAddView.swift; sourceTree = "<group>"; };
 		7F4E3ACF296FF46400DB261C /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -163,16 +165,23 @@
 			path = API;
 			sourceTree = "<group>";
 		};
+		7F18BA25298D042B008228AF /* SummonerInfoView */ = {
+			isa = PBXGroup;
+			children = (
+				7FABB753296EBB7200C5FB07 /* SummonerInfoView.swift */,
+			);
+			path = SummonerInfoView;
+			sourceTree = "<group>";
+		};
 		7F2934DE295976DC00EEB2E8 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				7F6BC75C2955AA3900A87DC2 /* MainView.swift */,
+				7F97FA77298BC4AC00801DA7 /* MainView */,
 				7F4E11E0298996050078E26A /* MySummonerAddView.swift */,
-				7FBBCB752969C4FB000C5F71 /* MainViewModel.swift */,
 				7F6BC7862955B08200A87DC2 /* SearchView.swift */,
 				7F350ADC297C303200DFDF6B /* SummonerInfoLoadingView.swift */,
 				7F427B78298AA97000D0E07F /* MySummonerLoadingView.swift */,
-				7FABB753296EBB7200C5FB07 /* SummonerInfoView.swift */,
+				7F18BA25298D042B008228AF /* SummonerInfoView */,
 				7F2A8F4629704EEB00458795 /* MatchListCell.swift */,
 				7F0E2A562977EFC8002B1AFB /* MatchDetailView.swift */,
 				7FCC3E04297805D8002DBEF8 /* MatchDetailCell.swift */,
@@ -185,12 +194,10 @@
 			isa = PBXGroup;
 			children = (
 				7F35B3FC2959D02D00A58733 /* SearchedUserCell.swift */,
-				7FBBCB702968657E000C5F71 /* MySummonerCard.swift */,
 				7F6BC7842955AADB00A87DC2 /* SearchBar.swift */,
 				7F4E11DE298992E30078E26A /* EmptyMySummonerCard.swift */,
 				7F3C8B702979279D000438B5 /* DealtBar.swift */,
 				7FD9852D29880918001B7BED /* ItemImage.swift */,
-				7F39B774298A3D0D0090EECD /* ChampCell.swift */,
 			);
 			path = ViewComponent;
 			sourceTree = "<group>";
@@ -234,6 +241,7 @@
 				7F6BC75A2955AA3900A87DC2 /* OpggCloneApp.swift */,
 				7F842D0F296C69B400AB206F /* Service.swift */,
 				7F33C2F22971C44A002515B2 /* JsonInstance.swift */,
+				7F18BA21298CE93F008228AF /* SearchedSummonerListCell.swift */,
 				7F9215B02976FB9900BA67B7 /* Model */,
 				7FBBCB7429695AAA000C5F71 /* extensions */,
 				7F147CE2295D776F008BF262 /* API */,
@@ -284,10 +292,21 @@
 			children = (
 				7F33C2EE2971C107002515B2 /* SummonerSpells.swift */,
 				7F9215B12976FC4B00BA67B7 /* RuneReforged.swift */,
-				7F4C938C2988D973005AE0F7 /* MySummonerInfo.swift */,
+				7F4C938C2988D973005AE0F7 /* DetailSummonerInfo.swift */,
 				7F2934E02959772F00EEB2E8 /* ApiModel */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		7F97FA77298BC4AC00801DA7 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				7F6BC75C2955AA3900A87DC2 /* MainView.swift */,
+				7FBBCB752969C4FB000C5F71 /* MainViewModel.swift */,
+				7FBBCB702968657E000C5F71 /* MySummonerCard.swift */,
+				7F39B774298A3D0D0090EECD /* ChampCell.swift */,
+			);
+			path = MainView;
 			sourceTree = "<group>";
 		};
 		7FBBCB7429695AAA000C5F71 /* extensions */ = {
@@ -445,7 +464,7 @@
 				7F4E11E1298996050078E26A /* MySummonerAddView.swift in Sources */,
 				7F4E11DF298992E30078E26A /* EmptyMySummonerCard.swift in Sources */,
 				7F147CE4295D77B4008BF262 /* ApiClient.swift in Sources */,
-				7F4C938D2988D973005AE0F7 /* MySummonerInfo.swift in Sources */,
+				7F4C938D2988D973005AE0F7 /* DetailSummonerInfo.swift in Sources */,
 				7F036F2B297837FB00163ACA /* Int.swift in Sources */,
 				7F2934E429597B6900EEB2E8 /* MatchIDs.swift in Sources */,
 				7F33C2F32971C44A002515B2 /* JsonInstance.swift in Sources */,
@@ -470,6 +489,7 @@
 				7FABB756296EC31D00C5FB07 /* PriviewProviders.swift in Sources */,
 				7F6BC75B2955AA3900A87DC2 /* OpggCloneApp.swift in Sources */,
 				7F6BC7852955AADB00A87DC2 /* SearchBar.swift in Sources */,
+				7F18BA22298CE93F008228AF /* SearchedSummonerListCell.swift in Sources */,
 				7F350ADD297C303200DFDF6B /* SummonerInfoLoadingView.swift in Sources */,
 				7F33C2EF2971C107002515B2 /* SummonerSpells.swift in Sources */,
 				7FC15B6D295DC26B00605F1D /* UrlHeadPoint.swift in Sources */,

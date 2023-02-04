@@ -11,7 +11,7 @@ struct MySummonerCard: View {
     
     @EnvironmentObject var mainVM: MainViewModel
     
-    @Binding var mySummonerInfo: MySummonerInfo?
+    @Binding var mySummonerInfo: DetailSummonerInfo?
     @Binding var goToAddView: Bool
     
     @State var deleteAlert: Bool = false
@@ -47,12 +47,12 @@ struct MySummonerCard: View {
                                 .foregroundColor(Color.myColor.accentColor)
                                 .font(.title)
                             HStack {
-                                Text(mySummonerInfo!.tier)
+                                Text(mySummonerInfo!.tier == "provisional" ? "Unranked" : mySummonerInfo!.tier)
                                 Text(mySummonerInfo!.rank)
                                 Image(mySummonerInfo!.tier.lowercased())
                                     .resizable()
                                     .frame(width: 15, height: 15)
-                                Text("| " + mySummonerInfo!.point.description + "LP")
+                                Text("|  " + mySummonerInfo!.point.description + "LP")
                             }
                             .font(.caption)
                             
@@ -102,11 +102,6 @@ struct MySummonerCard: View {
                     Button {
                         print("자세히 보기 버튼 클릭")
                         goToDetailView.toggle()
-                        Task {
-                           try await mainVM.fetchSummonerInfo(urlBase: mainVM.regionPicker, name: mySummonerInfo!.summonerName)
-                        }
-                        
-                        
                     } label: {
                         Text("자세히 보기")
                             .foregroundColor(.white)
@@ -115,7 +110,7 @@ struct MySummonerCard: View {
                             .background(RoundedRectangle(cornerRadius: 5).foregroundColor(Color.myColor.darkBlue))
                     }
                     .navigationDestination(isPresented: $goToDetailView) {
-                        MySummonerLoadingView(summonerInfo: $mainVM.summonerInfo, leagues: $mainVM.leagueInfo, matchInfos: $mainVM.matchInfos)
+                        MySummonerLoadingView(mySummonerInfo: mainVM.myDetailSummonerInfo)
                     }
 
                 } // VStack

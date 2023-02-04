@@ -27,12 +27,12 @@ struct MainView: View {
                     }
                     .background(RoundedRectangle(cornerRadius: 10).foregroundColor(Color.myColor.secondary))
                 if mainVM.isLoading == false {
-                    MySummonerCard(mySummonerInfo: $mainVM.mySummonerInfo, goToAddView: $goToAddView)
+                    MySummonerCard(mySummonerInfo: $mainVM.myDetailSummonerInfo, goToAddView: $goToAddView)
                 } else {
                     ProgressView()
                         .frame(width: 200, height: 200)
                 }
-
+                Spacer()
 
                     
             }

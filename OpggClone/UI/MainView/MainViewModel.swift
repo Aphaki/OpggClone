@@ -12,14 +12,12 @@ class MainViewModel: ObservableObject {
     @Published var regionPicker: UrlHeadPoint = .kr
     @Published var searchBarText: String = ""
     
-    @Published var summonerInfo: SummonerInfo?
-    @Published var leagueInfo: [SummonersLeagueElement] = []
-    @Published var matchList: MatchIDs = []
-    @Published var matchInfos: [MatchInfo] = []
-    
     @Published var isLoading: Bool = false
     
-    @Published var mySummonerInfo: MySummonerInfo?
+    @Published var searchedDetail: DetailSummonerInfo?
+    @Published var myDetailSummonerInfo: DetailSummonerInfo?
+    
+    var searchedSummonerDetail: [DetailSummonerInfo] = []
     
     private var service = Service()
     private var subscription = Set<AnyCancellable>()
@@ -28,25 +26,50 @@ class MainViewModel: ObservableObject {
         totalSubscribe()
     }
     
-    func fetchSummonerInfo(urlBase: UrlHeadPoint, name: String) async throws {
+//    func fetchSummonerInfo(urlBase: UrlHeadPoint, name: String) async throws {
+//
+//        DispatchQueue.main.schedule {
+//            self.isLoading = true
+//        }
+//
+//       try await service.totalRequest(urlBaseHead: urlBase, name: name)
+//
+//        DispatchQueue.main.schedule {
+//            self.isLoading = false
+//        }
+//    }
+    func saveMyDetail(urlBase: UrlHeadPoint, name: String) {
         
-        DispatchQueue.main.schedule {
-            self.isLoading = true
-        }
-        
-       try await service.totalRequest(urlBaseHead: urlBase, name: name)
-        
-        DispatchQueue.main.schedule {
-            self.isLoading = false
-        }
-    }
-    
-    func saveMySummonerInfo(urlBase:UrlHeadPoint, name: String) {
         Task {
             DispatchQueue.main.schedule {
                 self.isLoading = true
             }
-            
+            let myDetail =
+           try await fetchAndChangeToDetail(urlBase: self.regionPicker ,name: name)
+            DispatchQueue.main.schedule {
+                self.myDetailSummonerInfo = myDetail
+                self.isLoading = false
+            }
+        }
+    }
+    
+    func saveSearchedDetail(urlBase: UrlHeadPoint, name: String) {
+        
+        Task {
+            DispatchQueue.main.schedule {
+                self.isLoading = true
+            }
+            let searchedSummonerDetail =
+           try await fetchAndChangeToDetail(urlBase: self.regionPicker ,name: name)
+            DispatchQueue.main.schedule {
+                self.searchedDetail = searchedSummonerDetail
+                self.isLoading = false
+            }
+        }
+    }
+    
+    func fetchAndChangeToDetail(urlBase:UrlHeadPoint, name: String) async throws -> DetailSummonerInfo {
+
             
             let aSummonerInfo = try await service.requestSummonerInfo(urlBaseHead: urlBase, name: name)
             
@@ -97,7 +120,7 @@ class MainViewModel: ObservableObject {
                return aParticipant.assists
             }.reduce(0, +)
             let totalKda = (Double(totalKills) + Double(totalAssists)) / Double(totalDeaths)
-//            let kdaString = totalKda.with2Demicals() + ":1"
+
             
             let champNameArray =
             mySummonerMatchInfos.map { aParticipant in
@@ -114,23 +137,26 @@ class MainViewModel: ObservableObject {
             let thirdChamp = MostChamp(championName: most3Champ, winningRate: most3WinningRate, kda: most3Kda)
             
             
-            let mySummonerInfo =
-            MySummonerInfo(icon: aSummonerInfo.profileIconId,
+            let detailSummonerInfo =
+       try await DetailSummonerInfo(icon: aSummonerInfo.profileIconId,
                            level: aSummonerInfo.summonerLevel,
                            summonerName: aSummonerInfo.name,
-                           rank: soloRankLeague?.rank ?? "-",
-                           tier: soloRankLeague?.tier ?? "-",
+                           rank: soloRankLeague?.rank ?? "",
+                           tier: soloRankLeague?.tier ?? "provisional",
                            point: soloRankLeague?.leaguePoints ?? 0,
                            mostChamp:[firstChamp, secondChamp, thirdChamp] ,
                            winCount: winCount,
                            loseCount: loseCount,
                            totalWinningRate: winningRate,
-                           totalKda: totalKda)
-            DispatchQueue.main.schedule {
-                self.mySummonerInfo = mySummonerInfo
-                self.isLoading = false
-            }
-        }
+                           totalKda: totalKda,
+                           summonerInfo: aSummonerInfo,
+                           leagueInfos: fetchLeaguesInfo,
+                           matchInfos: matchInfos)
+
+            
+            return detailSummonerInfo
+//        }
+        
     }
     private func makeWinningRateAndKda(champName: String, mySummonerMatchInfos: [Participant]) -> (Int, Double){
         let most1matchInfos =
@@ -192,6 +218,16 @@ class MainViewModel: ObservableObject {
         return (mostFrequentElement ?? "", secondMostFrequentElement ?? "", thirdMostFrequentElement ?? "")
     }
     
+    
+//    private func duplicateCheck(name: String, summonerList: [DetailSummonerInfo]) {
+//        let nameArray =
+//        summonerList.map { aSummoner -> String in
+//           return aSummoner.summonerName
+//        }
+//
+//
+//    }
+    
     //MARK: - 구독
     private func subscribeUrlRegion() {
         service.$regionPicker
@@ -213,59 +249,13 @@ class MainViewModel: ObservableObject {
             }
             .store(in: &subscription)
     }
-    private func subscribeSummonerInfo() {
-        service.$summonerInfo
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] receivedInfo in
-                self?.summonerInfo = receivedInfo
-            }
-            .store(in: &subscription)
-    }
-    private func subscribeLeagueInfo() {
-        service.$leagueInfo
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] receivedInfo in
-                self?.leagueInfo = receivedInfo
-            }
-            .store(in: &subscription)
-    }
-    private func subscribeMatchList() {
-        service.$matchList
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] receivedList in
-                self?.matchList = receivedList
-            }
-            .store(in: &subscription)
-    }
-    private func subscribeMatchInfos() {
-        service.$matchInfos
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] receivedList in
-                self?.matchInfos = receivedList
-            }
-            .store(in: &subscription)
-    }
-//    private func subscribeIsLoading() {
-//        service.$isLoading
-//            .receive(on: DispatchQueue.main)
-//            .sink { [weak self] receivedBool in
-//                self?.isLoading = receivedBool
-//            }
-//            .store(in: &subscription)
-//    }
+
     
     private func totalSubscribe() {
         subscribeUrlRegion()
         subscribeSearchBarText()
-        subscribeSummonerInfo()
-        subscribeLeagueInfo()
-        subscribeMatchList()
-        subscribeMatchInfos()
-//        subscribeIsLoading()
+
     }
-//    func totalRequest() {
-//        service.totalRequest()
-//    }
-    
+
     
 }

@@ -22,7 +22,7 @@ struct SearchView: View {
         }
         .navigationDestination(isPresented: $goToSummonerInfoView) {
 
-            SummonerInfoLoadingView(summonerInfo: $mainVM.summonerInfo, leagues: $mainVM.leagueInfo, matchInfos: $mainVM.matchInfos, goToSummonerInfoView: $goToSummonerInfoView)
+            SummonerInfoLoadingView(searchedDetail: mainVM.searchedDetail, goToSummonerInfoView: $goToSummonerInfoView)
         }
     }
 }

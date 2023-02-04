@@ -9,18 +9,12 @@ import SwiftUI
 
 struct MySummonerLoadingView: View {
     
-    @EnvironmentObject var mainVM: MainViewModel
-    
-    @Binding var summonerInfo: SummonerInfo?
-    @Binding var leagues: [SummonersLeagueElement]
-    @Binding var matchInfos: [MatchInfo]
+    let mySummonerInfo: DetailSummonerInfo?
+
     
     var body: some View {
-        if mainVM.isLoading == true {
-            ProgressView()
-                .frame(width: 200, height: 200, alignment: .center)
-        } else if summonerInfo != nil {
-            SummonerInfoView(summoner: summonerInfo!, leagues: leagues, matchInfos: matchInfos)
+        if mySummonerInfo != nil {
+            SummonerInfoView(summoner: mySummonerInfo!.summonerInfo, leagues: mySummonerInfo!.leagueInfos, matchInfos: mySummonerInfo!.matchInfos)
         } else {
             Text("네트워크 연결을 확인하세요.")
         }
