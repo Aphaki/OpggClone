@@ -64,14 +64,26 @@ class Service {
     
     func requestMatchInfos(urlBaseHead: UrlHeadPoint, matchIds: [String]) async throws -> [MatchInfo] {
         
-        var matchInfosValue: [MatchInfo] = []
-        for matchId in matchIds {
-            async let aValue = try await requestMatchInfo(urlBaseHead: urlBaseHead, matchId: matchId)
-            
-            try await matchInfosValue.append(aValue)
-        }
+//        var matchInfosValue: [MatchInfo] = []
+//        for matchId in matchIds {
+//            async let aValue = await requestMatchInfo(urlBaseHead: urlBaseHead, matchId: matchId)
+//
+//            try await matchInfosValue.append(aValue)
+//        }
+//
+//        return matchInfosValue
         
-        return matchInfosValue
+        try await withThrowingTaskGroup(of: MatchInfo.self, body: { group in
+            for matchId in matchIds {
+                group.addTask { try await self.requestMatchInfo(urlBaseHead: urlBaseHead, matchId: matchId) }
+            }
+            var result = [MatchInfo]()
+            
+            for try await aMatchInfo in group {
+                result.append(aMatchInfo)
+            }
+            return result
+        })
     }
 }
 
