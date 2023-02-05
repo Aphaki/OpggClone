@@ -152,6 +152,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7F0C9A40298FD87D0072F46F /* SearchView */ = {
+			isa = PBXGroup;
+			children = (
+				7F6BC7862955B08200A87DC2 /* SearchView.swift */,
+				7F6BC7842955AADB00A87DC2 /* SearchBar.swift */,
+				7F18BA21298CE93F008228AF /* SearchedSummonerListCell.swift */,
+				7F350ADC297C303200DFDF6B /* SummonerInfoLoadingView.swift */,
+			);
+			path = SearchView;
+			sourceTree = "<group>";
+		};
 		7F147CE2295D776F008BF262 /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +180,9 @@
 			isa = PBXGroup;
 			children = (
 				7FABB753296EBB7200C5FB07 /* SummonerInfoView.swift */,
+				7F2A8F4629704EEB00458795 /* MatchListCell.swift */,
+				7F0E2A562977EFC8002B1AFB /* MatchDetailView.swift */,
+				7FCC3E04297805D8002DBEF8 /* MatchDetailCell.swift */,
 			);
 			path = SummonerInfoView;
 			sourceTree = "<group>";
@@ -177,14 +191,8 @@
 			isa = PBXGroup;
 			children = (
 				7F97FA77298BC4AC00801DA7 /* MainView */,
-				7F4E11E0298996050078E26A /* MySummonerAddView.swift */,
-				7F6BC7862955B08200A87DC2 /* SearchView.swift */,
-				7F350ADC297C303200DFDF6B /* SummonerInfoLoadingView.swift */,
-				7F427B78298AA97000D0E07F /* MySummonerLoadingView.swift */,
+				7F0C9A40298FD87D0072F46F /* SearchView */,
 				7F18BA25298D042B008228AF /* SummonerInfoView */,
-				7F2A8F4629704EEB00458795 /* MatchListCell.swift */,
-				7F0E2A562977EFC8002B1AFB /* MatchDetailView.swift */,
-				7FCC3E04297805D8002DBEF8 /* MatchDetailCell.swift */,
 				7F2934DF295976FE00EEB2E8 /* ViewComponent */,
 			);
 			path = UI;
@@ -194,8 +202,6 @@
 			isa = PBXGroup;
 			children = (
 				7F35B3FC2959D02D00A58733 /* SearchedUserCell.swift */,
-				7F6BC7842955AADB00A87DC2 /* SearchBar.swift */,
-				7F4E11DE298992E30078E26A /* EmptyMySummonerCard.swift */,
 				7F3C8B702979279D000438B5 /* DealtBar.swift */,
 				7FD9852D29880918001B7BED /* ItemImage.swift */,
 			);
@@ -241,7 +247,6 @@
 				7F6BC75A2955AA3900A87DC2 /* OpggCloneApp.swift */,
 				7F842D0F296C69B400AB206F /* Service.swift */,
 				7F33C2F22971C44A002515B2 /* JsonInstance.swift */,
-				7F18BA21298CE93F008228AF /* SearchedSummonerListCell.swift */,
 				7F9215B02976FB9900BA67B7 /* Model */,
 				7FBBCB7429695AAA000C5F71 /* extensions */,
 				7F147CE2295D776F008BF262 /* API */,
@@ -304,7 +309,10 @@
 				7F6BC75C2955AA3900A87DC2 /* MainView.swift */,
 				7FBBCB752969C4FB000C5F71 /* MainViewModel.swift */,
 				7FBBCB702968657E000C5F71 /* MySummonerCard.swift */,
+				7F4E11DE298992E30078E26A /* EmptyMySummonerCard.swift */,
 				7F39B774298A3D0D0090EECD /* ChampCell.swift */,
+				7F4E11E0298996050078E26A /* MySummonerAddView.swift */,
+				7F427B78298AA97000D0E07F /* MySummonerLoadingView.swift */,
 			);
 			path = MainView;
 			sourceTree = "<group>";

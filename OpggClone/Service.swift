@@ -78,7 +78,7 @@ class Service {
                 group.addTask { try await self.requestMatchInfo(urlBaseHead: urlBaseHead, matchId: matchId) }
             }
             var result = [MatchInfo]()
-            
+
             for try await aMatchInfo in group {
                 result.append(aMatchInfo)
             }

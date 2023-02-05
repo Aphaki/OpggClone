@@ -18,6 +18,10 @@ struct SearchView: View {
         VStack {
             SearchBar(searchBarText: $searchBarText, goToSummonerInfoView: $goToSummonerInfoView)
                 .padding(5)
+            Divider()
+            ForEach(mainVM.searchedSummonerDetail) { aSummoner in
+                SearchedSummonerListCell(detailSummonerInfo: aSummoner)
+            }
             Spacer()
         }
         .navigationDestination(isPresented: $goToSummonerInfoView) {

@@ -17,7 +17,7 @@ class MainViewModel: ObservableObject {
     @Published var searchedDetail: DetailSummonerInfo?
     @Published var myDetailSummonerInfo: DetailSummonerInfo?
     
-    var searchedSummonerDetail: [DetailSummonerInfo] = []
+    @Published var searchedSummonerDetail: [DetailSummonerInfo] = []
     
     private var service = Service()
     private var subscription = Set<AnyCancellable>()
@@ -26,18 +26,7 @@ class MainViewModel: ObservableObject {
         totalSubscribe()
     }
     
-//    func fetchSummonerInfo(urlBase: UrlHeadPoint, name: String) async throws {
-//
-//        DispatchQueue.main.schedule {
-//            self.isLoading = true
-//        }
-//
-//       try await service.totalRequest(urlBaseHead: urlBase, name: name)
-//
-//        DispatchQueue.main.schedule {
-//            self.isLoading = false
-//        }
-//    }
+
     func saveMyDetail(urlBase: UrlHeadPoint, name: String) {
         
         Task {
@@ -227,14 +216,18 @@ class MainViewModel: ObservableObject {
     }
     
     
-//    private func duplicateCheck(name: String, summonerList: [DetailSummonerInfo]) {
-//        let nameArray =
-//        summonerList.map { aSummoner -> String in
-//           return aSummoner.summonerName
-//        }
-//
-//
-//    }
+    func duplicateCheckAndAdd(aDetailSummoner: DetailSummonerInfo, summonerList: inout [DetailSummonerInfo]) {
+        let nameArray =
+        summonerList.map { aDetail in
+            return aDetail.summonerName
+        }
+        if nameArray.filter({ aName in
+            return aName == aDetailSummoner.summonerName
+        }).isEmpty {
+            summonerList.append(aDetailSummoner)
+        }
+
+    }
     
     //MARK: - 구독
     private func subscribeUrlRegion() {

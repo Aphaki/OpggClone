@@ -10,11 +10,11 @@ import SwiftUI
 struct SearchedUserCell: View {
     
     //property: IconImageName, Summoner Name, Tier Image, Tier Name
-    var starMarkOn: Bool
-    
-    init(starMarkOn: Bool) {
-        self.starMarkOn = starMarkOn
-    }
+//    var starMarkOn: Bool
+//
+//    init(starMarkOn: Bool) {
+//        self.starMarkOn = starMarkOn
+//    }
     
     var body: some View {
         HStack {
@@ -44,9 +44,9 @@ struct SearchedUserCell: View {
             }
             Spacer()
             HStack(spacing: 15) {
-                if starMarkOn == true {
-                    Image(systemName: "star")
-                }
+                
+                Image(systemName: "star")
+                
                 Image(systemName: "xmark")
             }
             .font(.title)
@@ -57,7 +57,7 @@ struct SearchedUserCell: View {
 
 struct SearchedUserCell_Previews: PreviewProvider {
     static var previews: some View {
-        SearchedUserCell(starMarkOn: false)
+        SearchedUserCell()
     }
     
 }

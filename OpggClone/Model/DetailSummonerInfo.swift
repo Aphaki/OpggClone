@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct DetailSummonerInfo {
-    
+struct DetailSummonerInfo: Identifiable {
+    let id = UUID()
     let icon: Int
     let level: Int
     let summonerName: String
@@ -23,7 +23,7 @@ struct DetailSummonerInfo {
     let summonerInfo: SummonerInfo
     let leagueInfos: [SummonersLeagueElement]
     let matchInfos: [MatchInfo]
-    
+    var isBookMark: Bool = false
 }
 
 struct MostChamp: Identifiable {
