@@ -14,6 +14,8 @@ struct MainView: View {
     @State var goSearchView: Bool = false
     @State var goToAddView: Bool = false
     
+    @State var noSummonerAlert: Bool = false
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -33,8 +35,6 @@ struct MainView: View {
                         .frame(width: 200, height: 200)
                 }
                 Spacer()
-
-                    
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -72,6 +72,16 @@ struct MainView: View {
         .navigationTitle("")
         .navigationBarTitleDisplayMode(.inline)
         .edgesIgnoringSafeArea(.bottom)
+        .alert("없는 소환사입니다.", isPresented: $noSummonerAlert) {
+            Button {
+                mainVM.isLoading = false
+            } label: {
+                Text("OK")
+            }
+        }
+        .onReceive(mainVM.noSummonerError) { _ in
+            noSummonerAlert.toggle()
+        }
         
     }
     

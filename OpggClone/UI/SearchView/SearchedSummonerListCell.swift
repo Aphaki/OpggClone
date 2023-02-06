@@ -60,7 +60,7 @@ struct SearchedSummonerListCell: View {
                 }
                 Button {
                     print("SearchedUserCell - Xmark 클릭")
-                    mainVM.searchedSummonerDetail.removeAll { aDetail in
+                    mainVM.searchedSummonersDetail.removeAll { aDetail in
                         return aDetail.summonerName == detailSummonerInfo.summonerName
                     }
                 } label: {

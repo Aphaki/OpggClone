@@ -9,6 +9,8 @@ import Foundation
 import Alamofire
 
 class BaseInterceptor: RequestInterceptor {
+    let policy = RetryPolicy()
+    
     func adapt(_ urlRequest: URLRequest, for session: Session, completion: @escaping (Result<URLRequest, Error>) -> Void) {
         var request = urlRequest
         request.addValue("ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7", forHTTPHeaderField: "Accept-Language")
@@ -17,5 +19,13 @@ class BaseInterceptor: RequestInterceptor {
         request.addValue(ApiConstants.X_Riot_Token, forHTTPHeaderField: "X-Riot-Token")
         
         completion(.success(request))
+    }
+    func retry(_ request: Request, for session: Session, dueTo error: Error, completion: @escaping (RetryResult) -> Void) {
+        print("BaseInterceptor - retry() called")
+        if request.retryCount < 2 {
+            completion(.retryWithDelay(0.1))
+        } else {
+            completion(.doNotRetry)
+        }
     }
 }

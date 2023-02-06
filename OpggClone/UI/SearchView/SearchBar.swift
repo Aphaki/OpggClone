@@ -22,14 +22,13 @@ struct SearchBar: View {
                 .font(.headline)
                 .padding(.vertical, 10)
                 .onSubmit {
-                    // vm.서버에 리퀘스트 (searchBarText로)
-                    print("search 버튼 클릭")
-                    mainVM.saveSearchedDetail(urlBase: mainVM.regionPicker ,name: searchBarText)
+                    Task {
+                       try await mainVM.saveSearchedDetail(urlBase: mainVM.regionPicker ,name: searchBarText)
+                    }
                     goToSummonerInfoView.toggle()
                     if mainVM.searchedDetail != nil {
-                        mainVM.duplicateCheckAndAdd(aDetailSummoner: mainVM.searchedDetail!, summonerList: &mainVM.searchedSummonerDetail)
+                        mainVM.duplicateCheckAndAdd(aDetailSummoner: mainVM.searchedDetail!)
                     }
-                    
                 }
                 .submitLabel(.search)
             if !searchBarText.isEmpty {

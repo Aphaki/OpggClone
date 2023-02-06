@@ -35,6 +35,7 @@ struct MySummonerAddView: View {
                 .padding(.horizontal, 10)
             Button {
                 mainVM.saveMyDetail(urlBase: mainVM.regionPicker, name: textString)
+                
                 goToAddView.toggle()
             } label: {
                 Text("완료")

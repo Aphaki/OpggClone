@@ -19,7 +19,7 @@ struct SearchView: View {
             SearchBar(searchBarText: $searchBarText, goToSummonerInfoView: $goToSummonerInfoView)
                 .padding(5)
             Divider()
-            ForEach(mainVM.searchedSummonerDetail) { aSummoner in
+            ForEach(mainVM.searchedSummonersDetail) { aSummoner in
                 SearchedSummonerListCell(detailSummonerInfo: aSummoner)
             }
             Spacer()
