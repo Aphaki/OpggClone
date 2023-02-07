@@ -46,6 +46,39 @@ class MainViewModel: ObservableObject {
         service.duplicateCheckAndAdd(aDetailSummoner: aDetailSummoner)
     }
     
+    func addInBookmark(aSummonerDetail: DetailSummonerInfo) {
+        let nameArray =
+        bookMarkSummonersDetail.map { aDetail in
+            return aDetail.summonerName
+        }
+        if nameArray.filter({ aName in
+            return aName == aSummonerDetail.summonerName
+        }).isEmpty {
+            self.bookMarkSummonersDetail.append(aSummonerDetail)
+        }
+    }
+    func removeInBookmark(aSummonerDetail: DetailSummonerInfo) {
+        self.bookMarkSummonersDetail.removeAll { aValue in
+            aValue.summonerName == aSummonerDetail.summonerName
+        }
+    }
+    func bookmarkAddOrRemove(detailSummonerInfo: DetailSummonerInfo) {
+        if detailSummonerInfo.isBookMark {
+            removeInBookmark(aSummonerDetail: detailSummonerInfo)
+        } else {
+            addInBookmark(aSummonerDetail: detailSummonerInfo)
+        }
+        if let index =
+            searchedSummonersDetail.firstIndex(where: { aSummoner in
+                return aSummoner.summonerName == detailSummonerInfo.summonerName
+            }) {
+            searchedSummonersDetail[index].isBookMark.toggle()
+//            let value = detailSummonerInfo
+//            searchedSummonersDetail.insert(value, at: index)
+//            searchedSummonersDetail.remove(at: index + 1)
+        }
+    }
+    
     //MARK: - 구독
     private func subscribeUrlRegion() {
         service.$regionPicker

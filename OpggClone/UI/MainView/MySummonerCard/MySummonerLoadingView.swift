@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct MySummonerLoadingView: View {
-    
+
     let mySummonerInfo: DetailSummonerInfo?
 
-    
+
     var body: some View {
         if mySummonerInfo != nil {
             SummonerInfoView(summoner: mySummonerInfo!.summonerInfo, leagues: mySummonerInfo!.leagueInfos, matchInfos: mySummonerInfo!.matchInfos)

@@ -9,7 +9,6 @@ import Foundation
 import Alamofire
 
 class BaseInterceptor: RequestInterceptor {
-    let policy = RetryPolicy()
     
     func adapt(_ urlRequest: URLRequest, for session: Session, completion: @escaping (Result<URLRequest, Error>) -> Void) {
         var request = urlRequest
@@ -22,8 +21,8 @@ class BaseInterceptor: RequestInterceptor {
     }
     func retry(_ request: Request, for session: Session, dueTo error: Error, completion: @escaping (RetryResult) -> Void) {
         print("BaseInterceptor - retry() called")
-        if request.retryCount < 2 {
-            completion(.retryWithDelay(0.1))
+        if request.retryCount < 3 {
+            completion(.retryWithDelay(0.01))
         } else {
             completion(.doNotRetry)
         }

@@ -19,20 +19,38 @@ struct MainView: View {
     var body: some View {
         NavigationStack {
             VStack {
+                // 서치바
                 SearchBarImageView()
                     .padding(10)
                     .onTapGesture {
                         goSearchView.toggle()
                     }
                     .navigationDestination(isPresented: $goSearchView) {
-                        SearchView()
+                        SearchView(searchedSummonersDetail: $mainVM.searchedSummonersDetail)
                     }
                     .background(RoundedRectangle(cornerRadius: 10).foregroundColor(Color.myColor.secondary))
-                if mainVM.isLoading == false {
-                    MySummonerCard(mySummonerInfo: $mainVM.myDetailSummonerInfo, goToAddView: $goToAddView)
-                } else {
-                    ProgressView()
-                        .frame(width: 200, height: 200)
+                // 내 소환사 카드
+                VStack {
+                    if mainVM.isLoading == false {
+                        MySummonerCard(mySummonerInfo: $mainVM.myDetailSummonerInfo, goToAddView: $goToAddView)
+                    } else {
+                        ProgressView()
+                    }
+                }
+               
+                // 북마크(즐겨찾기) 소환사들
+                if !mainVM.bookMarkSummonersDetail.isEmpty {
+                    Divider()
+                    VStack {
+                        Text("즐겨찾기한 소환사")
+                        ScrollView(.horizontal) {
+                            HStack {
+                                ForEach(mainVM.bookMarkSummonersDetail) { aDetail in
+                                    BookmarkSummonerCard(detailSummonerInfo: aDetail)
+                                }
+                            }
+                        }
+                    }
                 }
                 Spacer()
             }

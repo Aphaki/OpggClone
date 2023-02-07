@@ -11,6 +11,8 @@ struct SearchView: View {
     
     @EnvironmentObject var mainVM: MainViewModel
     
+    @Binding var searchedSummonersDetail: [DetailSummonerInfo]
+    
     @State var searchBarText: String = ""
     @State var goToSummonerInfoView: Bool = false
     
@@ -19,7 +21,7 @@ struct SearchView: View {
             SearchBar(searchBarText: $searchBarText, goToSummonerInfoView: $goToSummonerInfoView)
                 .padding(5)
             Divider()
-            ForEach(mainVM.searchedSummonersDetail) { aSummoner in
+            ForEach($searchedSummonersDetail) { aSummoner in
                 SearchedSummonerListCell(detailSummonerInfo: aSummoner)
             }
             Spacer()

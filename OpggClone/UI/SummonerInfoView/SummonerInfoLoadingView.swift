@@ -34,20 +34,19 @@ struct SummonerInfoLoadingView: View {
                 .frame(width: 200, height: 200, alignment: .center)
         } else if searchedDetail != nil {
             SummonerInfoView(summoner: summonerInfo!, leagues: leagues, matchInfos: matchInfos)
-        } else {
-            VStack {
-                Text("소환사를 찾을 수 없습니다.")
-                Button {
-                    goToSummonerInfoView.toggle()
-                    
-                } label: {
-                    Text("Click")
-                }
-                
-            }
-            
-            
         }
+//        else {
+//            VStack {
+//                Text("소환사를 찾을 수 없습니다.")
+//                Button {
+//                    goToSummonerInfoView.toggle()
+//
+//                } label: {
+//                    Text("Click")
+//                }
+//
+//            }
+//        }
     }
 }
 

@@ -23,12 +23,13 @@ struct SearchBar: View {
                 .padding(.vertical, 10)
                 .onSubmit {
                     Task {
+                        goToSummonerInfoView.toggle()
                        try await mainVM.saveSearchedDetail(urlBase: mainVM.regionPicker ,name: searchBarText)
+                        if mainVM.searchedDetail != nil {
+                            mainVM.duplicateCheckAndAdd(aDetailSummoner: mainVM.searchedDetail!)
+                        }
                     }
-                    goToSummonerInfoView.toggle()
-                    if mainVM.searchedDetail != nil {
-                        mainVM.duplicateCheckAndAdd(aDetailSummoner: mainVM.searchedDetail!)
-                    }
+                    
                 }
                 .submitLabel(.search)
             if !searchBarText.isEmpty {

@@ -11,31 +11,32 @@ struct SearchedSummonerListCell: View {
     
     @EnvironmentObject var mainVM: MainViewModel
     
-    @State var detailSummonerInfo: DetailSummonerInfo
-    
-    var icon: Int { return detailSummonerInfo.icon }
-    var name: String { return detailSummonerInfo.summonerName }
-    var tierImg: String { return detailSummonerInfo.tier }
-    var isBookMark: Bool { return detailSummonerInfo.isBookMark }
+    @Binding var detailSummonerInfo: DetailSummonerInfo
+//
+//    var icon: Int { return detailSummonerInfo.icon }
+//    var name: String { return detailSummonerInfo.summonerName }
+//    var tierImg: String { return detailSummonerInfo.tier }
+//    var isBookMark: Bool { return detailSummonerInfo.isBookMark }
     
     
     var body: some View {
         HStack {
-            AsyncImage(url: URL(string: "https://ddragon.leagueoflegends.com/cdn/13.1.1/img/profileicon/\(icon).png")) { img in
+            AsyncImage(url: URL(string: "https://ddragon.leagueoflegends.com/cdn/13.1.1/img/profileicon/\(detailSummonerInfo.icon).png")) { img in
                 img
                     .resizable()
                     .frame(width: 50, height: 50)
+                    .clipShape(Circle())
             } placeholder: {
                 ProgressView()
             }
             VStack(alignment: .leading, spacing: 0) {
-                Text(name)
+                Text(detailSummonerInfo.summonerName)
                     .font(.headline)
                 HStack {
-                    Image(tierImg)
+                    Image(detailSummonerInfo.tier.lowercased())
                         .resizable()
                         .frame(width: 20, height: 20)
-                    Text("Unranked")
+                    Text(detailSummonerInfo.tier == "provisional" ? "Unranked" : detailSummonerInfo.tier + " " + detailSummonerInfo.rank)
                 }
                 .font(.caption)
             }
@@ -43,9 +44,9 @@ struct SearchedSummonerListCell: View {
             HStack(spacing: 18) {
                 Button {
                     print("BookMark(별) 버튼 클릭")
-                    self.detailSummonerInfo.isBookMark.toggle()
+                    mainVM.bookmarkAddOrRemove(detailSummonerInfo: detailSummonerInfo)
                 } label: {
-                    if isBookMark == true {
+                    if detailSummonerInfo.isBookMark == true {
                         Image(systemName: "star.fill")
                             .resizable()
                             .frame(width: 27, height: 27)
@@ -72,6 +73,13 @@ struct SearchedSummonerListCell: View {
 
                 
             }
+        }
+        .onAppear {
+            let value =
+            mainVM.searchedSummonersDetail.map { aSummoner in
+                return aSummoner.isBookMark
+            }
+            print(value.description)
         }
     }
 }

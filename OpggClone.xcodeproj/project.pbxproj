@@ -52,6 +52,7 @@
 		7FBBCB762969C4FB000C5F71 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBBCB752969C4FB000C5F71 /* MainViewModel.swift */; };
 		7FC15B6D295DC26B00605F1D /* UrlHeadPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC15B6C295DC26B00605F1D /* UrlHeadPoint.swift */; };
 		7FCC3E05297805D8002DBEF8 /* MatchDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCC3E04297805D8002DBEF8 /* MatchDetailCell.swift */; };
+		7FD5F2AC29923CA800D0BC1F /* BookmarkSummonerCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD5F2AB29923CA800D0BC1F /* BookmarkSummonerCard.swift */; };
 		7FD9852E29880918001B7BED /* ItemImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD9852D29880918001B7BED /* ItemImage.swift */; };
 		7FF094B92986C6A7009F5073 /* summoner.json in Resources */ = {isa = PBXBuildFile; fileRef = 7FF094B82986C6A7009F5073 /* summoner.json */; };
 /* End PBXBuildFile section */
@@ -122,6 +123,7 @@
 		7FBBCB752969C4FB000C5F71 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		7FC15B6C295DC26B00605F1D /* UrlHeadPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlHeadPoint.swift; sourceTree = "<group>"; };
 		7FCC3E04297805D8002DBEF8 /* MatchDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchDetailCell.swift; sourceTree = "<group>"; };
+		7FD5F2AB29923CA800D0BC1F /* BookmarkSummonerCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkSummonerCard.swift; sourceTree = "<group>"; };
 		7FD9852D29880918001B7BED /* ItemImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemImage.swift; sourceTree = "<group>"; };
 		7FF094B82986C6A7009F5073 /* summoner.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = summoner.json; path = "../../../../Downloads/dragontail-12.23.1/12.23.1/data/ko_KR/summoner.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -158,7 +160,6 @@
 				7F6BC7862955B08200A87DC2 /* SearchView.swift */,
 				7F6BC7842955AADB00A87DC2 /* SearchBar.swift */,
 				7F18BA21298CE93F008228AF /* SearchedSummonerListCell.swift */,
-				7F350ADC297C303200DFDF6B /* SummonerInfoLoadingView.swift */,
 			);
 			path = SearchView;
 			sourceTree = "<group>";
@@ -179,6 +180,7 @@
 		7F18BA25298D042B008228AF /* SummonerInfoView */ = {
 			isa = PBXGroup;
 			children = (
+				7F350ADC297C303200DFDF6B /* SummonerInfoLoadingView.swift */,
 				7FABB753296EBB7200C5FB07 /* SummonerInfoView.swift */,
 				7F2A8F4629704EEB00458795 /* MatchListCell.swift */,
 				7F0E2A562977EFC8002B1AFB /* MatchDetailView.swift */,
@@ -308,11 +310,9 @@
 			children = (
 				7F6BC75C2955AA3900A87DC2 /* MainView.swift */,
 				7FBBCB752969C4FB000C5F71 /* MainViewModel.swift */,
-				7FBBCB702968657E000C5F71 /* MySummonerCard.swift */,
-				7F4E11DE298992E30078E26A /* EmptyMySummonerCard.swift */,
-				7F39B774298A3D0D0090EECD /* ChampCell.swift */,
+				7FCDB7E42992B4F6003C191C /* MySummonerCard */,
+				7FD5F2AB29923CA800D0BC1F /* BookmarkSummonerCard.swift */,
 				7F4E11E0298996050078E26A /* MySummonerAddView.swift */,
-				7F427B78298AA97000D0E07F /* MySummonerLoadingView.swift */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -326,6 +326,17 @@
 				7F4E3ACF296FF46400DB261C /* Color.swift */,
 			);
 			path = extensions;
+			sourceTree = "<group>";
+		};
+		7FCDB7E42992B4F6003C191C /* MySummonerCard */ = {
+			isa = PBXGroup;
+			children = (
+				7F4E11DE298992E30078E26A /* EmptyMySummonerCard.swift */,
+				7FBBCB702968657E000C5F71 /* MySummonerCard.swift */,
+				7F39B774298A3D0D0090EECD /* ChampCell.swift */,
+				7F427B78298AA97000D0E07F /* MySummonerLoadingView.swift */,
+			);
+			path = MySummonerCard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -470,6 +481,7 @@
 				7FBBCB7329695AA3000C5F71 /* Double.swift in Sources */,
 				7F147CE9295D792D008BF262 /* ApiLogger.swift in Sources */,
 				7F4E11E1298996050078E26A /* MySummonerAddView.swift in Sources */,
+				7FD5F2AC29923CA800D0BC1F /* BookmarkSummonerCard.swift in Sources */,
 				7F4E11DF298992E30078E26A /* EmptyMySummonerCard.swift in Sources */,
 				7F147CE4295D77B4008BF262 /* ApiClient.swift in Sources */,
 				7F4C938D2988D973005AE0F7 /* DetailSummonerInfo.swift in Sources */,
