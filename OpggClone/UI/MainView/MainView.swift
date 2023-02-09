@@ -13,7 +13,6 @@ struct MainView: View {
     
     @State var goSearchView: Bool = false
     @State var goToAddView: Bool = false
-    
     @State var noSummonerAlert: Bool = false
     
     var body: some View {
@@ -28,7 +27,7 @@ struct MainView: View {
                     .navigationDestination(isPresented: $goSearchView) {
                         SearchView(searchedSummonersDetail: $mainVM.searchedSummonersDetail)
                     }
-                    .background(RoundedRectangle(cornerRadius: 10).foregroundColor(Color.myColor.secondary))
+                    .background(RoundedRectangle(cornerRadius: 10).foregroundColor(Color.myColor.backgroundColor))
                 // 내 소환사 카드
                 VStack {
                     if mainVM.isLoading == false {

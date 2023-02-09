@@ -12,6 +12,7 @@ struct SearchView: View {
     @EnvironmentObject var mainVM: MainViewModel
     
     @Binding var searchedSummonersDetail: [DetailSummonerInfo]
+
     
     @State var searchBarText: String = ""
     @State var goToSummonerInfoView: Bool = false

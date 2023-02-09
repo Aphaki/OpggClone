@@ -74,13 +74,7 @@ struct SearchedSummonerListCell: View {
                 
             }
         }
-        .onAppear {
-            let value =
-            mainVM.searchedSummonersDetail.map { aSummoner in
-                return aSummoner.isBookMark
-            }
-            print(value.description)
-        }
+        
     }
 }
 

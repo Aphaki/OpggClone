@@ -34,6 +34,14 @@ struct SummonerInfoLoadingView: View {
                 .frame(width: 200, height: 200, alignment: .center)
         } else if searchedDetail != nil {
             SummonerInfoView(summoner: summonerInfo!, leagues: leagues, matchInfos: matchInfos)
+                .onAppear {
+                    let value =
+                    mainVM.searchedSummonersDetail.map { aSummoner in
+                        return aSummoner.isBookMark
+                    }
+                    print("SummonerInfoLoadingView - searchedSummonersDetail is Bool:  " + value.description)
+                }
+            
         }
 //        else {
 //            VStack {

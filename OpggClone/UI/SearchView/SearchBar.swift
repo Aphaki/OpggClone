@@ -10,7 +10,7 @@ import SwiftUI
 struct SearchBar: View {
     
     @EnvironmentObject var mainVM: MainViewModel
-    
+
     @Binding var searchBarText: String
     @Binding var goToSummonerInfoView: Bool
     
@@ -48,13 +48,13 @@ struct SearchBar: View {
     }
 }
 
-struct SearchBar_Previews: PreviewProvider {
-    
-    static var previews: some View {
-        SearchBar(searchBarText: .constant(""), goToSummonerInfoView: .constant(false))
-            .environmentObject(myPreviewClass.mainVM)
-    }
-}
+//struct SearchBar_Previews: PreviewProvider {
+//    
+//    static var previews: some View {
+//        SearchBar(searchBarText: .constant(""), goToSummonerInfoView: .constant(false))
+//            .environmentObject(myPreviewClass.mainVM)
+//    }
+//}
 
 struct SearchBarImageView: View {
     
@@ -71,7 +71,6 @@ struct SearchBarImageView: View {
         .background(
             RoundedRectangle(cornerRadius: 5)
                 .stroke(lineWidth: 2)
-                .foregroundColor(.secondary)
         )
     }
 }

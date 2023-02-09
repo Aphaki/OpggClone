@@ -9,6 +9,8 @@ import SwiftUI
 
 struct SummonerInfoView: View {
     
+    @EnvironmentObject var mainVM: MainViewModel
+    
     var summoner: SummonerInfo
     var leagues: [SummonersLeagueElement]
     var matchInfos: [MatchInfo]
