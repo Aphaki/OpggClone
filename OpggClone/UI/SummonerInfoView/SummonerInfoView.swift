@@ -89,7 +89,7 @@ struct SummonerInfoView: View {
                                         }
                                         Image(systemName: "chevron.forward")
                                     }
-                                    .frame(width: 240)
+                                    .frame(width: 270)
                                     .padding(10)
                                     .background(RoundedRectangle(cornerRadius: 10).stroke(lineWidth: 1))
                                 }

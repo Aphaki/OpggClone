@@ -191,7 +191,12 @@ class Service {
         
     }
     
-    private func fetchAndChangeToDetail(urlBase:UrlHeadPoint, name: String) async throws -> DetailSummonerInfo {
+    func fetchAndChangeToDetail(urlBase:UrlHeadPoint, name: String) async throws -> DetailSummonerInfo {
+        
+        await MainActor.run {
+            self.isLoading = true
+            
+        }
         
         let aSummonerInfo = try await requestSummonerInfo(urlBaseHead: urlBase, name: name)
         
@@ -273,7 +278,10 @@ class Service {
                                      summonerInfo: aSummonerInfo,
                                      leagueInfos: fetchLeaguesInfo,
                                      matchInfos: matchInfos)
-        
+        await MainActor.run(body: {
+            
+            self.isLoading = false
+        })
         
         return detailSummonerInfo
         
@@ -338,7 +346,7 @@ class Service {
         return (mostFrequentElement ?? "", secondMostFrequentElement ?? "", thirdMostFrequentElement ?? "")
     }
     
-    private func duplicateCheckAndAdd(aDetailSummoner: DetailSummonerInfo, summonerList: inout [DetailSummonerInfo]) {
+    func duplicateCheckAndAdd(aDetailSummoner: DetailSummonerInfo, summonerList: inout [DetailSummonerInfo]) {
         let nameArray =
         summonerList.map { aDetail in
             return aDetail.summonerName
@@ -350,14 +358,14 @@ class Service {
         }
     }
     
-    func duplicateCheckAndAdd(aDetailSummoner: DetailSummonerInfo) {
-        let nameArray =
-        self.searchedSummonersDetail.map { aDetail in return aDetail.summonerName }
-        
-        if nameArray.filter( { $0 == aDetailSummoner.summonerName} ).isEmpty {
-            self.searchedSummonersDetail.append(aDetailSummoner)
-        }
-    }
+//    func duplicateCheckAndAdd(aDetailSummoner: DetailSummonerInfo) {
+//        let nameArray =
+//        self.searchedSummonersDetail.map { aDetail in return aDetail.summonerName }
+//
+//        if nameArray.filter( { $0 == aDetailSummoner.summonerName} ).isEmpty {
+//            self.searchedSummonersDetail.append(aDetailSummoner)
+//        }
+//    }
 //    private func appIsLoadingTrue() async {
 //        self.isLoading = true
 //    }

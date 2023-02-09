@@ -25,7 +25,7 @@ struct MainView: View {
                         goSearchView.toggle()
                     }
                     .navigationDestination(isPresented: $goSearchView) {
-                        SearchView(searchedSummonersDetail: $mainVM.searchedSummonersDetail)
+                        SearchView(searchedSummonersDetail: $mainVM.searchedSummonersDetail, searchedASummoner: $mainVM.searchedDetail, regionPicker: $mainVM.regionPicker)
                     }
                     .background(RoundedRectangle(cornerRadius: 10).foregroundColor(Color.myColor.backgroundColor))
                 // 내 소환사 카드

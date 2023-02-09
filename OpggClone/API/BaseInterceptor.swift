@@ -21,8 +21,8 @@ class BaseInterceptor: RequestInterceptor {
     }
     func retry(_ request: Request, for session: Session, dueTo error: Error, completion: @escaping (RetryResult) -> Void) {
         print("BaseInterceptor - retry() called")
-        if request.retryCount < 3 {
-            completion(.retryWithDelay(0.01))
+        if request.retryCount < 4 {
+            completion(.retryWithDelay(0.02))
         } else {
             completion(.doNotRetry)
         }

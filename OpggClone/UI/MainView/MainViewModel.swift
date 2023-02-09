@@ -27,7 +27,9 @@ class MainViewModel: ObservableObject {
     init() {
         totalSubscribe()
     }
-    
+    func fetchAndChangedToDetail(urlBase:UrlHeadPoint, name: String) async throws -> DetailSummonerInfo {
+        try await service.fetchAndChangeToDetail(urlBase: urlBase, name: name)
+    }
 
     func saveMyDetail(urlBase: UrlHeadPoint, name: String) {
         
@@ -42,8 +44,8 @@ class MainViewModel: ObservableObject {
         try await service.saveSearchedSummonerDetail(urlBase: urlBase, name: name)
     }
     
-    func duplicateCheckAndAdd(aDetailSummoner: DetailSummonerInfo) {
-        service.duplicateCheckAndAdd(aDetailSummoner: aDetailSummoner)
+    func duplicateCheckAndAdd(aDetailSummoner: DetailSummonerInfo, summonerList: inout [DetailSummonerInfo]) {
+        service.duplicateCheckAndAdd(aDetailSummoner: aDetailSummoner, summonerList: &summonerList)
     }
     
     func addInBookmark(aSummonerDetail: DetailSummonerInfo) {

@@ -11,8 +11,13 @@ struct SearchBar: View {
     
     @EnvironmentObject var mainVM: MainViewModel
 
+    @Binding var searchedSummonersDetail: [DetailSummonerInfo]
+    @Binding var searchedASummoner: DetailSummonerInfo?
+    @Binding var regionPicker: UrlHeadPoint
+    
     @Binding var searchBarText: String
     @Binding var goToSummonerInfoView: Bool
+    
     
     var body: some View {
         HStack {
@@ -24,10 +29,15 @@ struct SearchBar: View {
                 .onSubmit {
                     Task {
                         goToSummonerInfoView.toggle()
-                       try await mainVM.saveSearchedDetail(urlBase: mainVM.regionPicker ,name: searchBarText)
-                        if mainVM.searchedDetail != nil {
-                            mainVM.duplicateCheckAndAdd(aDetailSummoner: mainVM.searchedDetail!)
+//                       try await mainVM.saveSearchedDetail(urlBase: mainVM.regionPicker ,name: searchBarText)
+//                        if mainVM.searchedDetail != nil {
+//                            mainVM.duplicateCheckAndAdd(aDetailSummoner: mainVM.searchedDetail!)
+//                        }
+                        self.searchedASummoner = try await mainVM.fetchAndChangedToDetail(urlBase: regionPicker, name: searchBarText)
+                        if searchedASummoner != nil {
+                            mainVM.duplicateCheckAndAdd(aDetailSummoner: searchedASummoner!, summonerList: &searchedSummonersDetail)
                         }
+                        
                     }
                     
                 }
