@@ -115,11 +115,13 @@ struct MatchListCell: View {
                                 .foregroundColor(Color.myColor.gray)
                         }
                         Spacer()
-                        VStack {
+                        VStack(alignment: .trailing, spacing: 5) {
                             Text(queueTypeDic[matchInfo.info.queueID.description] ?? "기타")
                                 .font(.caption)
                                 .foregroundColor(Color.myColor.gray)
-//                            Text((detatilRuneDic[participant.perks.styles.first!.selections.first!.perk] ?? ""))
+                            Text(matchInfo.info.elapsedTime.unixToMyString())
+                                .font(.caption)
+                                .foregroundColor(Color.myColor.gray)
                         }
                     }
                 }

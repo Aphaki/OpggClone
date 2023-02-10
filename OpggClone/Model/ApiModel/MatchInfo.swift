@@ -35,6 +35,11 @@ struct Info: Codable {
     let queueID: Int
     let teams: [Team]
     let tournamentCode: String
+    var elapsedTime: Double {
+        let value =
+        ApiConstants.nowTime - Double((gameEndTimestamp ?? 0) / 1000)
+        return value
+    }
 
     enum CodingKeys: String, CodingKey {
         case gameCreation, gameDuration, gameEndTimestamp
