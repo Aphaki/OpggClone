@@ -13,6 +13,10 @@ struct SummonerInfoLoadingView: View {
     
     let searchedDetail: DetailSummonerInfo?
     
+    var mostChamp: String? {
+        return self.searchedDetail?.mostChamp.first?.championName ?? ""
+    }
+    
     var summonerInfo: SummonerInfo? {
         return self.searchedDetail?.summonerInfo ?? nil
     }
@@ -33,7 +37,7 @@ struct SummonerInfoLoadingView: View {
             ProgressView()
                 .frame(width: 200, height: 200, alignment: .center)
         } else if searchedDetail != nil {
-            SummonerInfoView(summoner: summonerInfo!, leagues: leagues, matchInfos: matchInfos)
+            SummonerInfoView(mostChamp: mostChamp!, summoner: summonerInfo!, leagues: leagues, matchInfos: matchInfos)
         }
 //        else {
 //            VStack {

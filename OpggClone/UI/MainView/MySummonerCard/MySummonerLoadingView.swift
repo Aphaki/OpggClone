@@ -14,7 +14,7 @@ struct MySummonerLoadingView: View {
 
     var body: some View {
         if mySummonerInfo != nil {
-            SummonerInfoView(summoner: mySummonerInfo!.summonerInfo, leagues: mySummonerInfo!.leagueInfos, matchInfos: mySummonerInfo!.matchInfos)
+            SummonerInfoView(mostChamp: mySummonerInfo!.mostChamp.first!.championName, summoner: mySummonerInfo!.summonerInfo, leagues: mySummonerInfo!.leagueInfos, matchInfos: mySummonerInfo!.matchInfos)
         } else {
             Text("네트워크 연결을 확인하세요.")
         }

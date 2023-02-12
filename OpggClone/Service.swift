@@ -132,30 +132,54 @@ class Service {
         
     }
     
+    //        var matchInfosValue: [MatchInfo] = []
+    //        for matchId in matchIds {
+    //            async let aValue = await requestMatchInfo(urlBaseHead: urlBaseHead, matchId: matchId)
+    //
+    //            try await matchInfosValue.append(aValue)
+    //        }
+    //
+    //        return matchInfosValue
+    
     func requestMatchInfos(urlBaseHead: UrlHeadPoint, matchIds: [String]) async throws -> [MatchInfo] {
         
-//        var matchInfosValue: [MatchInfo] = []
-//        for matchId in matchIds {
-//            async let aValue = await requestMatchInfo(urlBaseHead: urlBaseHead, matchId: matchId)
-//
-//            try await matchInfosValue.append(aValue)
-//        }
-//
-//        return matchInfosValue
-//        let value =
+        let value =
         try await withThrowingTaskGroup(of: MatchInfo.self, body: { group in
             for matchId in matchIds {
                 group.addTask { try await self.requestMatchInfo(urlBaseHead: urlBaseHead, matchId: matchId) }
             }
-            var result = [MatchInfo]()
             
+            var result = [MatchInfo]()
+
             for try await aMatchInfo in group {
                 result.append(aMatchInfo)
+                
+//                result[0] = aMatchInfo
             }
             return result
         })
-//        return value
+        return value.sorted { matchA, matchB in
+           return matchA.info.gameStartTimestamp > matchB.info.gameStartTimestamp
+        }
+        
     }
+    
+//    func requestMatchInfos(urlBaseHead: UrlHeadPoint, matchIds: [String]) async throws -> [MatchInfo] {
+//
+//            try await withThrowingTaskGroup(of: MatchInfo.self, body: { group in
+//                for matchId in matchIds {
+//                    group.addTask { try await self.requestMatchInfo(urlBaseHead: urlBaseHead, matchId: matchId) }
+//                }
+//                var result = [MatchInfo]()
+//
+//                try await group.waitForAll()
+//
+//                for try await aMatchInfo in group {
+//                    result.append(aMatchInfo)
+//                }
+//                return result
+//            })
+//        }
     
     func saveMyDetail(urlBase: UrlHeadPoint, name: String) async throws {
         
@@ -299,7 +323,14 @@ class Service {
         most1matchInfos.filter { aParticipant in
             return aParticipant.win == false
         }.count
-        let most1winningRate = most1Wins * 100 / (most1Wins + most1Losses)
+        
+        var most1winningRate: Int {
+            if most1Wins + most1Losses == 0 {
+                return 0
+            } else {
+                return most1Wins * 100 / (most1Wins + most1Losses)
+            }
+        }
         
         let most1Kills =
         most1matchInfos.map { aParticipant -> Int in
@@ -337,8 +368,9 @@ class Service {
         
         let secondMaxFrequency = frequencyDictionary.values.max()
         let secondMostFrequentElement = frequencyDictionary.first(where: { $0.value == secondMaxFrequency })?.key
-        
-        frequencyDictionary.removeValue(forKey: secondMostFrequentElement!)
+        if secondMostFrequentElement != nil {
+            frequencyDictionary.removeValue(forKey: secondMostFrequentElement!)
+        }
         
         let thirdMaxFrequency = frequencyDictionary.values.max()
         let thirdMostFrequentElement = frequencyDictionary.first(where: { $0.value == thirdMaxFrequency })?.key

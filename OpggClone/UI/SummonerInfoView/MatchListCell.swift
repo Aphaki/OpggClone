@@ -109,7 +109,8 @@ struct MatchListCell: View {
     //                            Text("  \(participant.kda.with2Demicals()):1")
     //                                .foregroundColor(participant.kda > 6 ? .red : participant.kda > 4 ? .blue : participant.kda > 3 ? .green : .gray)
                                 
-                            }.font(.title)
+                            }.font(.headline)
+                                .padding(.horizontal, 3)
                             Text("  킬 관여 \(participant.challenges?["killParticipation"]?.changedPercentage() ?? "0" )%")
                                 .font(.caption)
                                 .foregroundColor(Color.myColor.gray)

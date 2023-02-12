@@ -11,6 +11,7 @@ struct SummonerInfoView: View {
     
     @EnvironmentObject var mainVM: MainViewModel
     
+    var mostChamp: String
     var summoner: SummonerInfo
     var leagues: [SummonersLeagueElement]
     var matchInfos: [MatchInfo]
@@ -22,7 +23,7 @@ struct SummonerInfoView: View {
                 VStack {
                     ZStack(alignment: .bottomLeading) {
                         //배경화면
-                        AsyncImage(url: URL(string: "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_0.jpg")) { img in
+                        AsyncImage(url: URL(string: "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/\(mostChamp)_0.jpg")) { img in
                             img
                                 .resizable()
                                 .frame(width: geo.size.width, height: geo.size.height / 4)
