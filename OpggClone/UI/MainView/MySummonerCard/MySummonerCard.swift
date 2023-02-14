@@ -23,7 +23,7 @@ struct MySummonerCard: View {
             if mySummonerInfo != nil {
                 VStack {
                     HStack {
-                        AsyncImage(url: URL(string: "https://ddragon.leagueoflegends.com/cdn/13.1.1/img/profileicon/\(mySummonerInfo!.icon).png")) { img in
+                        AsyncImage(url: mySummonerInfo!.icon.toIconImgURL()) { img in
                             img
                                 .resizable()
                                 .frame(width: 70, height: 70)

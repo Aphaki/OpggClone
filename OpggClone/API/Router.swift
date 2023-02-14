@@ -12,7 +12,7 @@ enum Router: URLRequestConvertible {
     
     case summoner(urlBaseHead:UrlHeadPoint, name: String)
     case league(urlBaseHead:UrlHeadPoint, encryptedSummonerId: String)
-    case match(urlBaseHead:UrlHeadPoint, puuid: String)
+    case match(urlBaseHead:UrlHeadPoint, puuid: String, start: Int = 0, count: Int = 20)
     case matchInfo(urlBaseHead:UrlHeadPoint, matchId: String)
 
     var baseURL: URL {
@@ -21,7 +21,7 @@ enum Router: URLRequestConvertible {
             return URL(string: urlBaseHead.urlBaseString)!
         case let .league(urlBaseHead, _):
             return URL(string: urlBaseHead.urlBaseString)!
-        case let .match(urlBaseHead, _):
+        case let .match(urlBaseHead, _, _, _):
             return URL(string: urlBaseHead.urlBaseAreaString)!
         case let .matchInfo(urlBaseHead, _):
             return URL(string: urlBaseHead.urlBaseAreaString)!
@@ -37,7 +37,7 @@ enum Router: URLRequestConvertible {
             return "lol/summoner/v4/summoners/by-name/\(name)"
         case let .league(_, encryptedSummonerId):
             return "lol/league/v4/entries/by-summoner/\(encryptedSummonerId)"
-        case let .match(_, puuid):
+        case let .match(_, puuid, _, _):
             return "lol/match/v5/matches/by-puuid/\(puuid)/ids"
         case let .matchInfo(_, matchID):
             return "lol/match/v5/matches/\(matchID)"
@@ -48,14 +48,21 @@ enum Router: URLRequestConvertible {
 //
 //        return [ "api_key" : MyConstants.X_Riot_Token ]
 //    }
+    
+    var parameter: [String:Int] {
+        switch self {
+        case let .match(_, _, start, count):
+            return ["start" : start , "count" : count]
+        default:
+            return [:]
+        }
+    }
 
     func asURLRequest() throws -> URLRequest {
 
         let url = baseURL.appendingPathComponent(path)
         var request = URLRequest(url: url)
         request.method = method
-        print("Router - asURLRequest() - url: \(url)")
-        
 //        request = try URLEncodedFormParameterEncoder().encode(parameter, into: request)
 //        print("\(request)")
 

@@ -15,7 +15,7 @@ struct BookmarkSummonerCard: View {
         VStack(spacing: 10) {
             // 아이콘 이미지 + 레벨
             ZStack(alignment: .bottom) {
-                AsyncImage(url: URL(string: "https://ddragon.leagueoflegends.com/cdn/13.1.1/img/profileicon/\(detailSummonerInfo.icon).png")) { img in
+                AsyncImage(url: detailSummonerInfo.icon.toIconImgURL()) { img in
                     img
                         .resizable()
                         .frame(width: 60, height: 60)

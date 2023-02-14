@@ -255,7 +255,18 @@ class Service {
         let loseCount = mySummonerMatchInfos.filter { aParticipant in
             return aParticipant.win == false
         }.count
-        let winningRate = winCount * 100 / (winCount + loseCount)
+        
+        var winningRate: Int {
+            if winCount+loseCount != 0 {
+                return winCount * 100 / (winCount + loseCount)
+            } else {
+                return 0
+            }
+        }
+
+       
+        
+        
         
         let totalKills =
         mySummonerMatchInfos.map { aParticipant -> Int in

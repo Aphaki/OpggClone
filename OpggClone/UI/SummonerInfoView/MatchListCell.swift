@@ -47,7 +47,7 @@ struct MatchListCell: View {
             VStack(spacing: 0) {
                 HStack {
                     HStack(spacing: 3) {
-                        AsyncImage(url: URL(string: "https://ddragon.leagueoflegends.com/cdn/13.1.1/img/champion/\(participant.championName).png")) { img in
+                        AsyncImage(url: participant.championName.toChampImgURL()) { img in
                             img
                                 .resizable()
                                 .frame(width: 60, height: 60)

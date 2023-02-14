@@ -14,7 +14,11 @@ extension Int {
 //        formatter.maximumFractionDigits = 1
 //        return formatter
 //    }
-        
+    func toIconImgURL() -> URL? {
+        return URL(string: "https://ddragon.leagueoflegends.com/cdn/13.1.1/img/profileicon/\(self).png")
+    }
+    
+    
     func withKString() -> String {
         let num = abs(Double(self))
         let sign = (self < 0) ? "-" : ""

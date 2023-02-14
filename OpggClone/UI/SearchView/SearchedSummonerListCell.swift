@@ -21,7 +21,7 @@ struct SearchedSummonerListCell: View {
     
     var body: some View {
         HStack {
-            AsyncImage(url: URL(string: "https://ddragon.leagueoflegends.com/cdn/13.1.1/img/profileicon/\(detailSummonerInfo.icon).png")) { img in
+            AsyncImage(url: detailSummonerInfo.icon.toIconImgURL()) { img in
                 img
                     .resizable()
                     .frame(width: 50, height: 50)

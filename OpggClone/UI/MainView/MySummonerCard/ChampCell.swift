@@ -16,7 +16,7 @@ struct ChampCell: View {
     var body: some View {
         if champName != "" {
             HStack {
-                AsyncImage(url: URL(string: "https://ddragon.leagueoflegends.com/cdn/13.1.1/img/champion/\(champName).png")) { img in
+                AsyncImage(url: champName.toChampImgURL()) { img in
                     img
                         .resizable()
                         .frame(width: 60, height: 60)

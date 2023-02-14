@@ -34,6 +34,7 @@
 		7F4E11DF298992E30078E26A /* EmptyMySummonerCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4E11DE298992E30078E26A /* EmptyMySummonerCard.swift */; };
 		7F4E11E1298996050078E26A /* MySummonerAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4E11E0298996050078E26A /* MySummonerAddView.swift */; };
 		7F4E3AD0296FF46400DB261C /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4E3ACF296FF46400DB261C /* Color.swift */; };
+		7F52C971299B5D01000E848E /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F52C970299B5D01000E848E /* String.swift */; };
 		7F6BC75B2955AA3900A87DC2 /* OpggCloneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6BC75A2955AA3900A87DC2 /* OpggCloneApp.swift */; };
 		7F6BC75D2955AA3900A87DC2 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6BC75C2955AA3900A87DC2 /* MainView.swift */; };
 		7F6BC75F2955AA3900A87DC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F6BC75E2955AA3900A87DC2 /* Assets.xcassets */; };
@@ -102,6 +103,7 @@
 		7F4E11DE298992E30078E26A /* EmptyMySummonerCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyMySummonerCard.swift; sourceTree = "<group>"; };
 		7F4E11E0298996050078E26A /* MySummonerAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySummonerAddView.swift; sourceTree = "<group>"; };
 		7F4E3ACF296FF46400DB261C /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		7F52C970299B5D01000E848E /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		7F6BC7572955AA3900A87DC2 /* OpggClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpggClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F6BC75A2955AA3900A87DC2 /* OpggCloneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpggCloneApp.swift; sourceTree = "<group>"; };
 		7F6BC75C2955AA3900A87DC2 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -327,6 +329,7 @@
 				7F036F2A297837FB00163ACA /* Int.swift */,
 				7FABB755296EC31D00C5FB07 /* PriviewProviders.swift */,
 				7F4E3ACF296FF46400DB261C /* Color.swift */,
+				7F52C970299B5D01000E848E /* String.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -483,6 +486,7 @@
 			files = (
 				7FBBCB7329695AA3000C5F71 /* Double.swift in Sources */,
 				7F147CE9295D792D008BF262 /* ApiLogger.swift in Sources */,
+				7F52C971299B5D01000E848E /* String.swift in Sources */,
 				7F4E11E1298996050078E26A /* MySummonerAddView.swift in Sources */,
 				7FD5F2AC29923CA800D0BC1F /* BookmarkSummonerCard.swift in Sources */,
 				7F4E11DF298992E30078E26A /* EmptyMySummonerCard.swift in Sources */,
