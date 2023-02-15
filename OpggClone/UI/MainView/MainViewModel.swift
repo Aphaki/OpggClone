@@ -81,6 +81,16 @@ class MainViewModel: ObservableObject {
         }
     }
     
+//    func addMatchListInSummonerInfo(urlBaseHead:UrlHeadPoint, puuid: String, start: Int, count: Int) {
+//        Task {
+//            let additionalMatchIds =
+//           try await service.requestMatchList(urlBaseHead:urlBaseHead, puuid: puuid, start: start, count: count)
+//            let additionalMatchInfos =
+//            try await service.requestMatchInfos(urlBaseHead: urlBaseHead, matchIds: additionalMatchIds)
+//        }
+//
+//    }
+    
     //MARK: - 구독
     private func subscribeUrlRegion() {
         service.$regionPicker

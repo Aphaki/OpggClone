@@ -78,9 +78,9 @@ class Service {
         }
     }
     
-    func requestMatchList(urlBaseHead: UrlHeadPoint, puuid: String) async throws -> [String]  {
+    func requestMatchList(urlBaseHead: UrlHeadPoint, puuid: String, start: Int = 0, count: Int = 20) async throws -> [String]  {
         let dataTask = ApiClient.shared.session
-            .request(Router.match(urlBaseHead: urlBaseHead, puuid: puuid))
+            .request(Router.match(urlBaseHead: urlBaseHead, puuid: puuid, start: start, count: count))
             .serializingDecodable([String].self)
         
         if let response = await dataTask.response.response {
@@ -101,11 +101,6 @@ class Service {
     }
     
     private func requestMatchInfo(urlBaseHead: UrlHeadPoint, matchId: String) async throws -> MatchInfo  {
-        
-//        let request = ApiClient.shared.session
-//            .request(Router.matchInfo(urlBaseHead: urlBaseHead, matchId: matchId))
-        
-        
         let dataTask = ApiClient.shared.session
             .request(Router.matchInfo(urlBaseHead: urlBaseHead, matchId: matchId))
             .serializingDecodable(MatchInfo.self)
@@ -129,7 +124,6 @@ class Service {
             debugPrint(error.localizedDescription)
             throw error
         }
-        
     }
     
     //        var matchInfosValue: [MatchInfo] = []
@@ -146,15 +140,15 @@ class Service {
         let value =
         try await withThrowingTaskGroup(of: MatchInfo.self, body: { group in
             for matchId in matchIds {
-                group.addTask { try await self.requestMatchInfo(urlBaseHead: urlBaseHead, matchId: matchId) }
+                group.addTask { try await self.requestMatchInfo(urlBaseHead: urlBaseHead, matchId: matchId)
+                    
+                }
             }
             
             var result = [MatchInfo]()
 
             for try await aMatchInfo in group {
                 result.append(aMatchInfo)
-                
-//                result[0] = aMatchInfo
             }
             return result
         })
@@ -164,22 +158,7 @@ class Service {
         
     }
     
-//    func requestMatchInfos(urlBaseHead: UrlHeadPoint, matchIds: [String]) async throws -> [MatchInfo] {
-//
-//            try await withThrowingTaskGroup(of: MatchInfo.self, body: { group in
-//                for matchId in matchIds {
-//                    group.addTask { try await self.requestMatchInfo(urlBaseHead: urlBaseHead, matchId: matchId) }
-//                }
-//                var result = [MatchInfo]()
-//
-//                try await group.waitForAll()
-//
-//                for try await aMatchInfo in group {
-//                    result.append(aMatchInfo)
-//                }
-//                return result
-//            })
-//        }
+    
     
     func saveMyDetail(urlBase: UrlHeadPoint, name: String) async throws {
         

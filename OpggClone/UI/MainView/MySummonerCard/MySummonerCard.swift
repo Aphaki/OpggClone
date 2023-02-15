@@ -13,6 +13,7 @@ struct MySummonerCard: View {
     
     @Binding var mySummonerInfo: DetailSummonerInfo?
     @Binding var goToAddView: Bool
+    @Binding var regionPicker: UrlHeadPoint
     
     @State var deleteAlert: Bool = false
     @State var goToDetailView: Bool = false
@@ -110,7 +111,7 @@ struct MySummonerCard: View {
                             .background(RoundedRectangle(cornerRadius: 5).foregroundColor(Color.myColor.darkBlue))
                     }
                     .navigationDestination(isPresented: $goToDetailView) {
-                        MySummonerLoadingView(mySummonerInfo: mainVM.myDetailSummonerInfo)
+                        MySummonerLoadingView(mySummonerInfo: mainVM.myDetailSummonerInfo, regionPicker: $regionPicker)
                     }
 
                 } // VStack

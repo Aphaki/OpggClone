@@ -10,12 +10,15 @@ import SwiftUI
 struct SummonerInfoView: View {
     
     @EnvironmentObject var mainVM: MainViewModel
+    @StateObject var vm: SearchInfoViewModel
     
-    var mostChamp: String
-    var summoner: SummonerInfo
-    var leagues: [SummonersLeagueElement]
-    var matchInfos: [MatchInfo]
-    var queueTypeDic: [String:String] = JsonInstance.shared.queueType
+//    @Binding var regionPicker: UrlHeadPoint
+    
+    init(mostChamp: String, summoner: SummonerInfo, leagues: [SummonersLeagueElement], matchInfos: [MatchInfo], regionPicker: Binding<UrlHeadPoint>) {
+        _vm = StateObject(wrappedValue: SearchInfoViewModel(mostChamp: mostChamp, summoner: summoner, leagues: leagues, matchInfos: matchInfos, regionPicker: regionPicker.wrappedValue) )
+//        _regionPicker = regionPicker
+    }
+    
     
     var body: some View {
         GeometryReader { geo in
@@ -23,7 +26,7 @@ struct SummonerInfoView: View {
                 VStack {
                     ZStack(alignment: .bottomLeading) {
                         //배경화면
-                        AsyncImage(url: mostChamp.toBackgroundChampImgURL()) { img in
+                        AsyncImage(url: vm.mostChamp.toBackgroundChampImgURL()) { img in
                             img
                                 .resizable()
                                 .frame(width: geo.size.width, height: geo.size.height / 4)
@@ -68,14 +71,14 @@ struct SummonerInfoView: View {
                     
                     ScrollView(.horizontal) {
                         HStack {
-                            if !leagues.isEmpty {
-                                ForEach(leagues) { league in
+                            if !vm.leagues.isEmpty {
+                                ForEach(vm.leagues) { league in
                                     HStack {
                                         Image(league.tier.lowercased())
                                             .resizable()
                                             .frame(width: 100, height: 100)
                                         VStack(alignment: .leading, spacing: 5) {
-                                            Text(queueTypeDic[league.queueType] ?? "기타")
+                                            Text(vm.queueTypeDic[league.queueType] ?? "기타")
                                                 .foregroundColor(.white)
                                                 .padding(3)
                                                 .background(RoundedRectangle(cornerRadius: 5).foregroundColor(Color.myColor.lightBlue))
@@ -100,7 +103,7 @@ struct SummonerInfoView: View {
                                         .resizable()
                                         .frame(width: 100, height: 100)
                                     VStack(alignment: .leading, spacing: 5) {
-                                        Text(queueTypeDic["RANKED_SOLO_5x5"] ?? "기타")
+                                        Text(vm.queueTypeDic["RANKED_SOLO_5x5"] ?? "기타")
                                             .foregroundColor(.white)
                                             .padding(3)
                                             .background(RoundedRectangle(cornerRadius: 5).foregroundColor(Color.myColor.lightBlue))
@@ -123,7 +126,7 @@ struct SummonerInfoView: View {
                                         .resizable()
                                         .frame(width: 100, height: 100)
                                     VStack(alignment: .leading, spacing: 5) {
-                                        Text(queueTypeDic["RANKED_FLEX_SR"] ?? "기타")
+                                        Text(vm.queueTypeDic["RANKED_FLEX_SR"] ?? "기타")
                                             .foregroundColor(.white)
                                             .padding(3)
                                             .background(RoundedRectangle(cornerRadius: 5).foregroundColor(Color.myColor.lightBlue))
@@ -146,17 +149,23 @@ struct SummonerInfoView: View {
                         }
                     } //Scroll View
                     VStack(spacing:0) {
-                        ForEach(matchInfos) { info in
+                        ForEach(vm.matchInfos) { info in
                             Divider()
                             NavigationLink {
-                                MatchDetailView(matchInfo: info, summonerInfo: summoner)
+                                MatchDetailView(matchInfo: info, summonerInfo: vm.summoner)
                             } label: {
-                                MatchListCell(matchInfo: info, summoner: summoner)
+                                MatchListCell(matchInfo: info, summoner: vm.summoner)
                                     .frame(maxWidth: .infinity)
                             }
-
-                            
                         }
+                        Text("더 보기")
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(Color.myColor.secondary)
+                            .onTapGesture {
+                                vm.matchIndex += 5
+                                vm.addAdditionalInfo(start: vm.matchIndex, count: vm.AddInfoCount)
+                            }
                     }
                     Spacer()
                 }
@@ -179,7 +188,7 @@ extension SummonerInfoView {
     
     var icon: some View {
         ZStack(alignment: .bottom) {
-            AsyncImage(url: URL(string: "https://ddragon.leagueoflegends.com/cdn/13.1.1/img/profileicon/\(summoner.profileIconId).png")) { img in
+            AsyncImage(url: vm.summoner.profileIconId.toIconImgURL()) { img in
                 img
                     .resizable()
                     .frame(width: 80, height: 80, alignment: .leading)
@@ -187,7 +196,7 @@ extension SummonerInfoView {
                 Image(systemName: "person.circle")
             }
             .clipShape(Circle())
-            Text("\(summoner.summonerLevel)")
+            Text("\(vm.summoner.summonerLevel)")
                 .font(.caption)
                 .foregroundColor(.white)
                 .padding(2)
@@ -196,7 +205,7 @@ extension SummonerInfoView {
     }
     var nameAndRanking: some View {
         VStack(alignment: .leading) {
-            Text(summoner.name)
+            Text(vm.summoner.name)
                 .font(.title)
                 .foregroundColor(.white)
             Text("래더 랭킹 -")

@@ -31,7 +31,7 @@ struct MainView: View {
                 // 내 소환사 카드
                 VStack {
                     if mainVM.isLoading == false {
-                        MySummonerCard(mySummonerInfo: $mainVM.myDetailSummonerInfo, goToAddView: $goToAddView)
+                        MySummonerCard(mySummonerInfo: $mainVM.myDetailSummonerInfo, goToAddView: $goToAddView, regionPicker: $mainVM.regionPicker)
                     } else {
                         ProgressView()
                     }
@@ -53,6 +53,7 @@ struct MainView: View {
                 }
                 Spacer()
             }
+            // 상단뷰 : 로고, 지역선택, 홈편집
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Picker("Kr", selection: $mainVM.regionPicker) {

@@ -36,10 +36,10 @@ struct SearchView: View {
         }
         .navigationDestination(isPresented: $goToSummonerInfoView) {
 
-            SummonerInfoLoadingView(searchedDetail: searchedASummoner, goToSummonerInfoView: $goToSummonerInfoView)
+            SummonerInfoLoadingView(searchedDetail: searchedASummoner, goToSummonerInfoView: $goToSummonerInfoView, regionPicker: $regionPicker)
         }
         .navigationDestination(isPresented: $goToSearchedSummonerInfoView) {
-            SummonerInfoLoadingView(searchedDetail: selectedSummoner, goToSummonerInfoView: $goToSearchedSummonerInfoView)
+            SummonerInfoLoadingView(searchedDetail: selectedSummoner, goToSummonerInfoView: $goToSearchedSummonerInfoView, regionPicker: $regionPicker)
         }
     }
 }

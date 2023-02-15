@@ -29,7 +29,7 @@ struct SummonerInfoLoadingView: View {
     
     
     @Binding var goToSummonerInfoView: Bool
-    
+    @Binding var regionPicker: UrlHeadPoint
     
     
     var body: some View {
@@ -37,7 +37,7 @@ struct SummonerInfoLoadingView: View {
             ProgressView()
                 .frame(width: 200, height: 200, alignment: .center)
         } else if searchedDetail != nil {
-            SummonerInfoView(mostChamp: mostChamp!, summoner: summonerInfo!, leagues: leagues, matchInfos: matchInfos)
+            SummonerInfoView(mostChamp: mostChamp!, summoner: summonerInfo!, leagues: leagues, matchInfos: matchInfos, regionPicker: $regionPicker)
         }
 //        else {
 //            VStack {

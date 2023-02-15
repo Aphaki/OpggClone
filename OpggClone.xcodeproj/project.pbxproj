@@ -53,6 +53,7 @@
 		7FBBCB7329695AA3000C5F71 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBBCB7229695AA3000C5F71 /* Double.swift */; };
 		7FBBCB762969C4FB000C5F71 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBBCB752969C4FB000C5F71 /* MainViewModel.swift */; };
 		7FC15B6D295DC26B00605F1D /* UrlHeadPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC15B6C295DC26B00605F1D /* UrlHeadPoint.swift */; };
+		7FC428F6299CBB000080B881 /* SearchInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC428F5299CBB000080B881 /* SearchInfoViewModel.swift */; };
 		7FCC3E05297805D8002DBEF8 /* MatchDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCC3E04297805D8002DBEF8 /* MatchDetailCell.swift */; };
 		7FD5F2AC29923CA800D0BC1F /* BookmarkSummonerCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD5F2AB29923CA800D0BC1F /* BookmarkSummonerCard.swift */; };
 		7FD9852E29880918001B7BED /* ItemImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD9852D29880918001B7BED /* ItemImage.swift */; };
@@ -126,6 +127,7 @@
 		7FBBCB7229695AA3000C5F71 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		7FBBCB752969C4FB000C5F71 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		7FC15B6C295DC26B00605F1D /* UrlHeadPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlHeadPoint.swift; sourceTree = "<group>"; };
+		7FC428F5299CBB000080B881 /* SearchInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInfoViewModel.swift; sourceTree = "<group>"; };
 		7FCC3E04297805D8002DBEF8 /* MatchDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchDetailCell.swift; sourceTree = "<group>"; };
 		7FD5F2AB29923CA800D0BC1F /* BookmarkSummonerCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkSummonerCard.swift; sourceTree = "<group>"; };
 		7FD9852D29880918001B7BED /* ItemImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemImage.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 			children = (
 				7F350ADC297C303200DFDF6B /* SummonerInfoLoadingView.swift */,
 				7FABB753296EBB7200C5FB07 /* SummonerInfoView.swift */,
+				7FC428F5299CBB000080B881 /* SearchInfoViewModel.swift */,
 				7F2A8F4629704EEB00458795 /* MatchListCell.swift */,
 				7F0E2A562977EFC8002B1AFB /* MatchDetailView.swift */,
 				7FCC3E04297805D8002DBEF8 /* MatchDetailCell.swift */,
@@ -490,6 +493,7 @@
 				7F4E11E1298996050078E26A /* MySummonerAddView.swift in Sources */,
 				7FD5F2AC29923CA800D0BC1F /* BookmarkSummonerCard.swift in Sources */,
 				7F4E11DF298992E30078E26A /* EmptyMySummonerCard.swift in Sources */,
+				7FC428F6299CBB000080B881 /* SearchInfoViewModel.swift in Sources */,
 				7F147CE4295D77B4008BF262 /* ApiClient.swift in Sources */,
 				7F4C938D2988D973005AE0F7 /* DetailSummonerInfo.swift in Sources */,
 				7F036F2B297837FB00163ACA /* Int.swift in Sources */,

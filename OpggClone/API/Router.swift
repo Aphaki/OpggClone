@@ -63,8 +63,8 @@ enum Router: URLRequestConvertible {
         let url = baseURL.appendingPathComponent(path)
         var request = URLRequest(url: url)
         request.method = method
-//        request = try URLEncodedFormParameterEncoder().encode(parameter, into: request)
-//        print("\(request)")
+        request = try URLEncodedFormParameterEncoder().encode(parameter, into: request)
+        print("\(request)")
 
         return request
     }
