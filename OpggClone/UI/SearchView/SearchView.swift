@@ -10,6 +10,8 @@ import SwiftUI
 struct SearchView: View {
     
     @EnvironmentObject var mainVM: MainViewModel
+    @Environment(\.dismiss) var dismiss
+
     
     @Binding var searchedSummonersDetail: [DetailSummonerInfo]
     @Binding var searchedASummoner: DetailSummonerInfo?
@@ -40,6 +42,17 @@ struct SearchView: View {
         }
         .navigationDestination(isPresented: $goToSearchedSummonerInfoView) {
             SummonerInfoLoadingView(searchedDetail: selectedSummoner, goToSummonerInfoView: $goToSearchedSummonerInfoView, regionPicker: $regionPicker)
+        }
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "chevron.left")
+                }
+
+            }
         }
     }
 }

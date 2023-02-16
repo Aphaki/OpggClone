@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MatchDetailView: View {
     
+    @Environment(\.dismiss) var dismiss
     var matchInfo: MatchInfo
     
     var summonerInfo: SummonerInfo
@@ -176,6 +177,17 @@ struct MatchDetailView: View {
                 }
             }
             .padding(10)
+        }
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "chevron.left")
+                }
+
+            }
         }
         
         

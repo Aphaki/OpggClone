@@ -11,6 +11,8 @@ struct SummonerInfoLoadingView: View {
     
     @EnvironmentObject var mainVM: MainViewModel
     
+    @Environment(\.dismiss) var dismiss
+    
     let searchedDetail: DetailSummonerInfo?
     
     var mostChamp: String? {
@@ -36,9 +38,12 @@ struct SummonerInfoLoadingView: View {
         if mainVM.isLoading == true {
             ProgressView()
                 .frame(width: 200, height: 200, alignment: .center)
+                .navigationBarBackButtonHidden(true)
         } else if searchedDetail != nil {
             SummonerInfoView(mostChamp: mostChamp!, summoner: summonerInfo!, leagues: leagues, matchInfos: matchInfos, regionPicker: $regionPicker)
+
         }
+            
 //        else {
 //            VStack {
 //                Text("소환사를 찾을 수 없습니다.")
