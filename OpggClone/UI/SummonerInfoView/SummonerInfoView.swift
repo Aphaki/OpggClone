@@ -10,6 +10,7 @@ import SwiftUI
 struct SummonerInfoView: View {
     
     @EnvironmentObject var mainVM: MainViewModel
+    @Environment(\.dismiss) var dismiss
     @StateObject var vm: SearchInfoViewModel
     
 //    @Binding var regionPicker: UrlHeadPoint
@@ -170,8 +171,19 @@ struct SummonerInfoView: View {
                     Spacer()
                 }
             }
-            
             .ignoresSafeArea()
+            .navigationBarBackButtonHidden(true)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        dismiss()
+                        mainVM.searchedDetail = nil
+                    } label: {
+                        Image(systemName: "chevron.left")
+                    }
+
+                }
+            }
         }
     }
 }

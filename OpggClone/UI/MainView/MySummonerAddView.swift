@@ -10,6 +10,8 @@ import SwiftUI
 struct MySummonerAddView: View {
     
     @EnvironmentObject var mainVM: MainViewModel
+    @Environment(\.dismiss) var dismiss
+
     
     @State var textString: String = ""
     @Binding var goToAddView: Bool
@@ -47,6 +49,16 @@ struct MySummonerAddView: View {
             }
             Spacer()
 
+        }
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "chevron.left")
+                }
+
+            }
         }
                 
        

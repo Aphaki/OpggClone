@@ -7,8 +7,8 @@
 
 import Foundation
 
-enum ApiConstants {
-    static let X_Riot_Token: String = "RGAPI-dbf9d582-b9c8-4c00-9051-947a5063da8d"
+enum Constants {
+    static let X_Riot_Token: String = "RGAPI-69055ca3-a9e9-45e5-a72c-5e0436455068"
     
     static let nowTime: TimeInterval = Date().timeIntervalSince1970
 }

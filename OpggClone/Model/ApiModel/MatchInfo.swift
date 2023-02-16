@@ -37,7 +37,7 @@ struct Info: Codable {
     let tournamentCode: String
     var elapsedTime: Double {
         let value =
-        ApiConstants.nowTime - Double((gameEndTimestamp ?? 0) / 1000)
+        Constants.nowTime - Double((gameEndTimestamp ?? 0) / 1000)
         return value
     }
 

@@ -15,7 +15,7 @@ class BaseInterceptor: RequestInterceptor {
         request.addValue("ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7", forHTTPHeaderField: "Accept-Language")
         request.addValue("application/x-www-form-urlencoded; charset=UTF-8", forHTTPHeaderField: "Accept-Charset")
         request.addValue("https://developer.riotgames.com", forHTTPHeaderField: "Origin")
-        request.addValue(ApiConstants.X_Riot_Token, forHTTPHeaderField: "X-Riot-Token")
+        request.addValue(Constants.X_Riot_Token, forHTTPHeaderField: "X-Riot-Token")
         
         completion(.success(request))
     }
