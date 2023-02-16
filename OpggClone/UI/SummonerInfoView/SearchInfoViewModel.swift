@@ -16,6 +16,8 @@ class SearchInfoViewModel: ObservableObject {
     
     @Published var regionPicker: UrlHeadPoint
     
+    @Published var addLoading: Bool = false
+    
     let queueTypeDic: [String:String] = JsonInstance.shared.queueType
     
     var matchIndex = 15
@@ -98,7 +100,13 @@ class SearchInfoViewModel: ObservableObject {
         }
     }
     func addAdditionalInfo(start: Int, count: Int) {
+        
+        
         Task {
+            await MainActor.run(body: {
+                self.addLoading.toggle()
+                print("addLoading: \(addLoading)")
+            })
             let matchIdArray =
             try await requestAdditionalMatchList(urlBaseHead: regionPicker, puuid: summoner.puuid, start: start, count: count)
             let additionalMatchInfos =
@@ -107,8 +115,12 @@ class SearchInfoViewModel: ObservableObject {
             await MainActor.run {
                 self.matchInfos.append(contentsOf: additionalMatchInfos)
             }
+            await MainActor.run(body: {
+                self.addLoading.toggle()
+                print("addLoading: \(addLoading)")
+
+            })
         }
-        
     }
     
 }

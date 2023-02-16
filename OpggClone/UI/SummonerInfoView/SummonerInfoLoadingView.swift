@@ -11,7 +11,7 @@ struct SummonerInfoLoadingView: View {
     
     @EnvironmentObject var mainVM: MainViewModel
     
-    @Environment(\.dismiss) var dismiss
+//    @Environment(\.dismiss) var dismiss
     
     let searchedDetail: DetailSummonerInfo?
     

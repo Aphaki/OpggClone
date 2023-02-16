@@ -13,11 +13,8 @@ struct SummonerInfoView: View {
     @Environment(\.dismiss) var dismiss
     @StateObject var vm: SearchInfoViewModel
     
-//    @Binding var regionPicker: UrlHeadPoint
-    
     init(mostChamp: String, summoner: SummonerInfo, leagues: [SummonersLeagueElement], matchInfos: [MatchInfo], regionPicker: Binding<UrlHeadPoint>) {
         _vm = StateObject(wrappedValue: SearchInfoViewModel(mostChamp: mostChamp, summoner: summoner, leagues: leagues, matchInfos: matchInfos, regionPicker: regionPicker.wrappedValue) )
-//        _regionPicker = regionPicker
     }
     
     
@@ -159,14 +156,18 @@ struct SummonerInfoView: View {
                                     .frame(maxWidth: .infinity)
                             }
                         }
-                        Text("더 보기")
-                            .frame(maxWidth: .infinity)
-                            .padding()
-                            .background(Color.myColor.secondary)
-                            .onTapGesture {
-                                vm.matchIndex += 5
-                                vm.addAdditionalInfo(start: vm.matchIndex, count: vm.AddInfoCount)
-                            }
+                        if !vm.addLoading {
+                            Text("더 보기")
+                                .frame(maxWidth: .infinity)
+                                .padding()
+                                .background(Color.myColor.secondary)
+                                .onTapGesture {
+                                    vm.matchIndex += 5
+                                    vm.addAdditionalInfo(start: vm.matchIndex, count: vm.AddInfoCount)
+                                }
+                        } else {
+                            ProgressView()
+                        }
                     }
                     Spacer()
                 }
