@@ -98,14 +98,14 @@ struct MatchDetailCell: View {
                 HStack {
                     Text(participant.summonerName)
                 }
-                HStack(spacing: 5) {
+                HStack(spacing: 1) {
                     Text(" \(participant.kills)")
                     Text("/")
                     Text("\(participant.deaths)")
                         .foregroundColor(Color.myColor.red)
                     Text("/")
                     Text("\(participant.assists)")
-                    Text("")
+                    Text(" ")
                     Text("\(participant.kda.with2Demicals()):1")
                         .foregroundColor(participant.kda > 6 ? .red : participant.kda > 4 ? .blue : participant.kda > 3 ? .green : .gray)
                     

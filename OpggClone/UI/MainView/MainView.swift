@@ -10,6 +10,8 @@ import SwiftUI
 struct MainView: View {
     
     @EnvironmentObject var mainVM: MainViewModel
+    @Environment(\.dismiss) var dismiss
+
     
     @State var goSearchView: Bool = false
     @State var goToAddView: Bool = false
@@ -93,6 +95,7 @@ struct MainView: View {
         .alert("없는 소환사입니다.", isPresented: $noSummonerAlert) {
             Button {
                 mainVM.isLoading = false
+                goSearchView = false
             } label: {
                 Text("OK")
             }
