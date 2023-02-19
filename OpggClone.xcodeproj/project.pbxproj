@@ -17,6 +17,8 @@
 		7F14EE4429A1C92B008EAB1A /* IngameMatchInfoLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F14EE4329A1C92B008EAB1A /* IngameMatchInfoLoadingView.swift */; };
 		7F14EE4629A26AFF008EAB1A /* queueId.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F14EE4529A26AFF008EAB1A /* queueId.json */; };
 		7F14EE4829A26C8C008EAB1A /* QueueIdElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F14EE4729A26C8C008EAB1A /* QueueIdElement.swift */; };
+		7F14EE4A29A2947F008EAB1A /* champion.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F14EE4929A2947F008EAB1A /* champion.json */; };
+		7F14EE4C29A294ED008EAB1A /* Champion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F14EE4B29A294ED008EAB1A /* Champion.swift */; };
 		7F18BA22298CE93F008228AF /* SearchedSummonerListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F18BA21298CE93F008228AF /* SearchedSummonerListCell.swift */; };
 		7F1C70C82993A3510095F5A2 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1C70C72993A3510095F5A2 /* SearchViewModel.swift */; };
 		7F1E199E2979998C00A84E8E /* KR_6316414751.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F1E199D2979998C00A84E8E /* KR_6316414751.json */; };
@@ -93,6 +95,8 @@
 		7F14EE4329A1C92B008EAB1A /* IngameMatchInfoLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngameMatchInfoLoadingView.swift; sourceTree = "<group>"; };
 		7F14EE4529A26AFF008EAB1A /* queueId.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = queueId.json; sourceTree = "<group>"; };
 		7F14EE4729A26C8C008EAB1A /* QueueIdElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueIdElement.swift; sourceTree = "<group>"; };
+		7F14EE4929A2947F008EAB1A /* champion.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = champion.json; sourceTree = "<group>"; };
+		7F14EE4B29A294ED008EAB1A /* Champion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Champion.swift; sourceTree = "<group>"; };
 		7F18BA21298CE93F008228AF /* SearchedSummonerListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedSummonerListCell.swift; sourceTree = "<group>"; };
 		7F1C70C72993A3510095F5A2 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		7F1E199D2979998C00A84E8E /* KR_6316414751.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = KR_6316414751.json; sourceTree = "<group>"; };
@@ -310,11 +314,12 @@
 		7F9215A829769D8000BA67B7 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
-				7FF094B82986C6A7009F5073 /* summoner.json */,
-				7F7EC11729879216009E82B4 /* runesReforged.json */,
 				7F1E199D2979998C00A84E8E /* KR_6316414751.json */,
 				7FC428F7299F5F570080B881 /* Spectator.json */,
+				7FF094B82986C6A7009F5073 /* summoner.json */,
+				7F7EC11729879216009E82B4 /* runesReforged.json */,
 				7F14EE4529A26AFF008EAB1A /* queueId.json */,
+				7F14EE4929A2947F008EAB1A /* champion.json */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -326,6 +331,7 @@
 				7F9215B12976FC4B00BA67B7 /* RuneReforged.swift */,
 				7F4C938C2988D973005AE0F7 /* DetailSummonerInfo.swift */,
 				7F14EE4729A26C8C008EAB1A /* QueueIdElement.swift */,
+				7F14EE4B29A294ED008EAB1A /* Champion.swift */,
 				7F2934E02959772F00EEB2E8 /* ApiModel */,
 			);
 			path = Model;
@@ -480,6 +486,7 @@
 				7F6BC7622955AA3900A87DC2 /* Preview Assets.xcassets in Resources */,
 				7F6BC75F2955AA3900A87DC2 /* Assets.xcassets in Resources */,
 				7F14EE4629A26AFF008EAB1A /* queueId.json in Resources */,
+				7F14EE4A29A2947F008EAB1A /* champion.json in Resources */,
 				7F1E199E2979998C00A84E8E /* KR_6316414751.json in Resources */,
 				7F7EC11829879216009E82B4 /* runesReforged.json in Resources */,
 				7FC428F8299F5F570080B881 /* Spectator.json in Resources */,
@@ -537,6 +544,7 @@
 				7F842D10296C69B400AB206F /* Service.swift in Sources */,
 				7F2934E22959779200EEB2E8 /* SummonerInfo.swift in Sources */,
 				7F2934E829598F0C00EEB2E8 /* SummonersLeagueElement.swift in Sources */,
+				7F14EE4C29A294ED008EAB1A /* Champion.swift in Sources */,
 				7F4E3AD0296FF46400DB261C /* Color.swift in Sources */,
 				7F1C70C82993A3510095F5A2 /* SearchViewModel.swift in Sources */,
 				7F6BC75D2955AA3900A87DC2 /* MainView.swift in Sources */,
