@@ -82,4 +82,39 @@ class JsonInstance {
         return [:]
     }
     var queueType: [String:String] = ["RANKED_SOLO_5x5":"개인/2인 랭크", "RANKED_FLEX_SR":"자유랭크", "420":"개인/2인 랭크", "430":"일반" , "440":"자유랭크", "450":"무작위 총력전"]
+    
+    var queueIdArray: [QueueIdElement] {
+        guard let fileUrl = Bundle.main.url(forResource: "queueId", withExtension: "json") else {
+            fatalError("queueId.json not found")
+        }
+        let decoder = JSONDecoder()
+        do {
+           let jsonData = try Data(contentsOf: fileUrl)
+            do {
+                let queueIdArray =  try decoder.decode([QueueIdElement].self, from: jsonData)
+                return queueIdArray
+            } catch {
+                print("queueId jsonData Decode Error")
+            }
+        } catch {
+            print("queueId fileUrl not found")
+        }
+        return []
+    }
+    
+    var dicQueueIdAndType: [Int:String] {
+        var myDic = [Int:String]()
+        queueIdArray.forEach { aQueueid in
+            myDic[aQueueid.queueId] = aQueueid.description
+        }
+        return myDic
+    }
+    
+    var dicQueueIdAndMap: [Int:String] {
+        var myDic = [Int:String]()
+        queueIdArray.forEach { aQueueid in
+            myDic[aQueueid.queueId] = aQueueid.map
+        }
+        return myDic
+    }
 }
