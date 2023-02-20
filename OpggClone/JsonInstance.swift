@@ -84,6 +84,7 @@ class JsonInstance {
     var queueType: [String:String] = ["RANKED_SOLO_5x5":"개인/2인 랭크", "RANKED_FLEX_SR":"자유랭크", "420":"개인/2인 랭크", "430":"일반" , "440":"자유랭크", "450":"무작위 총력전"]
     
     //MARK: - queueId Dictionary
+    
     var queueIdArray: [QueueIdElement] {
         guard let fileUrl = Bundle.main.url(forResource: "queueId", withExtension: "json") else {
             fatalError("queueId.json not found")
@@ -118,6 +119,7 @@ class JsonInstance {
         return myDic
     }
     //MARK: - Champion Dictionary
+    
     var champDicArray: [ChampDatum] {
         guard let fileUrl = Bundle.main.url(forResource: "champion", withExtension: "json") else {
             fatalError("champion.json not found")

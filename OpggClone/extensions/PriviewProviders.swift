@@ -148,6 +148,34 @@ class MyPreviewClass {
         }
         return nil
     }
+    var blueTeam: [SpParticipant] {
+        if spectator != nil {
+            let totalParticipants =
+            spectator!.spParticipants
+            let blueTeam =
+            totalParticipants.filter { aParticipant in
+                return aParticipant.teamID == 100
+            }
+            return blueTeam
+        } else {
+            return []
+        }
+    }
+    
+    var redTeam: [SpParticipant] {
+        if spectator != nil {
+            let totalParticipants =
+            spectator!.spParticipants
+            let redTeam =
+            totalParticipants.filter { aParticipant in
+                return aParticipant.teamID == 200
+            }
+            return redTeam
+        } else {
+            return []
+        }
+        
+    }
     
     let jsonString =
     """

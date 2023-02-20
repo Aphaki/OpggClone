@@ -66,6 +66,8 @@
 		7FD5F2AC29923CA800D0BC1F /* BookmarkSummonerCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD5F2AB29923CA800D0BC1F /* BookmarkSummonerCard.swift */; };
 		7FD9852E29880918001B7BED /* ItemImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD9852D29880918001B7BED /* ItemImage.swift */; };
 		7FF094B92986C6A7009F5073 /* summoner.json in Resources */ = {isa = PBXBuildFile; fileRef = 7FF094B82986C6A7009F5073 /* summoner.json */; };
+		7FF152FD29A349440078F675 /* InGameMatchInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF152FC29A349440078F675 /* InGameMatchInfoCell.swift */; };
+		7FF152FF29A35A710078F675 /* InGameBanCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF152FE29A35A710078F675 /* InGameBanCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -148,6 +150,8 @@
 		7FD5F2AB29923CA800D0BC1F /* BookmarkSummonerCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkSummonerCard.swift; sourceTree = "<group>"; };
 		7FD9852D29880918001B7BED /* ItemImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemImage.swift; sourceTree = "<group>"; };
 		7FF094B82986C6A7009F5073 /* summoner.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = summoner.json; path = "../../../../Downloads/dragontail-12.23.1/12.23.1/data/ko_KR/summoner.json"; sourceTree = "<group>"; };
+		7FF152FC29A349440078F675 /* InGameMatchInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InGameMatchInfoCell.swift; sourceTree = "<group>"; };
+		7FF152FE29A35A710078F675 /* InGameBanCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InGameBanCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +213,7 @@
 				7F0E2A562977EFC8002B1AFB /* MatchDetailView.swift */,
 				7FCC3E04297805D8002DBEF8 /* MatchDetailCell.swift */,
 				7FC428FB299F64D60080B881 /* InGameMatchInfoView.swift */,
+				7FF152FC29A349440078F675 /* InGameMatchInfoCell.swift */,
 			);
 			path = SummonerInfoView;
 			sourceTree = "<group>";
@@ -316,6 +321,7 @@
 			children = (
 				7F1E199D2979998C00A84E8E /* KR_6316414751.json */,
 				7FC428F7299F5F570080B881 /* Spectator.json */,
+				7FF152FE29A35A710078F675 /* InGameBanCell.swift */,
 				7FF094B82986C6A7009F5073 /* summoner.json */,
 				7F7EC11729879216009E82B4 /* runesReforged.json */,
 				7F14EE4529A26AFF008EAB1A /* queueId.json */,
@@ -517,6 +523,7 @@
 				7FBBCB7329695AA3000C5F71 /* Double.swift in Sources */,
 				7F147CE9295D792D008BF262 /* ApiLogger.swift in Sources */,
 				7F52C971299B5D01000E848E /* String.swift in Sources */,
+				7FF152FF29A35A710078F675 /* InGameBanCell.swift in Sources */,
 				7F4E11E1298996050078E26A /* MySummonerAddView.swift in Sources */,
 				7FD5F2AC29923CA800D0BC1F /* BookmarkSummonerCard.swift in Sources */,
 				7F4E11DF298992E30078E26A /* EmptyMySummonerCard.swift in Sources */,
@@ -544,6 +551,7 @@
 				7F842D10296C69B400AB206F /* Service.swift in Sources */,
 				7F2934E22959779200EEB2E8 /* SummonerInfo.swift in Sources */,
 				7F2934E829598F0C00EEB2E8 /* SummonersLeagueElement.swift in Sources */,
+				7FF152FD29A349440078F675 /* InGameMatchInfoCell.swift in Sources */,
 				7F14EE4C29A294ED008EAB1A /* Champion.swift in Sources */,
 				7F4E3AD0296FF46400DB261C /* Color.swift in Sources */,
 				7F1C70C82993A3510095F5A2 /* SearchViewModel.swift in Sources */,

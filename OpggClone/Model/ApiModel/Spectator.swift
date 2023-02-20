@@ -52,7 +52,8 @@ struct Observers: Codable {
 }
 
 // MARK: - Participant
-struct SpParticipant: Codable {
+struct SpParticipant: Identifiable ,Codable {
+    let id = UUID()
     let teamID, spell1ID, spell2ID, championID: Int
     let profileIconID: Int
     let summonerName: String

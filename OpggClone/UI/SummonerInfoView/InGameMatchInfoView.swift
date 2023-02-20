@@ -14,6 +14,7 @@ struct InGameMatchInfoView: View {
     let queueIdToType = JsonInstance.shared.dicQueueIdAndType
     let queueIdToMap = JsonInstance.shared.dicQueueIdAndMap
     let champDicKeyToId = JsonInstance.shared.champKeyToId
+    let spellStore = JsonInstance.shared.spellStore
     
     @State var nowTime = Double(Date().timeIntervalSince1970)
     let timer = Timer.publish(every: 1.0, on: .main, in: .default).autoconnect()
@@ -61,33 +62,37 @@ struct InGameMatchInfoView: View {
                 VStack {
                     HStack {
                         Text("블루")
+                            .foregroundColor(Color.myColor.lightBlue)
+                            .padding(5)
+                            .background(RoundedRectangle(cornerRadius: 5).foregroundColor(Color.myColor.lightBlue).opacity(0.3) )
                         Spacer()
                         Text("챔프 스코어")
+                            .font(.headline)
+                            .foregroundColor(Color.myColor.accentColor)
                         Spacer()
                         Text("레드")
+                            .foregroundColor(Color.myColor.red)
+                            .padding(5)
+                            .background(RoundedRectangle(cornerRadius: 5).foregroundColor(Color.myColor.red).opacity(0.3) )
                     }
                     Divider()
                     VStack {
-                        HStack {
-                            AsyncImage(url: champDicKeyToId[blueTeam[0].championID.description]?.toChampImgURL()) { img in
-                                img
-                                    .resizable()
-                                    .frame(width: 45, height: 45)
-                                    .clipShape(RoundedRectangle(cornerRadius: 15))
-                            } placeholder: {
-                                ProgressView()
-                            }
-                            VStack {
-                                
-                            }
-                        }
-                        
-                        Text(blueTeam[0].summonerName)
-
+                        InGameMatchInfoCell(blueTeamMember: blueTeam[0], redTeamMember:  redTeam[0])
+                        Divider()
+                        InGameMatchInfoCell(blueTeamMember: blueTeam[1], redTeamMember:  redTeam[1])
+                        Divider()
+                        InGameMatchInfoCell(blueTeamMember: blueTeam[2], redTeamMember:  redTeam[2])
+                        Divider()
+                        InGameMatchInfoCell(blueTeamMember: blueTeam[3], redTeamMember:  redTeam[3])
+                        Divider()
+                        InGameMatchInfoCell(blueTeamMember: blueTeam[4], redTeamMember:  redTeam[4])
+                        Divider()
                     }
+                    InGameBanCell(blueTeam: blueTeam, redTeam: redTeam)
                 }
                 Spacer()
             }
+            .padding()
             .tabItem {
                 Text("팀 정보")
             }
