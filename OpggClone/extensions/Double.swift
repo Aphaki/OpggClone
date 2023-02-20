@@ -66,6 +66,16 @@ extension Double {
             return "\(Int(unixTime))초전"
         }
     }
+    func unixToMyIngameWatch() -> String {
+        let unixTime = Int(self)
+        let myMinutes = unixTime / 60
+        let mySeconds = unixTime % 60
+        if mySeconds < 10 {
+            return "\(myMinutes):0\(mySeconds)"
+        } else {
+            return "\(myMinutes):\(mySeconds)"
+        }
+    }
 }
     
 

@@ -16,6 +16,7 @@ struct OpggCloneApp: App {
         WindowGroup {
             MainView()
                 .environmentObject(vm)
+//            InGameMatchInfoView(spectator: MyPreviewClass.shared.spectator)
         }
     }
 }

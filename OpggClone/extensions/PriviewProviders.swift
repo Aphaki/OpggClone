@@ -129,6 +129,53 @@ class MyPreviewClass {
         let infos: [MatchInfo] = [matchInfo, matchInfo2]
         return infos
     }
+    var spectator: Spectator? {
+        guard let fileUrl = Bundle.main.url(forResource: "Spectator", withExtension: "json") else {
+            fatalError("Spectator.json not found")
+        }
+        let decoder = JSONDecoder()
+        do {
+            let jsonData = try Data(contentsOf: fileUrl)
+            do {
+                let spectator = try decoder.decode(Spectator.self, from: jsonData)
+                return spectator
+            } catch {
+                print("Spectator jsonData Decode Error")
+            }
+            
+        } catch {
+            print("Spectator fileUrl not found")
+        }
+        return nil
+    }
+    var blueTeam: [SpParticipant] {
+        if spectator != nil {
+            let totalParticipants =
+            spectator!.spParticipants
+            let blueTeam =
+            totalParticipants.filter { aParticipant in
+                return aParticipant.teamID == 100
+            }
+            return blueTeam
+        } else {
+            return []
+        }
+    }
+    
+    var redTeam: [SpParticipant] {
+        if spectator != nil {
+            let totalParticipants =
+            spectator!.spParticipants
+            let redTeam =
+            totalParticipants.filter { aParticipant in
+                return aParticipant.teamID == 200
+            }
+            return redTeam
+        } else {
+            return []
+        }
+        
+    }
     
     let jsonString =
     """

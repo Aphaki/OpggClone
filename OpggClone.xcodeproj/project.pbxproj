@@ -14,6 +14,11 @@
 		7F147CE7295D781B008BF262 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7F147CE6295D781B008BF262 /* Alamofire */; };
 		7F147CE9295D792D008BF262 /* ApiLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F147CE8295D792D008BF262 /* ApiLogger.swift */; };
 		7F147CEB295D7CF3008BF262 /* BaseInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F147CEA295D7CF3008BF262 /* BaseInterceptor.swift */; };
+		7F14EE4429A1C92B008EAB1A /* IngameMatchInfoLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F14EE4329A1C92B008EAB1A /* IngameMatchInfoLoadingView.swift */; };
+		7F14EE4629A26AFF008EAB1A /* queueId.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F14EE4529A26AFF008EAB1A /* queueId.json */; };
+		7F14EE4829A26C8C008EAB1A /* QueueIdElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F14EE4729A26C8C008EAB1A /* QueueIdElement.swift */; };
+		7F14EE4A29A2947F008EAB1A /* champion.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F14EE4929A2947F008EAB1A /* champion.json */; };
+		7F14EE4C29A294ED008EAB1A /* Champion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F14EE4B29A294ED008EAB1A /* Champion.swift */; };
 		7F18BA22298CE93F008228AF /* SearchedSummonerListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F18BA21298CE93F008228AF /* SearchedSummonerListCell.swift */; };
 		7F1C70C82993A3510095F5A2 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1C70C72993A3510095F5A2 /* SearchViewModel.swift */; };
 		7F1E199E2979998C00A84E8E /* KR_6316414751.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F1E199D2979998C00A84E8E /* KR_6316414751.json */; };
@@ -54,10 +59,15 @@
 		7FBBCB762969C4FB000C5F71 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBBCB752969C4FB000C5F71 /* MainViewModel.swift */; };
 		7FC15B6D295DC26B00605F1D /* UrlHeadPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC15B6C295DC26B00605F1D /* UrlHeadPoint.swift */; };
 		7FC428F6299CBB000080B881 /* SearchInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC428F5299CBB000080B881 /* SearchInfoViewModel.swift */; };
+		7FC428F8299F5F570080B881 /* Spectator.json in Resources */ = {isa = PBXBuildFile; fileRef = 7FC428F7299F5F570080B881 /* Spectator.json */; };
+		7FC428FA299F60530080B881 /* Spectator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC428F9299F60530080B881 /* Spectator.swift */; };
+		7FC428FC299F64D60080B881 /* InGameMatchInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC428FB299F64D60080B881 /* InGameMatchInfoView.swift */; };
 		7FCC3E05297805D8002DBEF8 /* MatchDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCC3E04297805D8002DBEF8 /* MatchDetailCell.swift */; };
 		7FD5F2AC29923CA800D0BC1F /* BookmarkSummonerCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD5F2AB29923CA800D0BC1F /* BookmarkSummonerCard.swift */; };
 		7FD9852E29880918001B7BED /* ItemImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD9852D29880918001B7BED /* ItemImage.swift */; };
 		7FF094B92986C6A7009F5073 /* summoner.json in Resources */ = {isa = PBXBuildFile; fileRef = 7FF094B82986C6A7009F5073 /* summoner.json */; };
+		7FF152FD29A349440078F675 /* InGameMatchInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF152FC29A349440078F675 /* InGameMatchInfoCell.swift */; };
+		7FF152FF29A35A710078F675 /* InGameBanCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF152FE29A35A710078F675 /* InGameBanCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +94,11 @@
 		7F147CE3295D77B4008BF262 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		7F147CE8295D792D008BF262 /* ApiLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiLogger.swift; sourceTree = "<group>"; };
 		7F147CEA295D7CF3008BF262 /* BaseInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInterceptor.swift; sourceTree = "<group>"; };
+		7F14EE4329A1C92B008EAB1A /* IngameMatchInfoLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngameMatchInfoLoadingView.swift; sourceTree = "<group>"; };
+		7F14EE4529A26AFF008EAB1A /* queueId.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = queueId.json; sourceTree = "<group>"; };
+		7F14EE4729A26C8C008EAB1A /* QueueIdElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueIdElement.swift; sourceTree = "<group>"; };
+		7F14EE4929A2947F008EAB1A /* champion.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = champion.json; sourceTree = "<group>"; };
+		7F14EE4B29A294ED008EAB1A /* Champion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Champion.swift; sourceTree = "<group>"; };
 		7F18BA21298CE93F008228AF /* SearchedSummonerListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedSummonerListCell.swift; sourceTree = "<group>"; };
 		7F1C70C72993A3510095F5A2 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		7F1E199D2979998C00A84E8E /* KR_6316414751.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = KR_6316414751.json; sourceTree = "<group>"; };
@@ -128,10 +143,15 @@
 		7FBBCB752969C4FB000C5F71 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		7FC15B6C295DC26B00605F1D /* UrlHeadPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlHeadPoint.swift; sourceTree = "<group>"; };
 		7FC428F5299CBB000080B881 /* SearchInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInfoViewModel.swift; sourceTree = "<group>"; };
+		7FC428F7299F5F570080B881 /* Spectator.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Spectator.json; sourceTree = "<group>"; };
+		7FC428F9299F60530080B881 /* Spectator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spectator.swift; sourceTree = "<group>"; };
+		7FC428FB299F64D60080B881 /* InGameMatchInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InGameMatchInfoView.swift; sourceTree = "<group>"; };
 		7FCC3E04297805D8002DBEF8 /* MatchDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchDetailCell.swift; sourceTree = "<group>"; };
 		7FD5F2AB29923CA800D0BC1F /* BookmarkSummonerCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkSummonerCard.swift; sourceTree = "<group>"; };
 		7FD9852D29880918001B7BED /* ItemImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemImage.swift; sourceTree = "<group>"; };
 		7FF094B82986C6A7009F5073 /* summoner.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = summoner.json; path = "../../../../Downloads/dragontail-12.23.1/12.23.1/data/ko_KR/summoner.json"; sourceTree = "<group>"; };
+		7FF152FC29A349440078F675 /* InGameMatchInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InGameMatchInfoCell.swift; sourceTree = "<group>"; };
+		7FF152FE29A35A710078F675 /* InGameBanCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InGameBanCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +212,8 @@
 				7F2A8F4629704EEB00458795 /* MatchListCell.swift */,
 				7F0E2A562977EFC8002B1AFB /* MatchDetailView.swift */,
 				7FCC3E04297805D8002DBEF8 /* MatchDetailCell.swift */,
+				7FC428FB299F64D60080B881 /* InGameMatchInfoView.swift */,
+				7FF152FC29A349440078F675 /* InGameMatchInfoCell.swift */,
 			);
 			path = SummonerInfoView;
 			sourceTree = "<group>";
@@ -224,6 +246,8 @@
 				7F2934E729598F0C00EEB2E8 /* SummonersLeagueElement.swift */,
 				7F2934E329597B6900EEB2E8 /* MatchIDs.swift */,
 				7F2934E529597CEA00EEB2E8 /* MatchInfo.swift */,
+				7FC428F9299F60530080B881 /* Spectator.swift */,
+				7F14EE4329A1C92B008EAB1A /* IngameMatchInfoLoadingView.swift */,
 			);
 			path = ApiModel;
 			sourceTree = "<group>";
@@ -295,9 +319,13 @@
 		7F9215A829769D8000BA67B7 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
+				7F1E199D2979998C00A84E8E /* KR_6316414751.json */,
+				7FC428F7299F5F570080B881 /* Spectator.json */,
+				7FF152FE29A35A710078F675 /* InGameBanCell.swift */,
 				7FF094B82986C6A7009F5073 /* summoner.json */,
 				7F7EC11729879216009E82B4 /* runesReforged.json */,
-				7F1E199D2979998C00A84E8E /* KR_6316414751.json */,
+				7F14EE4529A26AFF008EAB1A /* queueId.json */,
+				7F14EE4929A2947F008EAB1A /* champion.json */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -308,6 +336,8 @@
 				7F33C2EE2971C107002515B2 /* SummonerSpells.swift */,
 				7F9215B12976FC4B00BA67B7 /* RuneReforged.swift */,
 				7F4C938C2988D973005AE0F7 /* DetailSummonerInfo.swift */,
+				7F14EE4729A26C8C008EAB1A /* QueueIdElement.swift */,
+				7F14EE4B29A294ED008EAB1A /* Champion.swift */,
 				7F2934E02959772F00EEB2E8 /* ApiModel */,
 			);
 			path = Model;
@@ -461,8 +491,11 @@
 				7FF094B92986C6A7009F5073 /* summoner.json in Resources */,
 				7F6BC7622955AA3900A87DC2 /* Preview Assets.xcassets in Resources */,
 				7F6BC75F2955AA3900A87DC2 /* Assets.xcassets in Resources */,
+				7F14EE4629A26AFF008EAB1A /* queueId.json in Resources */,
+				7F14EE4A29A2947F008EAB1A /* champion.json in Resources */,
 				7F1E199E2979998C00A84E8E /* KR_6316414751.json in Resources */,
 				7F7EC11829879216009E82B4 /* runesReforged.json in Resources */,
+				7FC428F8299F5F570080B881 /* Spectator.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,6 +523,7 @@
 				7FBBCB7329695AA3000C5F71 /* Double.swift in Sources */,
 				7F147CE9295D792D008BF262 /* ApiLogger.swift in Sources */,
 				7F52C971299B5D01000E848E /* String.swift in Sources */,
+				7FF152FF29A35A710078F675 /* InGameBanCell.swift in Sources */,
 				7F4E11E1298996050078E26A /* MySummonerAddView.swift in Sources */,
 				7FD5F2AC29923CA800D0BC1F /* BookmarkSummonerCard.swift in Sources */,
 				7F4E11DF298992E30078E26A /* EmptyMySummonerCard.swift in Sources */,
@@ -500,7 +534,9 @@
 				7F2934E429597B6900EEB2E8 /* MatchIDs.swift in Sources */,
 				7F33C2F32971C44A002515B2 /* JsonInstance.swift in Sources */,
 				7F6BC7872955B08200A87DC2 /* SearchView.swift in Sources */,
+				7F14EE4429A1C92B008EAB1A /* IngameMatchInfoLoadingView.swift in Sources */,
 				7F2A8F4729704EEB00458795 /* MatchListCell.swift in Sources */,
+				7FC428FC299F64D60080B881 /* InGameMatchInfoView.swift in Sources */,
 				7F9215B22976FC4B00BA67B7 /* RuneReforged.swift in Sources */,
 				7FCC3E05297805D8002DBEF8 /* MatchDetailCell.swift in Sources */,
 				7F2934E629597CEA00EEB2E8 /* MatchInfo.swift in Sources */,
@@ -510,14 +546,18 @@
 				7F147CEB295D7CF3008BF262 /* BaseInterceptor.swift in Sources */,
 				7F03312A295ED42500FB86D6 /* Router.swift in Sources */,
 				7FD9852E29880918001B7BED /* ItemImage.swift in Sources */,
+				7F14EE4829A26C8C008EAB1A /* QueueIdElement.swift in Sources */,
 				7F3C8B712979279D000438B5 /* DealtBar.swift in Sources */,
 				7F842D10296C69B400AB206F /* Service.swift in Sources */,
 				7F2934E22959779200EEB2E8 /* SummonerInfo.swift in Sources */,
 				7F2934E829598F0C00EEB2E8 /* SummonersLeagueElement.swift in Sources */,
+				7FF152FD29A349440078F675 /* InGameMatchInfoCell.swift in Sources */,
+				7F14EE4C29A294ED008EAB1A /* Champion.swift in Sources */,
 				7F4E3AD0296FF46400DB261C /* Color.swift in Sources */,
 				7F1C70C82993A3510095F5A2 /* SearchViewModel.swift in Sources */,
 				7F6BC75D2955AA3900A87DC2 /* MainView.swift in Sources */,
 				7FABB754296EBB7200C5FB07 /* SummonerInfoView.swift in Sources */,
+				7FC428FA299F60530080B881 /* Spectator.swift in Sources */,
 				7FABB756296EC31D00C5FB07 /* PriviewProviders.swift in Sources */,
 				7F6BC75B2955AA3900A87DC2 /* OpggCloneApp.swift in Sources */,
 				7F6BC7852955AADB00A87DC2 /* SearchBar.swift in Sources */,
