@@ -153,7 +153,7 @@ class MainViewModel: ObservableObject {
             .store(in: &subscription)
     }
     private func subscribeNoSummonerError() {
-        service.$noSummonerError
+        NetworkManager.shared.$noSummonerError
             .receive(on: DispatchQueue.main)
             .sink { [weak self] value in
                 self?.noSummonerError = value

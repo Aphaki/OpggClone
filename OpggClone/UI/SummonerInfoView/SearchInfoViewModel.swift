@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 class SearchInfoViewModel: ObservableObject {
     
@@ -13,10 +14,14 @@ class SearchInfoViewModel: ObservableObject {
     @Published var summoner: SummonerInfo
     @Published var leagues: [SummonersLeagueElement]
     @Published var matchInfos: [MatchInfo]
+    @Published var spectator: Spectator?
     
     @Published var regionPicker: UrlHeadPoint
     
+    @Published var noIngameError = PassthroughSubject<(),Never>()
     @Published var addLoading: Bool = false
+    @Published var inGameLoading: Bool = false
+    @Published var goInGameView: Bool = false
     
     let queueTypeDic: [String:String] = JsonInstance.shared.queueType
     
@@ -29,79 +34,27 @@ class SearchInfoViewModel: ObservableObject {
         self.leagues = leagues
         self.matchInfos = matchInfos
         self.regionPicker = regionPicker
+        self.subscribeNoIngameError()
+    }
+    private func subscribeNoIngameError() {
+        let _ =
+        NetworkManager.shared.$noIngameError
+//            .receive(on: DispatchQueue.main)
+            .sink { value in
+                self.noIngameError = value
+            }
     }
     
-    func requestAdditionalMatchList(urlBaseHead: UrlHeadPoint, puuid: String, start: Int, count: Int) async throws -> [String]  {
-        let dataTask = ApiClient.shared.session
-            .request(Router.match(urlBaseHead: urlBaseHead, puuid: puuid, start: start, count: count))
-            .serializingDecodable([String].self)
-        
-        if let response = await dataTask.response.response {
-            
-            print("SearchInfoViewModel - requestMatchList() - Status Code: \(response.statusCode)")
-        } else {
-            
-            print("SearchInfoViewModel - requestMatchList() - response: nil")
-        }
-        
-        do {
-            let value = try await dataTask.value
-            return value
-        } catch let error {
-            debugPrint(error.localizedDescription)
-            throw error
-        }
-    }
-    private func requestMatchInfo(urlBaseHead: UrlHeadPoint, matchId: String) async throws -> MatchInfo  {
-        let dataTask = ApiClient.shared.session
-            .request(Router.matchInfo(urlBaseHead: urlBaseHead, matchId: matchId))
-            .serializingDecodable(MatchInfo.self)
-
-        
-        if let response = await dataTask.response.response {
-            
-            print("SearchInfoViewModel - requestMatchInfo() - Status Code: \(response.statusCode), url: \(String(describing: response.url?.debugDescription))")
-            if response.statusCode == 429 {
-               dataTask.resume()
-            }
-        } else {
-            
-            print("SearchInfoViewModel - requestMatchInfo() - response: nil")
-        }
-        
-        do {
-            let value = try await dataTask.value
-            return value
-        } catch let error {
-            debugPrint(error.localizedDescription)
-            throw error
-        }
+    private func requestAdditionalMatchList(urlBaseHead: UrlHeadPoint, puuid: String, start: Int, count: Int) async throws -> [String]  {
+        try await NetworkManager.shared.requestMatchList(urlBaseHead: urlBaseHead, puuid: puuid, start: start, count: count)
     }
     
-    func requestMatchInfos(urlBaseHead: UrlHeadPoint, matchIds: [String]) async throws -> [MatchInfo] {
+    private func requestMatchInfos(urlBaseHead: UrlHeadPoint, matchIds: [String]) async throws -> [MatchInfo] {
         
-        let value =
-        try await withThrowingTaskGroup(of: MatchInfo.self, body: { group in
-            for matchId in matchIds {
-                group.addTask { try await self.requestMatchInfo(urlBaseHead: urlBaseHead, matchId: matchId)
-                    
-                }
-            }
-            
-            var result = [MatchInfo]()
-
-            for try await aMatchInfo in group {
-                result.append(aMatchInfo)
-            }
-            return result
-        })
-        return value.sorted { matchA, matchB in
-           return matchA.info.gameStartTimestamp > matchB.info.gameStartTimestamp
-        }
+       try await NetworkManager.shared.requestMatchInfos(urlBaseHead: urlBaseHead, matchIds: matchIds)
     }
+    
     func addAdditionalInfo(start: Int, count: Int) {
-        
-        
         Task {
             await MainActor.run(body: {
                 self.addLoading.toggle()
@@ -120,6 +73,27 @@ class SearchInfoViewModel: ObservableObject {
                 print("addLoading: \(addLoading)")
 
             })
+        }
+    }
+    
+    func requestInGameSpectator(urlBaseHead: UrlHeadPoint, encryptedSummonerId: String) async throws -> Spectator {
+        try await NetworkManager.shared.requestInGameSpectator(urlBaseHead: urlBaseHead, encryptedSummonerId: encryptedSummonerId)
+        
+    }
+    func clickInGameInfo(urlBaseHead: UrlHeadPoint, encryptedSummonerId: String) {
+        Task {
+            await MainActor.run {
+                self.inGameLoading = true
+            }
+            
+            let speValue =
+            try await NetworkManager.shared.requestInGameSpectator(urlBaseHead: urlBaseHead, encryptedSummonerId: encryptedSummonerId)
+            
+            await MainActor.run {
+                self.spectator = speValue
+                self.inGameLoading = false
+                self.goInGameView = true
+            }
         }
     }
     

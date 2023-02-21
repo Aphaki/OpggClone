@@ -21,141 +21,30 @@ class Service {
     @Published var searchedSummonersDetail: [DetailSummonerInfo] = []
     @Published var bookMarkSummonersDetail: [DetailSummonerInfo] = []
     
-    @Published var noSummonerError = PassthroughSubject<(),Never>()
+//    @Published var noSummonerError = PassthroughSubject<(),Never>()
     
     private var subscription = Set<AnyCancellable>()
     
     //
     func requestSummonerInfo(urlBaseHead: UrlHeadPoint, name: String) async throws -> SummonerInfo {
-        
-        let dataTask =
-        ApiClient.shared.session
-            .request(Router.summoner(urlBaseHead: urlBaseHead, name: name))
-            .serializingDecodable(SummonerInfo.self)
-        if let response = await dataTask.response.response {
-            // 404 Not Found -> 없는 소환사
-            
-            print("Service - requestSummonerInfo() - Status Code: \(response.statusCode)")
-            if response.statusCode == 404 {
-                await MainActor.run {
-                    self.noSummonerError.send()
-                }
-            }
-            
-        } else {
-            //통신x
-            print("Service - requestSummonerInfo() - response: nil")
-        }
-        do {
-            let value = try await dataTask.value
-            return value
-        } catch let error {
-            debugPrint(error.localizedDescription)
-            throw error
-        }
+        try await NetworkManager.shared.requestSummonerInfo(urlBaseHead: urlBaseHead, name: name)
     }
     
     func requestLeaguesInfo(urlBaseHead: UrlHeadPoint, encryptedSummonerId: String) async throws -> [SummonersLeagueElement] {
-        let dataTask =
-        ApiClient.shared.session
-            .request(Router.league(urlBaseHead: urlBaseHead, encryptedSummonerId: encryptedSummonerId))
-            .serializingDecodable([SummonersLeagueElement].self)
-        
-        if let response = await dataTask.response.response {
-            
-            print("Service - requestLeaguesInfo() - Status Code: \(response.statusCode)")
-        } else {
-            
-            print("Service - requestLeaguesInfo() - response: nil")
-        }
-        
-        do {
-            let value = try await dataTask.value
-            return value
-        } catch let error {
-            debugPrint(error.localizedDescription)
-            throw error
-        }
+        try await NetworkManager.shared.requestLeaguesInfo(urlBaseHead: urlBaseHead, encryptedSummonerId: encryptedSummonerId)
     }
     
     func requestMatchList(urlBaseHead: UrlHeadPoint, puuid: String, start: Int = 0, count: Int = 20) async throws -> [String]  {
-        let dataTask = ApiClient.shared.session
-            .request(Router.match(urlBaseHead: urlBaseHead, puuid: puuid, start: start, count: count))
-            .serializingDecodable([String].self)
-        
-        if let response = await dataTask.response.response {
-            
-            print("Service - requestMatchList() - Status Code: \(response.statusCode)")
-        } else {
-            
-            print("Service - requestMatchList() - response: nil")
-        }
-        
-        do {
-            let value = try await dataTask.value
-            return value
-        } catch let error {
-            debugPrint(error.localizedDescription)
-            throw error
-        }
+        try await NetworkManager.shared.requestMatchList(urlBaseHead: urlBaseHead, puuid: puuid, start: start, count: count)
     }
     
     private func requestMatchInfo(urlBaseHead: UrlHeadPoint, matchId: String) async throws -> MatchInfo  {
-        let dataTask = ApiClient.shared.session
-            .request(Router.matchInfo(urlBaseHead: urlBaseHead, matchId: matchId))
-            .serializingDecodable(MatchInfo.self)
-
-        
-        if let response = await dataTask.response.response {
-            
-            print("Service - requestMatchInfo() - Status Code: \(response.statusCode), url: \(String(describing: response.url?.debugDescription))")
-            if response.statusCode == 429 {
-               dataTask.resume()
-            }
-        } else {
-            
-            print("Service - requestMatchInfo() - response: nil")
-        }
-        
-        do {
-            let value = try await dataTask.value
-            return value
-        } catch let error {
-            debugPrint(error.localizedDescription)
-            throw error
-        }
+        try await NetworkManager.shared.requestMatchInfo(urlBaseHead: urlBaseHead, matchId: matchId)
     }
-    
-    //        var matchInfosValue: [MatchInfo] = []
-    //        for matchId in matchIds {
-    //            async let aValue = await requestMatchInfo(urlBaseHead: urlBaseHead, matchId: matchId)
-    //
-    //            try await matchInfosValue.append(aValue)
-    //        }
-    //
-    //        return matchInfosValue
-    
+
     func requestMatchInfos(urlBaseHead: UrlHeadPoint, matchIds: [String]) async throws -> [MatchInfo] {
         
-        let value =
-        try await withThrowingTaskGroup(of: MatchInfo.self, body: { group in
-            for matchId in matchIds {
-                group.addTask { try await self.requestMatchInfo(urlBaseHead: urlBaseHead, matchId: matchId)
-                    
-                }
-            }
-            
-            var result = [MatchInfo]()
-
-            for try await aMatchInfo in group {
-                result.append(aMatchInfo)
-            }
-            return result
-        })
-        return value.sorted { matchA, matchB in
-           return matchA.info.gameStartTimestamp > matchB.info.gameStartTimestamp
-        }
-        
+        try await NetworkManager.shared.requestMatchInfos(urlBaseHead: urlBaseHead, matchIds: matchIds)
     }
     
     

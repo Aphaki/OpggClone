@@ -68,6 +68,7 @@
 		7FF094B92986C6A7009F5073 /* summoner.json in Resources */ = {isa = PBXBuildFile; fileRef = 7FF094B82986C6A7009F5073 /* summoner.json */; };
 		7FF152FD29A349440078F675 /* InGameMatchInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF152FC29A349440078F675 /* InGameMatchInfoCell.swift */; };
 		7FF152FF29A35A710078F675 /* InGameBanCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF152FE29A35A710078F675 /* InGameBanCell.swift */; };
+		7FF1530129A497470078F675 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF1530029A497470078F675 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -152,6 +153,7 @@
 		7FF094B82986C6A7009F5073 /* summoner.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = summoner.json; path = "../../../../Downloads/dragontail-12.23.1/12.23.1/data/ko_KR/summoner.json"; sourceTree = "<group>"; };
 		7FF152FC29A349440078F675 /* InGameMatchInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InGameMatchInfoCell.swift; sourceTree = "<group>"; };
 		7FF152FE29A35A710078F675 /* InGameBanCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InGameBanCell.swift; sourceTree = "<group>"; };
+		7FF1530029A497470078F675 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				7F147CE3295D77B4008BF262 /* ApiClient.swift */,
+				7FF1530029A497470078F675 /* NetworkManager.swift */,
 				7F147CEA295D7CF3008BF262 /* BaseInterceptor.swift */,
 				7F147CE8295D792D008BF262 /* ApiLogger.swift */,
 				7F033129295ED42500FB86D6 /* Router.swift */,
@@ -214,6 +217,7 @@
 				7FCC3E04297805D8002DBEF8 /* MatchDetailCell.swift */,
 				7FC428FB299F64D60080B881 /* InGameMatchInfoView.swift */,
 				7FF152FC29A349440078F675 /* InGameMatchInfoCell.swift */,
+				7FF152FE29A35A710078F675 /* InGameBanCell.swift */,
 			);
 			path = SummonerInfoView;
 			sourceTree = "<group>";
@@ -321,7 +325,6 @@
 			children = (
 				7F1E199D2979998C00A84E8E /* KR_6316414751.json */,
 				7FC428F7299F5F570080B881 /* Spectator.json */,
-				7FF152FE29A35A710078F675 /* InGameBanCell.swift */,
 				7FF094B82986C6A7009F5073 /* summoner.json */,
 				7F7EC11729879216009E82B4 /* runesReforged.json */,
 				7F14EE4529A26AFF008EAB1A /* queueId.json */,
@@ -542,6 +545,7 @@
 				7F2934E629597CEA00EEB2E8 /* MatchInfo.swift in Sources */,
 				7FBBCB712968657E000C5F71 /* MySummonerCard.swift in Sources */,
 				7F0E2A572977EFC8002B1AFB /* MatchDetailView.swift in Sources */,
+				7FF1530129A497470078F675 /* NetworkManager.swift in Sources */,
 				7F35B3FD2959D02D00A58733 /* SearchedUserCell.swift in Sources */,
 				7F147CEB295D7CF3008BF262 /* BaseInterceptor.swift in Sources */,
 				7F03312A295ED42500FB86D6 /* Router.swift in Sources */,
