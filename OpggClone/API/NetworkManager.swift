@@ -123,9 +123,10 @@ class NetworkManager {
             
             print("NetworkManager - requestInGameSpectator() - Status Code: \(response.statusCode), url: \(String(describing: response.url?.debugDescription))")
             if response.statusCode == 404 {
-                
-                self.noIngameError.send()
-                
+                await MainActor.run(body: {
+                    self.noIngameError.send()
+
+                })
             }
             
         } else {

@@ -25,6 +25,7 @@ class SearchInfoViewModel: ObservableObject {
     
     let queueTypeDic: [String:String] = JsonInstance.shared.queueType
     
+    var subscription = Set<AnyCancellable>()
     var matchIndex = 15
     let AddInfoCount: Int = 5
     
@@ -37,12 +38,13 @@ class SearchInfoViewModel: ObservableObject {
         self.subscribeNoIngameError()
     }
     private func subscribeNoIngameError() {
-        let _ =
+        
         NetworkManager.shared.$noIngameError
-//            .receive(on: DispatchQueue.main)
+            .receive(on: DispatchQueue.main)
             .sink { value in
                 self.noIngameError = value
             }
+            .store(in: &subscription)
     }
     
     private func requestAdditionalMatchList(urlBaseHead: UrlHeadPoint, puuid: String, start: Int, count: Int) async throws -> [String]  {
