@@ -14,6 +14,7 @@ enum Router: URLRequestConvertible {
     case league(urlBaseHead:UrlHeadPoint, encryptedSummonerId: String)
     case match(urlBaseHead:UrlHeadPoint, puuid: String, start: Int = 0, count: Int = 20)
     case matchInfo(urlBaseHead:UrlHeadPoint, matchId: String)
+    case inGameInfo(urlBaseHead: UrlHeadPoint, encryptedSummonerId: String)
 
     var baseURL: URL {
         switch self {
@@ -25,6 +26,8 @@ enum Router: URLRequestConvertible {
             return URL(string: urlBaseHead.urlBaseAreaString)!
         case let .matchInfo(urlBaseHead, _):
             return URL(string: urlBaseHead.urlBaseAreaString)!
+        case let .inGameInfo(urlBaseHead, _):
+            return URL(string: urlBaseHead.urlBaseString)!
         }
     }
 
@@ -41,6 +44,8 @@ enum Router: URLRequestConvertible {
             return "lol/match/v5/matches/by-puuid/\(puuid)/ids"
         case let .matchInfo(_, matchID):
             return "lol/match/v5/matches/\(matchID)"
+        case let .inGameInfo(_, encryptedSummonerId):
+            return "lol/spectator/v4/active-games/by-summoner/\(encryptedSummonerId)"
         }
     }
     
@@ -68,33 +73,5 @@ enum Router: URLRequestConvertible {
 
         return request
     }
-    
-    
-    
-//    case summoner(name: String)
-//    var baseURL: URL {
-//        return URL(string: UrlHeadPoint.kr.urlBaseString)!
-//    }
-//    var method: HTTPMethod {
-//        return .get
-//    }
-//    var path: String {
-//        switch self {
-//        case let .summoner(name):
-//            let encodedName = name.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
-//            return "lol/summoner/v4/summoners/by-name/\(encodedName)"
-//        }
-//    }
-//
-//
-//    func asURLRequest() throws -> URLRequest {
-//        let url = baseURL.appendingPathComponent(path)
-//        var request = URLRequest(url: url)
-//        request.method = method
-//        print("Router - asURLRequest() - url: \(url)")
-//
-//        return request
-//    }
-    
     
 }
